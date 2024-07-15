@@ -1,17 +1,16 @@
-import { useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "./App.css";
 import Topbar from "./components/Topbar";
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <Topbar/>
-    </>
-  )
+    <div>
+      <Topbar />
+    </div>
+  );
 }
 
-export default App
+export default App;

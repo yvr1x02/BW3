@@ -9,82 +9,49 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 
 const Topbar = () => {
-    return (
-		<Container>
-			<Content>
-				<Logo>
-					<a href="/feed">
-						<img src="/images/home-logo.svg" alt="" />
-					</a>
-				</Logo>
-				<Search>
-					<div>
-						<input type="text" placeholder="Search" />
-					</div>
-					<SearchIcon>
-						<img src="/images/search-icon.svg" alt="" />
-					</SearchIcon>
-				</Search>
-				<SignOutMobile onClick={() => props.signOut()}>
-					<a>Sign Out</a>
-				</SignOutMobile>
-				<Nav>
-					<NavListWrap>
-						<NavList className="active">
-							<a href="/feed">
-								<img src="/images/nav-home.svg" alt="" />
-								<span>Home</span>
-							</a>
-						</NavList>
-						<NavList>
-							<a href="/feed">
-								<img src="/images/nav-network.svg" alt="" />
-								<span>My Network</span>
-							</a>
-						</NavList>
-						<NavList>
-							<a href="/feed">
-								<img src="/images/nav-jobs.svg" alt="" />
-								<span>Jobs</span>
-							</a>
-						</NavList>
-						<NavList>
-							<a href="/feed">
-								<img src="/images/nav-messaging.svg" alt="" />
-								<span>Messaging</span>
-							</a>
-						</NavList>
-						<NavList>
-							<a href="/feed">
-								<img src="/images/nav-notifications.svg" alt="" />
-								<span>Notifications</span>
-							</a>
-						</NavList>
-						<User>
-							<a>
-								{props.user && props.user.photoURL ? <img src={props.user.photoURL} alt="" /> : <img src="/images/user.svg" alt="" />}
-								<span>
-									Me <img src="/images/down-icon.svg" alt="" />
-								</span>
-							</a>
-							<SignOut onClick={() => props.signOut()}>
-								<a>Sign Out</a>
-							</SignOut>
-						</User>
-						<Work>
-							<a>
-								<img src="/images/nav-work.svg" alt="" />
-								<span>
-									Work <img src="/images/down-icon.svg" alt="" />
-								</span>
-							</a>
-						</Work>
-					</NavListWrap>
-				</Nav>
-			</Content>
-		</Container>
-	);
-}
-
+  return (
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Form inline>
+          <Row>
+            <Col xs="auto">
+              <Form.Control
+                type="text"
+                placeholder="Search"
+                className=" mr-sm-2"
+              />
+            </Col>
+            <Col xs="auto">
+              <Button type="submit">Submit</Button>
+            </Col>
+          </Row>
+        </Form>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            {/* <div className="text-center mx-3">
+              <i className="bi bi-house-door-fill fs-4"> </i>
+              <p className="m-0">Home</p>
+            </div> */}
+            <Nav.Link href="#link">Link</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
 
 export default Topbar;
