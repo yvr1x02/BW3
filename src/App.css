@@ -41,7 +41,9 @@
 }
 .profile-image {
   border-radius: 50%;
-
+  position: absolute;
+  left: 3%;
+  top: 20%;
   width: 150px;
   height: 150px;
   object-fit: cover;
@@ -51,4 +53,11 @@
 .bg-image {
   height: 250px;
   object-fit: cover;
+  border-radius: 20px 20px 0px 0px;
+}
+.card-linkedin {
+  border-radius: 20px 20px 10px 10px;
+}
+.card-linkedin-secondary {
+  border-radius: 10px 10px 10px 10px;
 }
