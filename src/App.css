@@ -97,3 +97,37 @@ margin-right: 25px;
   cursor: pointer;
 }
 
+
+
+/* !!!!!!!!!!!!!!!!!!! CONTENT PROFILE!!!!!!!!!!!!!!!!!*/
+
+.PopUpContainer{
+  height: 650px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.PopUp2{
+  border: 2px solid #E9E9E9;
+  width: 752px;
+  height:600px;
+  margin-right: 480px;
+  margin-top: 7px;
+  border-radius: 8px;
+  display: flex;
+  
+}
+.n1{
+ /*  border: 2px solid black; */
+  width: 374px;
+  border-right: 1px solid #E9E9E9;
+}
+.n2{
+  /* border: 2px solid black; */
+  width: 374px;
+}
+
+.IconAziendDrop{
+  color: rgb(0, 58, 216);
+  font-weight: bolder;
+}

@@ -5,15 +5,13 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
 import TopBar from "./components/TopBar";
 import ContentProfile from "./components/ContentProfile";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter} from "react-router-dom";
 
 function App() {
   return(
     <BrowserRouter>
     <TopBar />
-    {/* <Routes>
-      <Route path="/" element={} />
-    </Routes> */}
+    <ContentProfile />
     
     </BrowserRouter>
   );
