@@ -10,8 +10,8 @@ import { BrowserRouter} from "react-router-dom";
 function App() {
   return(
     <BrowserRouter>
-    <TopBar />
-    <ContentProfile />
+    <TopBar/>
+    <ContentProfile/>
     
     </BrowserRouter>
   );
