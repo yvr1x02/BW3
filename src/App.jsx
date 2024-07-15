@@ -5,11 +5,14 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
 import Topbar from "./components/Topbar";
 import Profile from "./components/Profile";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div>
-      <Profile></Profile>
+      <Topbar />
+      <Profile />
+      <Footer />
     </div>
   );
 }
