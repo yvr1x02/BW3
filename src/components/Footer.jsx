@@ -1,5 +1,9 @@
 import { Col, Container, Row } from "react-bootstrap";
-import { QuestionCircleFill } from "react-bootstrap-icons";
+import {
+  GearFill,
+  QuestionCircleFill,
+  ShieldShaded,
+} from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -22,6 +26,7 @@ function Footer() {
           <Col lg={2}>Carriera</Col>
           <Col lg={2}>Soluzioni di marketing</Col>
           <Col lg={3}>
+            <GearFill />
             Gestisci il tuo account e la tua privacy <br />
             Vai alle impostazioni
           </Col>
@@ -31,6 +36,7 @@ function Footer() {
           <Col lg={2}>Opzioni per gli annunci pubblicitari</Col>
           <Col lg={2}>Pubblicità</Col>
           <Col lg={3}>
+            <ShieldShaded />
             Trasparenza sui contenuti consigliati <br />
             Scopri di più sui contenuti consigliati.
           </Col>
@@ -43,7 +49,7 @@ function Footer() {
         <Row>
           <Col lg={2}>Centro sicurezza</Col>
         </Row>
-        <Row>
+        <Row className="pt-3">
           <Col lg={2}>LinkedIn Corporation © 2024</Col>
         </Row>
       </Container>
