@@ -1,18 +1,23 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Card from "react-bootstrap/Card";
-import { fetchProfile } from "../redux/reducers/profileSlice";
+import { fetchProfile, fetchSuggestedProfiles } from "../redux/reducers/profileSlice";
 import Button from "react-bootstrap/Button";
 import ProfileAlert from "./ProfileAlert";
+import { Container, Row, Col } from "react-bootstrap";
+import Sidebar from "./Sidebar";
 
 function Profile() {
   const dispatch = useDispatch();
   const profileData = useSelector((state) => state.profile.data);
+  const suggestedProfiles = useSelector((state) => state.profile.suggestedProfiles);
   const profileStatus = useSelector((state) => state.profile.status);
+  const error = useSelector((state) => state.profile.error);
 
   useEffect(() => {
     if (profileStatus === "idle") {
       dispatch(fetchProfile());
+      dispatch(fetchSuggestedProfiles());
     }
   }, [profileStatus, dispatch]);
 
@@ -25,6 +30,7 @@ function Profile() {
   }
 
   return (
+    <>
     <Card>
       {profileData && (
         <>
@@ -56,6 +62,13 @@ function Profile() {
         </>
       )}
     </Card>
+    <Container>
+       
+            <Sidebar suggestedProfiles={suggestedProfiles} />
+
+      </Container>
+    </>
+    
   );
 }
 
