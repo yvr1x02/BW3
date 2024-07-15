@@ -1,34 +1,31 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
-const token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk0ZmVhNDE5NmQ3YjAwMTVkNmI1NDAiLCJpYXQiOjE3MjEwNDA1NDksImV4cCI6MTcyMjI1MDE0OX0.vaH3-EZNYJ0ikK0i8Rf1KmmSowfto3Kl9u0H1A5PVPw";
-
-const initialState = {
-  profile: {},
-  status: "null",
-  error: null,
-};
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchProfile = createAsyncThunk("profile/fetchProfile", async () => {
   const response = await fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk0ZmNjNjE5NmQ3YjAwMTVkNmI1M2YiLCJpYXQiOjE3MjEwNDAwNzAsImV4cCI6MTcyMjI0OTY3MH0.pANHYRINO1mmo3V6q0jdJxEuVZU217HARDNN-f2nbUw",
     },
   });
   return response.json();
 });
 
-const profileReducer = createSlice({
+const profileSlice = createSlice({
   name: "profile",
-  initialState,
+  initialState: {
+    data: null,
+    status: "idle",
+    error: null,
+  },
   reducers: {},
-  extraReducers(builder) {
+  extraReducers: (builder) => {
     builder
       .addCase(fetchProfile.pending, (state) => {
         state.status = "loading";
       })
       .addCase(fetchProfile.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.profile = action.payload;
+        state.data = action.payload;
       })
       .addCase(fetchProfile.rejected, (state, action) => {
         state.status = "failed";
@@ -37,4 +34,4 @@ const profileReducer = createSlice({
   },
 });
 
-export default profileReducer.reducer;
+export default profileSlice.reducer;
