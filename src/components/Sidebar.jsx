@@ -1,9 +1,11 @@
 import React from "react";
-import { Card, ListGroup, Image } from "react-bootstrap";
+import { Card, ListGroup, Image, Col } from "react-bootstrap";
 
 const Sidebar = ({ suggestedProfiles }) => {
   return (
-    <Card className="mb-3">
+    <>
+      <Col lg={4}>
+      <Card className="mb-3">
       <Card.Body>
         <Card.Title>Lingua del profilo</Card.Title>
         <Card.Text>Italiano</Card.Text>
@@ -29,7 +31,9 @@ const Sidebar = ({ suggestedProfiles }) => {
         </ListGroup.Item>
       </ListGroup>
     </Card>
+      </Col>
+      </>
   );
-};
+}
 
 export default Sidebar;
