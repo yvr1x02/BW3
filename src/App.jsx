@@ -3,9 +3,14 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
+import Topbar from "./components/Topbar";
 
 function App() {
-  return <></>;
+  return (
+    <div>
+      <Topbar />
+    </div>
+  );
 }
 
 export default App;
