@@ -12,7 +12,7 @@ export const fetchProfile = createAsyncThunk("profile/fetchProfile", async () =>
 
 export const fetchSuggestedProfiles = createAsyncThunk("profile/fetchSuggestedProfiles", async () => {
   const userIds = [
-    "653f5b02b397340014d5e7fa",
+    "6694fcc6196d7b0015d6b53f",
     "6551cb68c55e7e0018f83bd2",
     "6551db85c55e7e0018f83bec",
     "6551dca0c55e7e0018f83bed",
