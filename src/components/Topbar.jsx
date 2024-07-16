@@ -29,7 +29,6 @@ function TopBar() {
   const dispatch = useDispatch();
   const profileData = useSelector((state) => state.profile.data);
   const profileStatus = useSelector((state) => state.profile.status);
-  const userId = profileData._id;
 
   useEffect(() => {
     if (profileStatus === "idle") {
