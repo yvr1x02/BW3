@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Card from "react-bootstrap/Card";
 import { fetchProfile } from "../redux/reducers/profileSlice";
 import Button from "react-bootstrap/Button";
-import ProfileAlert from "./ProfileAlert";
+//import ProfileAlert from "./ProfileAlert";
 import { Col, Container, Row } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import Consigliati from "./Consigliati";
@@ -12,11 +12,13 @@ import Risorse from "./Risorse";
 import Attività from "./Attività";
 import Esperienza from "./Esperienza";
 import Interessi from "./Interessi";
+//import store from "../redux/store";
 
 function Profile() {
   const dispatch = useDispatch();
   const profileData = useSelector((state) => state.profile.data);
   const profileStatus = useSelector((state) => state.profile.status);
+  const userId = "6694fcc6196d7b0015d6b53f";
 
   useEffect(() => {
     if (profileStatus === "idle") {
@@ -70,7 +72,7 @@ function Profile() {
         <Analisi />
         <Risorse />
         <Attività />
-        <Esperienza />
+        <Esperienza userId={userId} />
         <Interessi />
       </Row>
     </Container>
