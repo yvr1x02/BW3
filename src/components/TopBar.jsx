@@ -15,6 +15,7 @@ import { Search } from "react-bootstrap-icons";
 import InputGroupText from "react-bootstrap/esm/InputGroupText";
 import ContentProfile from "./ContentProfile";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function TopBar() {
   const [activeLink, setActiveLink] = useState(null); //!!!!TRACCIAMENTO DEL LINK SELEZIONATO!!!!
@@ -26,7 +27,9 @@ function TopBar() {
   return (
     <Navbar expand="lg" className="ContTot">
       <Container className="StrutturaNav">
+        <NavLink to="/" className="linkIcon">
         <i className=" fs-1 bi bi-linkedin text-primary linkIcon"></i>
+        </NavLink>
         <InputGroup>
           <InputGroupText className="iconSearch">
             <Search />
@@ -35,9 +38,9 @@ function TopBar() {
         </InputGroup>
         <NavbarToggle aria-controls="basic-navbar-nav" />
         <NavbarCollapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto navBarTot">
             <Nav.Link
-              href="#home"
+              href="#home" to="/"
               className="{`text-center txtNavBar ${activeLink === '#home' ? 'active' : ''}`}" //!!!!  'activeLink' è uguale al valore #href SEMPRE   Se activeLink è uguale a #home, aggiungi anche la classe active
               onClick={() => handleLinkClick("#home")}
             >
@@ -46,7 +49,7 @@ function TopBar() {
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
                 fill="currentColor"
-                class="mercado-match"
+                className="mercado-match"
                 width="24"
                 height="24"
                 focusable="false"
@@ -67,7 +70,7 @@ function TopBar() {
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
                 fill="currentColor"
-                class="mercado-match"
+                className="mercado-match"
                 width="24"
                 height="24"
                 focusable="false"
@@ -88,7 +91,7 @@ function TopBar() {
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
                 fill="currentColor"
-                class="mercado-match"
+                className="mercado-match"
                 width="24"
                 height="24"
                 focusable="false"
@@ -109,7 +112,7 @@ function TopBar() {
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
                 fill="currentColor"
-                class="mercado-match"
+                className="mercado-match"
                 width="24"
                 height="24"
                 focusable="false"
@@ -130,7 +133,7 @@ function TopBar() {
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
                 fill="currentColor"
-                class="mercado-match"
+                className="mercado-match"
                 width="24"
                 height="24"
                 focusable="false"
@@ -142,12 +145,20 @@ function TopBar() {
             <NavDropdown
               title={
                 <span className="spanicon">
-                  <i className="fs-4 bi bi-person-circle IconProfilo"></i>
+                  <img
+                    width="22"
+                    src="https://media.licdn.com/dms/image/D4E03AQGeXEc1cR5ocw/profile-displayphoto-shrink_100_100/0/1716390382871?e=1726704000&amp;v=beta&amp;t=af8yDGEvQF-fwdZhugrzJgU6neYQB0Vsx5rrWsWM13M"
+                    height="22"
+                    alt="Mattia Susin"
+                    id="ember17"
+                    className="global-nav__me-photo evi-image ember-view iconProfiloNavBar"
+                  />
                   <br />
-                  <span className="txtNavBar barProfilo">Profilo</span>
+                  <span id="ProfiloTxt">Profilo</span>
                 </span>
               }
               id="basic-nav-dropdown"
+              className="DropCont"
             >
               <Dropdown className="prova">
                 <DropdownItem eventKey="1">
@@ -160,7 +171,10 @@ function TopBar() {
                       <p className="infoDrop ms-2">Info</p>
                     </span>
                   </span>
+                  <NavLink to="/ProfilePage">
+
                   <button className="btnDrop">Visualizza Profilo</button>
+                  </NavLink>
                   <DropdownDivider />
                 </DropdownItem>
                 <DropdownItem eventKey="2" className="fw-bold">
@@ -198,14 +212,25 @@ function TopBar() {
           <NavDropdown
             title={
               <span>
-                <i className="fs-4 bi bi-grid-3x3-gap-fill ms-5"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  data-supported-dps="24x24"
+                  fill="currentColor"
+                  className="mercado-match grigliaIcon"
+                  width="24"
+                  height="24"
+                  focusable="false"
+                >
+                  <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
+                </svg>
                 <br />
                 <span className="txtNavBar">Per le aziende</span>
               </span>
             }
             id="nav-dropdown"
             align="end"
-            className="custom-nav-dropdown"
+            className="custom-nav-dropdown DropCont"
           >
             <Dropdown className="dropdown-menu-left">
               <ContentProfile />
