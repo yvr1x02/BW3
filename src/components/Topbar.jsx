@@ -1,5 +1,6 @@
 import {
-  Container,Dropdown,
+  Container,
+  Dropdown,
   DropdownDivider,
   DropdownItem,
   FormControl,
@@ -13,8 +14,10 @@ import {
 import { Search } from "react-bootstrap-icons";
 import InputGroupText from "react-bootstrap/esm/InputGroupText";
 import ContentProfile from "./ContentProfile";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { fetchProfile } from "../redux/reducers/profileSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function TopBar() {
   const [activeLink, setActiveLink] = useState(null); //!!!!TRACCIAMENTO DEL LINK SELEZIONATO!!!!
@@ -23,11 +26,29 @@ function TopBar() {
     //!!!!!! handLinkClick PRENDE IL LINK AL CLICK
     setActiveLink(link);
   };
+  const dispatch = useDispatch();
+  const profileData = useSelector((state) => state.profile.data);
+  const profileStatus = useSelector((state) => state.profile.status);
+  const userId = profileData._id;
+
+  useEffect(() => {
+    if (profileStatus === "idle") {
+      dispatch(fetchProfile());
+    }
+  }, [profileStatus, dispatch]);
+
+  if (profileStatus === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (profileStatus === "failed") {
+    return <div>Error loading profile data.</div>;
+  }
   return (
     <Navbar expand="lg" className="ContTot">
       <Container className="StrutturaNav">
         <NavLink to="/" className="linkIcon">
-        <i className=" fs-1 bi bi-linkedin text-primary linkIcon"></i>
+          <i className=" fs-1 bi bi-linkedin text-primary linkIcon"></i>
         </NavLink>
         <InputGroup>
           <InputGroupText className="iconSearch">
@@ -39,7 +60,8 @@ function TopBar() {
         <NavbarCollapse id="basic-navbar-nav">
           <Nav className="me-auto navBarTot">
             <Nav.Link
-              href="#home" to="/"
+              href="#home"
+              to="/"
               className="{`text-center txtNavBar ${activeLink === '#home' ? 'active' : ''}`}" //!!!!  'activeLink' è uguale al valore #href SEMPRE   Se activeLink è uguale a #home, aggiungi anche la classe active
               onClick={() => handleLinkClick("#home")}
             >
@@ -59,9 +81,7 @@ function TopBar() {
             </Nav.Link>
             <Nav.Link
               href="#rete"
-              className={`text-center txtNavBar ${
-                activeLink === "#rete" ? "active" : ""
-              }`}
+              className={`text-center txtNavBar ${activeLink === "#rete" ? "active" : ""}`}
               onClick={() => handleLinkClick("#rete")}
             >
               <svg
@@ -80,9 +100,7 @@ function TopBar() {
             </Nav.Link>
             <Nav.Link
               href="#lavoro"
-              className={`text-center txtNavBar ${
-                activeLink === "#lavoro" ? "active" : ""
-              }`}
+              className={`text-center txtNavBar ${activeLink === "#lavoro" ? "active" : ""}`}
               onClick={() => handleLinkClick("#lavoro")}
             >
               <svg
@@ -101,9 +119,7 @@ function TopBar() {
             </Nav.Link>
             <Nav.Link
               href="#messaggistica"
-              className={`text-center txtNavBar ${
-                activeLink === "#messaggistica" ? "active" : ""
-              }`}
+              className={`text-center txtNavBar ${activeLink === "#messaggistica" ? "active" : ""}`}
               onClick={() => handleLinkClick("#messaggistica")}
             >
               <svg
@@ -122,9 +138,7 @@ function TopBar() {
             </Nav.Link>
             <Nav.Link
               href="#notifiche"
-              className={`text-center txtNavBar ${
-                activeLink === "#notifiche" ? "active" : ""
-              }`}
+              className={`text-center txtNavBar ${activeLink === "#notifiche" ? "active" : ""}`}
               onClick={() => handleLinkClick("#notifiche")}
             >
               <svg
@@ -164,15 +178,12 @@ function TopBar() {
                   <span className="d-flex">
                     <i className="bi bi-person-circle iconDropMenu"></i>
                     <span>
-                      <p className="ms-2 text-center txtProfilName">
-                        Pinco Pallo
-                      </p>
+                      <p className="ms-2 text-center txtProfilName">{profileData.name + "" + profileData.surname}</p>
                       <p className="infoDrop ms-2">Info</p>
                     </span>
                   </span>
                   <NavLink to="/ProfilePage">
-
-                  <button className="btnDrop">Visualizza Profilo</button>
+                    <button className="btnDrop">Visualizza Profilo</button>
                   </NavLink>
                   <DropdownDivider />
                 </DropdownItem>
@@ -197,9 +208,7 @@ function TopBar() {
                   Gestisci
                 </DropdownItem>
                 <p className="ms-3 pAccount">Post e Attività</p>
-                <p className="ms-3 pAccount">
-                  Account per la pubblicazione di off...
-                </p>
+                <p className="ms-3 pAccount">Account per la pubblicazione di off...</p>
                 <DropdownDivider />
                 <p className="ms-3 pAccount">Esci</p>
               </Dropdown>
@@ -224,7 +233,9 @@ function TopBar() {
                   <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
                 </svg>
                 <br />
-                <span className="txtNavBar" id="grillSpan">Per le aziende</span>
+                <span className="txtNavBar" id="grillSpan">
+                  Per le aziende
+                </span>
               </span>
             }
             id="nav-dropdown"
