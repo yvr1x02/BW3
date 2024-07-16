@@ -1,6 +1,5 @@
 import {
-  Container,
-  Dropdown,
+  Container,Dropdown,
   DropdownDivider,
   DropdownItem,
   FormControl,
@@ -158,7 +157,7 @@ function TopBar() {
                 </span>
               }
               id="basic-nav-dropdown"
-              className="DropCont"
+              className="DropCont1"
             >
               <Dropdown className="prova">
                 <DropdownItem eventKey="1">
@@ -211,7 +210,7 @@ function TopBar() {
         <div className="SecondElement dropdown-wrapper">
           <NavDropdown
             title={
-              <span>
+              <span className="grillSpan">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -225,7 +224,7 @@ function TopBar() {
                   <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
                 </svg>
                 <br />
-                <span className="txtNavBar">Per le aziende</span>
+                <span className="txtNavBar" id="grillSpan">Per le aziende</span>
               </span>
             }
             id="nav-dropdown"

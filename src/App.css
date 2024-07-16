@@ -7,7 +7,9 @@ margin-bottom: 12px;
   background-color:#edf3f8 ;
   margin-bottom: 10px;
 }
-
+.input-group{
+  width: 32%;
+}
 .form-control{
   margin-right: 60px;
   border: none;
@@ -46,6 +48,7 @@ margin-bottom: 12px;
   text-align: center;
   text-decoration: underline;
   color: #915907;
+  cursor: pointer;
 }
 
 .txtp:hover{
@@ -101,18 +104,18 @@ margin-bottom: 12px;
 }
 
 
-
 /* !!!!!!!!!!!!!!!!!!! CONTENT PROFILE!!!!!!!!!!!!!!!!!*/
 
 .PopUpContainer{
   display: flex;
   justify-content: flex-end;
 }
-
 .PopUp2{
   width: 752px;
 }
-
+.grillSpan{
+  margin-top: 2px;
+}
 .n1{
   width: 374px;
   border-right: 1px solid #E9E9E9;
@@ -185,7 +188,6 @@ margin-bottom: 12px;
   border-bottom: 2px solid black; 
 }
 
-.DropCont{
-  margin-bottom: 16px;
-  height: 48px;
+.DropCont1{
+  margin-bottom: 17px;
 }
