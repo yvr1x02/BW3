@@ -7,14 +7,14 @@ class ContentProfile extends Component {
       <div className="PopUpContainer">
         <Row className="PopUp2">
           <div className="n1">
-            <h4 className="fs-5 mt-5 ms-3">Scopri altri prodotti LinkedIn</h4>
-            <p className="fw-bold">
+            <h4 className="fs-5 mt-5 ms-3 mb-5">Scopri altri prodotti LinkedIn</h4>
+            <p className="fw-bold mt-3 pDropMenuSx">
               {" "}
               <svg
                 width="30px"
                 height="30px"
                 viewBox="0 0 1024 1024"
-                className="icon ms-3"
+                className="icon ms-3 me-2"
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -50,10 +50,9 @@ class ContentProfile extends Component {
                   d="M544 512a32 32 0 1 1-63.978667 0.021333A32 32 0 0 1 544 512"
                   fill="#FFFFFF"
                 />
-              </svg>{" "}
-              Vendi
+              </svg>Vendi
             </p>
-            <p className="fw-bold">
+            <p className="fw-bold mt-4 pDropMenuSx">
               {" "}
               <svg
                 width="30px"
@@ -61,7 +60,7 @@ class ContentProfile extends Component {
                 viewBox="0 0 24 24"
                 fill="#0b66c3"
                 xmlns="http://www.w3.org/2000/svg"
-                className="ms-3"
+                className="ms-3 me-2"
               >
                 <path
                   d="M18 7.16C17.94 7.15 17.87 7.15 17.81 7.16C16.43 7.11 15.33 5.98 15.33 4.58C15.33 3.15 16.48 2 17.91 2C19.34 2 20.49 3.16 20.49 4.58C20.48 5.98 19.38 7.11 18 7.16Z"
@@ -105,11 +104,11 @@ class ContentProfile extends Component {
                   stroke-linecap="round"
                   stroke-linejoin="round" */
                 />
-              </svg>{" "}
+              </svg>
               Gruppi
             </p>
-            <h6 className="ms-3 h6Drop">Talent</h6>
-            <p className="fw-bold">
+            <h6 className="ms-3 h6Drop mt-4 mb-4">Talent</h6>
+            <p className="fw-bold mt-3 pDropMenuSx">
               <svg
                 fill="#0b66c3"
                 version="1.1"
@@ -120,7 +119,7 @@ class ContentProfile extends Component {
                 height="30px"
                 viewBox="0 0 60.731 60.731"
                 /*  xml:space="preserve" */
-                className="ms-3 me-1"
+                className="ms-3 me-2"
               >
                 <g>
                   <path
@@ -133,7 +132,7 @@ class ContentProfile extends Component {
               </svg>
               Talent Insights
             </p>
-            <p className="fw-bold">
+            <p className="fw-bold mt-4 pDropMenuSx">
               <svg
                 fill="#0b66c3"
                 xmlns="http://www.w3.org/2000/svg"
@@ -160,8 +159,8 @@ class ContentProfile extends Component {
               </svg>
               Pubblica un’offerta di lavoro
             </p>
-            <h6 className="ms-3 h6Drop">Vendite</h6>
-            <p className="fw-bold">
+            <h6 className="ms-3 h6Drop mt-4 mb-4">Vendite</h6>
+            <p className="fw-bold mt-3 pDropMenuSx ">
               {" "}
               <svg
                 width="30px"
@@ -169,7 +168,7 @@ class ContentProfile extends Component {
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
-                className="ms-3 me-1"
+                className="ms-3 me-2"
               >
                 <path
                   fill="#0b66c3"
@@ -178,8 +177,8 @@ class ContentProfile extends Component {
               </svg>
               Marketplace dei servizi
             </p>
-            <h6 className="ms-3 h6Drop">Marketing</h6>
-            <p className="fw-bold">
+            <h6 className="ms-3 h6Drop mt-4 mb-4">Marketing</h6>
+            <p className="fw-bold mt-3 m-0 pDropMenuSx">
               {" "}
               <svg
                 fill="#0b66c3"
@@ -189,7 +188,7 @@ class ContentProfile extends Component {
                 id="Capa_1"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 297 297"
-                className="ms-3"
+                className="ms-3 me-2"
               >
                 <g>
                   <path
@@ -213,11 +212,10 @@ class ContentProfile extends Component {
 		c26.209-4.227,46.954-24.972,51.182-51.182h32.495C237.445,202.382,202.382,237.446,158.384,242.061z"
                   />
                 </g>
-              </svg>{" "}
-              Pubblicizza
+              </svg>Pubblicizza
             </p>
-            <h6 className="ms-3 h6Drop">Learning</h6>
-            <p className="fw-bold">
+            <h6 className="ms-3 h6Drop mt-4 mb-4">Learning</h6>
+            <p className="fw-bold mt-3 pDropMenuSx">
               {" "}
               <svg
                 width="30px"
@@ -225,7 +223,7 @@ class ContentProfile extends Component {
                 viewBox="0 0 32 32"
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
-                className="ms-3 me-1"
+                className="ms-3 me-2"
               >
                 <title>book-album</title>
                 <desc>Created with Sketch Beta.</desc>
@@ -247,39 +245,86 @@ class ContentProfile extends Component {
             </p>
           </div>
           <div className="n2">
-            <h4 className="fs-5 mt-5 ms-3">Scopri Altro per il Business</h4>
+            <h4 className="fs-5 mt-5 ms-3 mb-5">Scopri Altro per il Business</h4>
             <span className="spanDropMenuDx">
-              <h6 className="ms-3">Assumi su LinkedIn</h6>
-              <p className="ms-3">Trova, attrai e assumi</p>
+              <h6 className="ms-3 m-0">Assumi su LinkedIn</h6>
+              <p className="ms-3  pDropMenuDx">Trova, attrai e assumi</p>
             </span>
 
-            <span>
-              <h6 className="ms-3">Vendi con LinkedIn</h6>
-              <p className="ms-3">Sblocca nuove opportunità di vendita</p>
+           
+            <span className="spanDropMenuDx">
+              <h6 className="ms-3 m-0 ">Vendi con LinkedIn</h6>
+              <p className="ms-3  pDropMenuDx">
+                Sblocca nuove opportunità di vendita
+              </p>
             </span>
 
-            <span>
-              <h6 className="ms-3">Offerta di lavoro gratuita</h6>
-              <p className="ms-3">Ottieni rapidamente candidati qualificati</p>
+            <span className="spanDropMenuDx">
+              <h6 className="ms-3 m-0 ">Offerta di lavoro gratuita</h6>
+              <p className="ms-3  pDropMenuDx">
+                Ottieni rapidamente candidati qualificati
+              </p>
             </span>
 
-            <span>
-              <h6 className="ms-3">Fai pubblicità su LinkedIn</h6>
-              <p className="ms-3">Acquisisci clienti e fai crescere la tua azienda</p>
+            <span className="spanDropMenuDx">
+              <h6 className="ms-3 m-0 ">Fai pubblicità su LinkedIn</h6>
+              <p className="ms-3  pDropMenuDx">
+                Acquisisci clienti e fai crescere la tua azienda
+              </p>
             </span>
 
-            <span>
-              <h6 className="ms-3">Impara con LinkedIn</h6>
-              <p className="ms-3">Assumi su LinkedIn</p>
+            <span className="spanDropMenuDx">
+              <h6 className="ms-3 m-0 ">Impara con LinkedIn</h6>
+              <p className="ms-3  pDropMenuDx">Assumi su LinkedIn</p>
             </span>
 
-            <span>
-              <h6 className="ms-3">Admin Center</h6>
-              <p className="ms-3">Gestisci i dettagli di fatturazione e account</p>
+            <span className="spanDropMenuDx">
+              <h6 className="ms-3 m-0 ">Admin Center</h6>
+              <p className="ms-3  pDropMenuDx">
+                Gestisci i dettagli di fatturazione e account
+              </p>
             </span>
 
-            <h6 className="ms-3">
-              Crea una pagina aziendale <i className="bi bi-plus"></i>
+            <h6 className="ms-3 m-0 mt-5 spanDropMenuDx ">
+              Crea una pagina aziendale{" "}
+              <svg
+                width="18px"
+                height="18px"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title />
+
+                <g id="Complete">
+                  <g data-name="add" id="add-2">
+                    <g>
+                      <line
+                        fill="none"
+                        stroke="#000000"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        x1="12"
+                        x2="12"
+                        y1="19"
+                        y2="5"
+                      />
+
+                      <line
+                        fill="none"
+                        stroke="#000000"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        x1="5"
+                        x2="19"
+                        y1="12"
+                        y2="12"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </svg>
             </h6>
           </div>
         </Row>
