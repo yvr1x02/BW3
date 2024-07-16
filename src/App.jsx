@@ -6,6 +6,7 @@ import "./App.css";
 import Topbar from "./components/Topbar";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
+import ChatBox from "./components/ChatBox";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Topbar />
       <Profile />
       <Footer />
+      <ChatBox />
     </div>
   );
 }

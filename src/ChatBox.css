@@ -1,0 +1,47 @@
+.chat-box {
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  width: 300px;
+}
+
+.chat-button {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.chat-content {
+  animation: slide-up 0.3s ease-in-out;
+  padding: 5px;
+  padding-bottom: 300px;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.messages {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.message-input {
+  display: flex;
+  gap: 5px;
+}
+
+.form-ms {
+  border: none;
+}
+
+.bg-search {
+  background-color: #dde7f1;
+}
