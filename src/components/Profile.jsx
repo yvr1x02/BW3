@@ -13,6 +13,7 @@ import Attività from "./Attività";
 import Esperienza from "./Esperienza";
 import Interessi from "./Interessi";
 import ExperienceList from "./ExperienceList";
+import ProfileAlert from "./ProfileAlert";
 
 function Profile() {
   const dispatch = useDispatch();
