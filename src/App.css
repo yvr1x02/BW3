@@ -1,37 +1,3 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
   padding: 2em;
 }
@@ -102,55 +68,54 @@ body {
   background-color: #2a2a2a;
   color: white;
 }
-.collegati:hover i{
+.collegati:hover i {
   color: white;
 }
-.linkIcon{
-margin-right: 25px;
-margin-bottom: 12px;
+.linkIcon {
+  margin-right: 25px;
+  margin-bottom: 12px;
 }
-.iconSearch{
+.iconSearch {
   border: none;
-  background-color:#edf3f8 ;
+  background-color: #edf3f8;
   margin-bottom: 10px;
 }
-.input-group{
+.input-group {
   width: 32%;
 }
-.form-control{
+.form-control {
   margin-right: 60px;
   border: none;
   background-color: #edf3f8;
   margin-bottom: 10px;
 }
 
-.ContTot{
+.ContTot {
   align-items: center;
 }
 
-.frstDrop{
+.frstDrop {
   margin-right: 10px;
 }
 
-.SecondElement{
+.SecondElement {
   margin-left: 10px;
   display: flex;
   gap: 25px;
 }
 
-.ContTot{
-  border: 1px solid  #E9E9E9;
+.ContTot {
+  border: 1px solid #e9e9e9;
   height: 55px;
   padding-top: 20px;
-  
 }
-.navBarTot{
+.navBarTot {
   height: 89px;
 }
-.btn{
+.btn {
   height: 20px;
 }
-.txtp{
+.txtp {
   width: 150px;
   text-align: center;
   text-decoration: underline;
@@ -158,11 +123,11 @@ margin-bottom: 12px;
   cursor: pointer;
 }
 
-.txtp:hover{
+.txtp:hover {
   color: black;
 }
 
-.txtNavBar{
+.txtNavBar {
   font-size: x-small;
   margin-left: 15px;
   margin-right: 15px;
@@ -170,86 +135,84 @@ margin-bottom: 12px;
   height: 65px;
 }
 
-.StrutturaNav{
+.StrutturaNav {
   height: 51px;
 }
 
-.IconProfilo{
+.IconProfilo {
   margin-left: 20px;
 }
 
-.prova{
+.prova {
   width: 250px;
 }
 
-.btnDrop{
+.btnDrop {
   width: 220px;
   height: 27px;
   border-radius: 18px;
   border: none;
 }
-.iconDropMenu{
-  font-size:60px;
+.iconDropMenu {
+  font-size: 60px;
 }
 
-.txtProfilName{
+.txtProfilName {
   display: flex;
   font-size: 20px;
   margin-top: 15px;
 }
-.infoDrop{
+.infoDrop {
   font-size: small;
 }
 
-.pAccount{
-  color:#646464 ;
+.pAccount {
+  color: #646464;
   font-size: 13px;
 }
-.pAccount:hover{
+.pAccount:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-
 /* !!!!!!!!!!!!!!!!!!! CONTENT PROFILE!!!!!!!!!!!!!!!!!*/
 
-.PopUpContainer{
+.PopUpContainer {
   display: flex;
   justify-content: flex-end;
 }
-.PopUp2{
+.PopUp2 {
   width: 752px;
 }
-.grillSpan{
+.grillSpan {
   margin-top: 2px;
 }
-.n1{
+.n1 {
   width: 374px;
-  border-right: 1px solid #E9E9E9;
+  border-right: 1px solid #e9e9e9;
 }
 
-.n2{
+.n2 {
   width: 374px;
 }
 
-.spanIcon{
+.spanIcon {
   height: 25px;
   width: 50px;
   padding: 0px;
 }
 
-.grigliaIcon{
+.grigliaIcon {
   margin-left: 30px;
-
 }
 
-.iconProfiloNavBar{
+.iconProfiloNavBar {
   border-radius: 50px;
- margin-top: 4px;
- margin-left: 16px;
+  margin-top: 4px;
+  margin-left: 16px;
 }
 
-.spanDropMenuDx:hover{
+.spanDropMenuDx:hover {
   cursor: pointer;
   text-decoration: underline;
   text-decoration-color: blue;
@@ -260,41 +223,40 @@ margin-bottom: 12px;
   padding-right: 5px;
 }
 
-#ProfiloTxt{
+#ProfiloTxt {
   font-size: x-small;
   margin-left: 15px;
   margin-right: 15px;
 }
-.h6Drop{
+.h6Drop {
   color: #9b9a9a;
 }
 
-.vr{
+.vr {
   margin-top: 11px;
   height: 50px;
 }
 
-.pDropMenuDx{
+.pDropMenuDx {
   color: #9b9a9a;
   margin-bottom: 26px;
   font-size: small;
 }
 
-.pDropMenuSx:hover{
+.pDropMenuSx:hover {
   cursor: pointer;
   text-decoration: underline;
   text-decoration-color: blue;
 }
 
 .txtNavBar {
-      
   cursor: pointer;
 }
 
-.txtNavBar.active{
-  border-bottom: 2px solid black; 
+.txtNavBar.active {
+  border-bottom: 2px solid black;
 }
 
-.DropCont1{
+.DropCont1 {
   margin-bottom: 17px;
 }

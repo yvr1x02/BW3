@@ -10,23 +10,11 @@ import ChatBox from "./components/ChatBox";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Topbar />
       <Profile />
       <Footer />
       <ChatBox />
-    </div>
-import "bootstrap-icons/font/bootstrap-icons.css";
-/* import { BrowserRouter, Routes, Route } from "react-router-dom"; */
-/* import { Provider } from "react-redux"; */
-import "./App.css";
-import TopBar from "./components/TopBar"
-import { BrowserRouter} from "react-router-dom";
-
-function App() {
-  return(
-    <BrowserRouter>
-    <TopBar/>
     </BrowserRouter>
   );
 }
