@@ -1,11 +1,10 @@
 import React from "react";
 import { Card, ListGroup, Image, Col, Button } from "react-bootstrap";
-import "../App.css"
-
+import "../App.css";
 
 const Sidebar = ({ mainProfile, suggestedProfiles }) => {
   return (
-    <Col lg={4}>
+    <>
       <Card className="mb-3 p-3">
         <Card.Body>
           <Card.Title>Lingua del profilo</Card.Title>
@@ -41,14 +40,16 @@ const Sidebar = ({ mainProfile, suggestedProfiles }) => {
                     {profile.name} {profile.surname}
                   </div>
                   <div>{profile.title}</div>
-                  <button type="button" className="collegati mt-2 mb-2"><i className="bi bi-person-plus-fill me-2"></i>Collegati</button>
+                  <button type="button" className="collegati mt-2 mb-2">
+                    <i className="bi bi-person-plus-fill me-2"></i>Collegati
+                  </button>
                 </div>
               </ListGroup.Item>
             ))}
           </ListGroup>
         </Card.Body>
       </Card>
-    </Col>
+    </>
   );
 };
 

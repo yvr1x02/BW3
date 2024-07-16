@@ -41,7 +41,7 @@ function Profile() {
   }
 
   return (
-    <Container>
+    <Container className="mt-2 container-size">
       <Row>
         <Col lg={8}>
           <Card className="p-0 card-linkedin">
@@ -63,11 +63,12 @@ function Profile() {
                   </Card.Title>
                   <Card.Text className="m-0">{profileData.title}</Card.Text>
                   <Card.Text>{profileData.bio}</Card.Text>
-                  <Card.Text className="text-secondary">
+                  <Card.Text className="text-secondary d-flex m-0">
                     {profileData.area}
-                    <span className="text-primary info-contatto">
+                    <p>-</p>
+                    <p className="text-primary info-contatto">
                       informazioni di contatto
-                    </span>
+                    </p>
                   </Card.Text>
                   <div>
                     <Button variant="primary" className="rounded-pill ">
@@ -92,27 +93,30 @@ function Profile() {
                       Altro
                     </Button>
                   </div>
-                  <div className="mt-5" style={{ width: "30%" }}>
+                  <div className="mt-5" style={{ width: "100%" }}>
                     <ProfileAlert />
                   </div>
-                  {profileData && <ExperienceList userId={profileData._id} />}
                 </Card.Body>
               </>
             )}
           </Card>
+          <Consigliati />
+          <Analisi />
+          <Risorse />
+          <Attività />
+          <Col>
+            {profileData && <ExperienceList userId={profileData._id} />}
+          </Col>
+          <Interessi />
         </Col>
-        {profileData && (
-          <Sidebar
-            mainProfile={profileData}
-            suggestedProfiles={suggestedProfiles}
-          />
-        )}
-        <Consigliati />
-        <Analisi />
-        <Risorse />
-        <Attività />
-
-        <Interessi />
+        <Col lg={4}>
+          {profileData && (
+            <Sidebar
+              mainProfile={profileData}
+              suggestedProfiles={suggestedProfiles}
+            />
+          )}
+        </Col>
       </Row>
     </Container>
   );

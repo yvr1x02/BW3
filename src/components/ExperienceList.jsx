@@ -26,13 +26,18 @@ const ExperienceList = ({ userId }) => {
   return (
     <div>
       {experiences.map((exp) => (
-        <Card key={exp._id} className="mb-3">
+        <Card key={exp._id} className=" p-0">
           <Card.Body>
             <Card.Title>{exp.role}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{exp.company}</Card.Subtitle>
-            <Card.Text>{exp.description}</Card.Text>
-            <Card.Text>{exp.area}</Card.Text>
-            <Button variant="outline-primary">Edit</Button>
+
+            <Card.Subtitle className="mb-2 text-muted mt-3">
+              {exp.company}
+            </Card.Subtitle>
+            <div className="d-flex justify-content-between">
+              <Card.Text>{exp.description}</Card.Text>
+
+              <Button variant="outline-primary">Edit</Button>
+            </div>
           </Card.Body>
         </Card>
       ))}

@@ -1,6 +1,10 @@
 .card {
   padding: 2em;
 }
+.container-size {
+  padding-left: 100px;
+  padding-right: 100px;
+}
 
 .read-the-docs {
   color: #888;
@@ -15,6 +19,25 @@
   object-fit: cover;
   margin: 0 auto;
   display: block;
+}
+.info-contatto {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.info-contatto:hover {
+  text-decoration: underline;
+}
+.alert-text {
+  font-size: 14px;
+}
+.bg-alert {
+  background-color: #edf3f8;
+  border: none;
+}
+.bg-alert-start {
+  background-color: white;
+  border: solid 1px rgba(180, 180, 180, 0.308);
 }
 .bg-image {
   height: 250px;
@@ -105,6 +128,7 @@ body {
 }
 
 .ContTot {
+  background-color: white;
   border: 1px solid #e9e9e9;
   height: 55px;
   padding-top: 20px;
