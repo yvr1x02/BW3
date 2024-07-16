@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Card from "react-bootstrap/Card";
-import { fetchProfile } from "../redux/reducers/profileSlice";
+import { fetchProfile, fetchSuggestedProfiles } from "../redux/reducers/profileSlice";
 import Button from "react-bootstrap/Button";
 //import ProfileAlert from "./ProfileAlert";
 import { Col, Container, Row } from "react-bootstrap";
@@ -12,17 +12,20 @@ import Risorse from "./Risorse";
 import Attività from "./Attività";
 import Esperienza from "./Esperienza";
 import Interessi from "./Interessi";
-//import store from "../redux/store";
+import ExperienceList from "./ExperienceList";
 
 function Profile() {
   const dispatch = useDispatch();
   const profileData = useSelector((state) => state.profile.data);
+  const suggestedProfiles = useSelector((state) => state.profile.suggestedProfiles);
   const profileStatus = useSelector((state) => state.profile.status);
+  const error = useSelector((state) => state.profile.error);
   const userId = profileData._id;
 
   useEffect(() => {
     if (profileStatus === "idle") {
       dispatch(fetchProfile());
+      dispatch(fetchSuggestedProfiles());
     }
   }, [profileStatus, dispatch]);
 
@@ -62,12 +65,16 @@ function Profile() {
                       Altro
                     </Button>
                   </div>
+                  <div className="mt-5" style={{ width: "30%" }}>
+                    <ProfileAlert />
+                  </div>
+                  {profileData &&<ExperienceList userId={profileData._id} />}
                 </Card.Body>
               </>
             )}
           </Card>
         </Col>
-        <Sidebar />
+        {profileData &&<Sidebar mainProfile={profileData} suggestedProfiles={suggestedProfiles}/>}
         <Consigliati />
         <Analisi />
         <Risorse />
