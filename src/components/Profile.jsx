@@ -6,6 +6,7 @@ import {
   fetchSuggestedProfiles,
 } from "../redux/reducers/profileSlice";
 import Button from "react-bootstrap/Button";
+import ProfileAlert from "./ProfileAlert";
 import { Col, Container, Row } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import Consigliati from "./Consigliati";
@@ -15,7 +16,6 @@ import Attività from "./Attività";
 import Esperienza from "./Esperienza";
 import Interessi from "./Interessi";
 import ExperienceList from "./ExperienceList";
-import ProfileAlert from "./ProfileAlert";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -25,7 +25,6 @@ function Profile() {
   );
   const profileStatus = useSelector((state) => state.profile.status);
   const error = useSelector((state) => state.profile.error);
-  const userId = profileData._id;
 
   useEffect(() => {
     if (profileStatus === "idle") {
@@ -110,7 +109,7 @@ function Profile() {
         <Analisi />
         <Risorse />
         <Attività />
-        <Esperienza userId={userId} />
+        <Esperienza />
         <Interessi />
       </Row>
     </Container>
