@@ -260,3 +260,20 @@ body {
 .DropCont1 {
   margin-bottom: 17px;
 }
+
+
+
+/* !!!!!!!!!!!!!!FORM!!!!!!!!!!!!!!!!!!!!!!*/
+
+.ContainerForm{
+  border: 2px solid red;
+  height: 1900px;
+  width: 500px;
+}
+
+.ControlloPosi{
+  display: flex;
+  justify-content: center;
+  margin-top: 58px;
+  margin-bottom: 60px;
+}

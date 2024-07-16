@@ -1,20 +1,25 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Provider } from "react-redux";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
 import Topbar from "./components/Topbar";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import ChatBox from "./components/ChatBox";
+import FormExp from "./components/Form";
 
 function App() {
   return (
     <BrowserRouter>
       <Topbar />
-      <Profile />
+      <Routes>
+      <Route path="/Form" element={<FormExp/>}/>
+      <Route path="/ProfilePage" element={<Profile/>}/>
+      </Routes>
       <Footer />
       <ChatBox />
+
+      
     </BrowserRouter>
   );
 }
