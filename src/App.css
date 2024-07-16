@@ -105,3 +105,196 @@ body {
 .collegati:hover i{
   color: white;
 }
+.linkIcon{
+margin-right: 25px;
+margin-bottom: 12px;
+}
+.iconSearch{
+  border: none;
+  background-color:#edf3f8 ;
+  margin-bottom: 10px;
+}
+.input-group{
+  width: 32%;
+}
+.form-control{
+  margin-right: 60px;
+  border: none;
+  background-color: #edf3f8;
+  margin-bottom: 10px;
+}
+
+.ContTot{
+  align-items: center;
+}
+
+.frstDrop{
+  margin-right: 10px;
+}
+
+.SecondElement{
+  margin-left: 10px;
+  display: flex;
+  gap: 25px;
+}
+
+.ContTot{
+  border: 1px solid  #E9E9E9;
+  height: 55px;
+  padding-top: 20px;
+  
+}
+.navBarTot{
+  height: 89px;
+}
+.btn{
+  height: 20px;
+}
+.txtp{
+  width: 150px;
+  text-align: center;
+  text-decoration: underline;
+  color: #915907;
+  cursor: pointer;
+}
+
+.txtp:hover{
+  color: black;
+}
+
+.txtNavBar{
+  font-size: x-small;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-top: 21px;
+  height: 65px;
+}
+
+.StrutturaNav{
+  height: 51px;
+}
+
+.IconProfilo{
+  margin-left: 20px;
+}
+
+.prova{
+  width: 250px;
+}
+
+.btnDrop{
+  width: 220px;
+  height: 27px;
+  border-radius: 18px;
+  border: none;
+}
+.iconDropMenu{
+  font-size:60px;
+}
+
+.txtProfilName{
+  display: flex;
+  font-size: 20px;
+  margin-top: 15px;
+}
+.infoDrop{
+  font-size: small;
+}
+
+.pAccount{
+  color:#646464 ;
+  font-size: 13px;
+}
+.pAccount:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+/* !!!!!!!!!!!!!!!!!!! CONTENT PROFILE!!!!!!!!!!!!!!!!!*/
+
+.PopUpContainer{
+  display: flex;
+  justify-content: flex-end;
+}
+.PopUp2{
+  width: 752px;
+}
+.grillSpan{
+  margin-top: 2px;
+}
+.n1{
+  width: 374px;
+  border-right: 1px solid #E9E9E9;
+}
+
+.n2{
+  width: 374px;
+}
+
+.spanIcon{
+  height: 25px;
+  width: 50px;
+  padding: 0px;
+}
+
+.grigliaIcon{
+  margin-left: 30px;
+
+}
+
+.iconProfiloNavBar{
+  border-radius: 50px;
+ margin-top: 4px;
+ margin-left: 16px;
+}
+
+.spanDropMenuDx:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: blue;
+}
+#basic-nav-dropdown {
+  padding: 0px;
+  padding-top: 11px;
+  padding-right: 5px;
+}
+
+#ProfiloTxt{
+  font-size: x-small;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.h6Drop{
+  color: #9b9a9a;
+}
+
+.vr{
+  margin-top: 11px;
+  height: 50px;
+}
+
+.pDropMenuDx{
+  color: #9b9a9a;
+  margin-bottom: 26px;
+  font-size: small;
+}
+
+.pDropMenuSx:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: blue;
+}
+
+.txtNavBar {
+      
+  cursor: pointer;
+}
+
+.txtNavBar.active{
+  border-bottom: 2px solid black; 
+}
+
+.DropCont1{
+  margin-bottom: 17px;
+}
