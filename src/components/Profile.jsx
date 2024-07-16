@@ -13,7 +13,6 @@ import Consigliati from "./Consigliati";
 import Analisi from "./Analisi";
 import Risorse from "./Risorse";
 import Attività from "./Attività";
-import Esperienza from "./Esperienza";
 import Interessi from "./Interessi";
 import ExperienceList from "./ExperienceList";
 
@@ -109,7 +108,7 @@ function Profile() {
         <Analisi />
         <Risorse />
         <Attività />
-        <Esperienza />
+
         <Interessi />
       </Row>
     </Container>
