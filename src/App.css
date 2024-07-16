@@ -9,7 +9,7 @@
   border-radius: 50%;
   position: absolute;
   left: 3%;
-  top: 20%;
+  top: 11%;
   width: 150px;
   height: 150px;
   object-fit: cover;
@@ -112,9 +112,7 @@ body {
 .navBarTot {
   height: 89px;
 }
-.btn {
-  height: 20px;
-}
+
 .txtp {
   width: 150px;
   text-align: center;

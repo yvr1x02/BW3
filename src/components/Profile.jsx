@@ -61,10 +61,13 @@ function Profile() {
                   <Card.Title>
                     {profileData.name + " " + profileData.surname}
                   </Card.Title>
-                  <Card.Text>{profileData.title}</Card.Text>
+                  <Card.Text className="m-0">{profileData.title}</Card.Text>
                   <Card.Text>{profileData.bio}</Card.Text>
                   <Card.Text className="text-secondary">
                     {profileData.area}
+                    <span className="text-primary info-contatto">
+                      informazioni di contatto
+                    </span>
                   </Card.Text>
                   <div>
                     <Button variant="primary" className="rounded-pill ">
