@@ -26,9 +26,6 @@ margin-right: 25px;
   gap: 25px;
 }
 
-.frstCont{
-  border-right: 1px solid  #E9E9E9;
-}
 .ContTot{
   border: 1px solid  #E9E9E9;
   height: 61px;
@@ -57,7 +54,6 @@ margin-right: 25px;
 }
 
 .StrutturaNav{
-  /* border:1px solid #E9E9E9; */
   height: 51px;
 }
 
@@ -99,35 +95,44 @@ margin-right: 25px;
 
 
 
+
+
 /* !!!!!!!!!!!!!!!!!!! CONTENT PROFILE!!!!!!!!!!!!!!!!!*/
 
 .PopUpContainer{
-  height: 650px;
+  height: 522px;
   display: flex;
   justify-content: flex-end;
 }
 
 .PopUp2{
-  border: 2px solid #E9E9E9;
   width: 752px;
-  height:600px;
-  margin-right: 480px;
+  height:500px;
+  
   margin-top: 7px;
   border-radius: 8px;
   display: flex;
   
 }
 .n1{
- /*  border: 2px solid black; */
   width: 374px;
   border-right: 1px solid #E9E9E9;
 }
 .n2{
-  /* border: 2px solid black; */
   width: 374px;
 }
 
-.IconAziendDrop{
-  color: rgb(0, 58, 216);
-  font-weight: bolder;
+.spanDropMenuDx:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: blue;
+}
+
+.h6Drop{
+  color: #9b9a9a;
+}
+
+.vr{
+  margin-top: 11px;
+  height: 50px;
 }

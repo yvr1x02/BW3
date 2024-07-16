@@ -7,14 +7,14 @@ class ContentProfile extends Component {
       <div className="PopUpContainer">
         <Row className="PopUp2">
           <div className="n1">
-            <h4 className="fs-5 mt-5 ms-3 ">Scopri altri prodotti LinkedIn</h4>
-            <p>
+            <h4 className="fs-5 mt-5 ms-3">Scopri altri prodotti LinkedIn</h4>
+            <p className="fw-bold">
               {" "}
               <svg
                 width="30px"
                 height="30px"
                 viewBox="0 0 1024 1024"
-                className="icon"
+                className="icon ms-3"
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -53,7 +53,7 @@ class ContentProfile extends Component {
               </svg>{" "}
               Vendi
             </p>
-            <p>
+            <p className="fw-bold">
               {" "}
               <svg
                 width="30px"
@@ -61,6 +61,7 @@ class ContentProfile extends Component {
                 viewBox="0 0 24 24"
                 fill="#0b66c3"
                 xmlns="http://www.w3.org/2000/svg"
+                className="ms-3"
               >
                 <path
                   d="M18 7.16C17.94 7.15 17.87 7.15 17.81 7.16C16.43 7.11 15.33 5.98 15.33 4.58C15.33 3.15 16.48 2 17.91 2C19.34 2 20.49 3.16 20.49 4.58C20.48 5.98 19.38 7.11 18 7.16Z"
@@ -107,8 +108,8 @@ class ContentProfile extends Component {
               </svg>{" "}
               Gruppi
             </p>
-            <h6>Talent</h6>
-            <p>
+            <h6 className="ms-3 h6Drop">Talent</h6>
+            <p className="fw-bold">
               <svg
                 fill="#0b66c3"
                 version="1.1"
@@ -119,6 +120,7 @@ class ContentProfile extends Component {
                 height="30px"
                 viewBox="0 0 60.731 60.731"
                 /*  xml:space="preserve" */
+                className="ms-3 me-1"
               >
                 <g>
                   <path
@@ -131,13 +133,14 @@ class ContentProfile extends Component {
               </svg>
               Talent Insights
             </p>
-            <p>
+            <p className="fw-bold">
               <svg
                 fill="#0b66c3"
                 xmlns="http://www.w3.org/2000/svg"
-                width="30px"
-                height="30px"
-                viewBox="0 0 100 100" /* enable-background="new 0 0 100 100" xml:space="preserve" */
+                width="50px"
+                height="50px"
+                viewBox="0 0 100 100"
+                className="ms-2"
               >
                 <path
                   d="M37.3,31.9h21.8c1.1,0,2-0.9,2-2v-4c0-3.3-2.7-5.9-5.9-5.9H41.3c-3.3,0-5.9,2.7-5.9,5.9v4
@@ -157,8 +160,8 @@ class ContentProfile extends Component {
               </svg>
               Pubblica un’offerta di lavoro
             </p>
-            <h6>Vendite</h6>
-            <p>
+            <h6 className="ms-3 h6Drop">Vendite</h6>
+            <p className="fw-bold">
               {" "}
               <svg
                 width="30px"
@@ -166,6 +169,7 @@ class ContentProfile extends Component {
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
+                className="ms-3 me-1"
               >
                 <path
                   fill="#0b66c3"
@@ -174,8 +178,8 @@ class ContentProfile extends Component {
               </svg>
               Marketplace dei servizi
             </p>
-            <h6>Marketing</h6>
-            <p>
+            <h6 className="ms-3 h6Drop">Marketing</h6>
+            <p className="fw-bold">
               {" "}
               <svg
                 fill="#0b66c3"
@@ -185,6 +189,7 @@ class ContentProfile extends Component {
                 id="Capa_1"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 297 297"
+                className="ms-3"
               >
                 <g>
                   <path
@@ -211,8 +216,8 @@ class ContentProfile extends Component {
               </svg>{" "}
               Pubblicizza
             </p>
-            <h6>Learning</h6>
-            <p>
+            <h6 className="ms-3 h6Drop">Learning</h6>
+            <p className="fw-bold">
               {" "}
               <svg
                 width="30px"
@@ -220,6 +225,7 @@ class ContentProfile extends Component {
                 viewBox="0 0 32 32"
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
+                className="ms-3 me-1"
               >
                 <title>book-album</title>
                 <desc>Created with Sketch Beta.</desc>
@@ -242,37 +248,37 @@ class ContentProfile extends Component {
           </div>
           <div className="n2">
             <h4 className="fs-5 mt-5 ms-3">Scopri Altro per il Business</h4>
-            <span>
-              <h6>Assumi su LinkedIn</h6>
-              <p>Trova, attrai e assumi</p>
+            <span className="spanDropMenuDx">
+              <h6 className="ms-3">Assumi su LinkedIn</h6>
+              <p className="ms-3">Trova, attrai e assumi</p>
             </span>
 
             <span>
-              <h6>Vendi con LinkedIn</h6>
-              <p>Sblocca nuove opportunità di vendita</p>
+              <h6 className="ms-3">Vendi con LinkedIn</h6>
+              <p className="ms-3">Sblocca nuove opportunità di vendita</p>
             </span>
 
             <span>
-              <h6>Offerta di lavoro gratuita</h6>
-              <p>Ottieni rapidamente candidati qualificati</p>
+              <h6 className="ms-3">Offerta di lavoro gratuita</h6>
+              <p className="ms-3">Ottieni rapidamente candidati qualificati</p>
             </span>
 
             <span>
-              <h6>Fai pubblicità su LinkedIn</h6>
-              <p>Acquisisci clienti e fai crescere la tua azienda</p>
+              <h6 className="ms-3">Fai pubblicità su LinkedIn</h6>
+              <p className="ms-3">Acquisisci clienti e fai crescere la tua azienda</p>
             </span>
 
             <span>
-              <h6>Impara con LinkedIn</h6>
-              <p>Assumi su LinkedIn</p>
+              <h6 className="ms-3">Impara con LinkedIn</h6>
+              <p className="ms-3">Assumi su LinkedIn</p>
             </span>
 
             <span>
-              <h6>Admin Center</h6>
-              <p>Gestisci i dettagli di fatturazione e account</p>
+              <h6 className="ms-3">Admin Center</h6>
+              <p className="ms-3">Gestisci i dettagli di fatturazione e account</p>
             </span>
 
-            <h6>
+            <h6 className="ms-3">
               Crea una pagina aziendale <i className="bi bi-plus"></i>
             </h6>
           </div>
