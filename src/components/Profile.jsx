@@ -12,6 +12,7 @@ import Risorse from "./Risorse";
 import Attività from "./Attività";
 import Esperienza from "./Esperienza";
 import Interessi from "./Interessi";
+import ExperienceList from "./ExperienceList";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -87,12 +88,13 @@ function Profile() {
                   <div className="mt-5" style={{ width: "30%" }}>
                     <ProfileAlert />
                   </div>
+                  {profileData &&<ExperienceList userId={profileData._id} />}
                 </Card.Body>
               </>
             )}
           </Card>
         </Col>
-        <Sidebar suggestedProfiles={suggestedProfiles} />
+        {profileData &&<Sidebar mainProfile={profileData} suggestedProfiles={suggestedProfiles}/>}
         <Consigliati />
         <Analisi />
         <Risorse />
