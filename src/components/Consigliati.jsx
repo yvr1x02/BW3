@@ -26,7 +26,7 @@ function Consigliati() {
           </Card.Text>
           <Container className="d-flex">
             <Col lg={6}>
-              <Alert show={show} className="bg-alert-start">
+              <Alert show={show} className="bg-alert-start text-black">
                 <Alert.Heading className="alert-text m-0">
                   <svg className="camera">
                     <image
