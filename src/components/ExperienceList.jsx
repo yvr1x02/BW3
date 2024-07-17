@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchExperiences, addExperience, updateExperience, deleteExperience, uploadExperienceImage } from "../redux/reducers/experienceSlice";
-import { Card, Button, Modal } from "react-bootstrap";
+import { Card, Button, Modal, Image } from "react-bootstrap";
 import ExperienceModal from "./ExperienceModal";
 
 const ExperienceList = ({ userId }) => {
@@ -76,6 +76,7 @@ const ExperienceList = ({ userId }) => {
             <Card.Title>{exp.role}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{exp.company}</Card.Subtitle>
             <Card.Text>{exp.description}</Card.Text>
+            <Image src={exp.image} rounded ></Image>
             <Card.Text>{exp.area}</Card.Text>
             <Button variant="outline-primary" onClick={() => handleEdit(exp)}>Edit</Button>
             <Button variant="outline-danger" onClick={() => handleShowConfirm(exp)} className="ms-2">Delete</Button>
