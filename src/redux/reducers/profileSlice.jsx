@@ -33,6 +33,21 @@ export const fetchSuggestedProfiles = createAsyncThunk("profile/fetchSuggestedPr
   return profiles;
 });
 
+export const uploadProfileImage = createAsyncThunk("profile/uploadProfileImage", async ({ userId, image }) => {
+  const formData = new FormData();
+  formData.append("profile", image);
+
+  const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`, {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk0ZmVhNDE5NmQ3YjAwMTVkNmI1NDAiLCJpYXQiOjE3MjEwNDA1NDksImV4cCI6MTcyMjI1MDE0OX0.vaH3-EZNYJ0ikK0i8Rf1KmmSowfto3Kl9u0H1A5PVPw",
+    },
+    body: formData,
+  });
+
+  return response.json();
+});
+
 const profileSlice = createSlice({
   name: "profile",
   initialState: {
@@ -65,6 +80,9 @@ const profileSlice = createSlice({
       .addCase(fetchSuggestedProfiles.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+      })
+      .addCase(uploadProfileImage.fulfilled, (state, action) => {
+        state.data.image = action.payload.image;
       });
   },
 });

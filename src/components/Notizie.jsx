@@ -5,7 +5,7 @@ import Post from "./Post";
 import PostForm from "./PostForm";
 import { fetchProfile } from "../redux/reducers/profileSlice";
 
-const Home = () => {
+const Notizie = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.posts);
   const status = useSelector((state) => state.posts.status);
@@ -42,4 +42,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Notizie;
