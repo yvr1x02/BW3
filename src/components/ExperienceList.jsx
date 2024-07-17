@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchExperiences, updateExperience, deleteExperience } from "../redux/reducers/experienceSlice";
+import { fetchExperiences, addExperience, updateExperience, deleteExperience, uploadExperienceImage } from "../redux/reducers/experienceSlice";
 import { Card, Button, Modal } from "react-bootstrap";
 import ExperienceModal from "./ExperienceModal";
 
@@ -43,11 +43,15 @@ const ExperienceList = ({ userId }) => {
     handleCloseConfirm();
   };
 
-  const handleSave = async (experience) => {
+  const handleSave = async (experience, image) => {
+    let newExperience;
     if (selectedExperience) {
-      await dispatch(updateExperience({ userId, experienceId: selectedExperience._id, experience }));
+      newExperience = await dispatch(updateExperience({ userId, experienceId: selectedExperience._id, experience }));
     } else {
-      await dispatch(addExperience({ userId, experience }));
+      newExperience = await dispatch(addExperience({ userId, experience }));
+    }
+    if (image) {
+      await dispatch(uploadExperienceImage({ userId, experienceId: newExperience.payload._id, image }));
     }
     dispatch(fetchExperiences(userId));
     handleClose();

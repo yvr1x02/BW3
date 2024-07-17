@@ -2,124 +2,106 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
 const ExperienceModal = ({ show, handleClose, handleSave, experience }) => {
-  const isEdit = !!experience;
-
-  const [formData, setFormData] = useState({
-    role: "",
-    company: "",
-    startDate: "",
-    endDate: "",
-    description: "",
-    area: "",
-  });
+  const [role, setRole] = useState("");
+  const [company, setCompany] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [description, setDescription] = useState("");
+  const [area, setArea] = useState("");
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
-    if (isEdit) {
-      setFormData({
-        role: experience.role,
-        company: experience.company,
-        startDate: experience.startDate,
-        endDate: experience.endDate,
-        description: experience.description,
-        area: experience.area,
-      });
-    } else {
-      setFormData({
-        role: "",
-        company: "",
-        startDate: "",
-        endDate: "",
-        description: "",
-        area: "",
-      });
+    if (experience) {
+      setRole(experience.role);
+      setCompany(experience.company);
+      setStartDate(experience.startDate);
+      setEndDate(experience.endDate);
+      setDescription(experience.description);
+      setArea(experience.area);
     }
-  }, [isEdit, experience]);
+  }, [experience]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  const handleSubmit = () => {
+    const exp = { role, company, startDate, endDate, description, area };
+    handleSave(exp, image);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleSave(formData);
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
   };
 
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>{isEdit ? "Edit Experience" : "Add Experience"}</Modal.Title>
+        <Modal.Title>{experience ? "Modifica Esperienza" : "Aggiungi Esperienza"}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form onSubmit={handleSubmit}>
+        <Form>
           <Form.Group controlId="formRole">
-            <Form.Label>Role</Form.Label>
+            <Form.Label>Ruolo</Form.Label>
             <Form.Control
               type="text"
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-              required
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
             />
           </Form.Group>
           <Form.Group controlId="formCompany">
-            <Form.Label>Company</Form.Label>
+            <Form.Label>Azienda</Form.Label>
             <Form.Control
               type="text"
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-              required
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
             />
           </Form.Group>
           <Form.Group controlId="formStartDate">
-            <Form.Label>Start Date</Form.Label>
+            <Form.Label>Data Inizio</Form.Label>
             <Form.Control
               type="date"
-              name="startDate"
-              value={formData.startDate}
-              onChange={handleChange}
-              required
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
             />
           </Form.Group>
           <Form.Group controlId="formEndDate">
-            <Form.Label>End Date</Form.Label>
+            <Form.Label>Data Fine</Form.Label>
             <Form.Control
               type="date"
-              name="endDate"
-              value={formData.endDate}
-              onChange={handleChange}
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
             />
           </Form.Group>
           <Form.Group controlId="formDescription">
-            <Form.Label>Description</Form.Label>
+            <Form.Label>Descrizione</Form.Label>
             <Form.Control
-              as="textarea"
-              rows={3}
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              required
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             />
           </Form.Group>
           <Form.Group controlId="formArea">
             <Form.Label>Area</Form.Label>
             <Form.Control
               type="text"
-              name="area"
-              value={formData.area}
-              onChange={handleChange}
-              required
+              value={area}
+              onChange={(e) => setArea(e.target.value)}
             />
           </Form.Group>
-          <Button variant="primary" type="submit" className="mt-3">
-            {isEdit ? "Save Changes" : "Add Experience"}
-          </Button>
+          <Form.Group controlId="formImage">
+            <Form.Label>Immagine</Form.Label>
+            <Form.Control
+              type="file"
+              onChange={handleImageChange}
+            />
+          </Form.Group>
         </Form>
       </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Annulla
+        </Button>
+        <Button variant="primary" onClick={handleSubmit}>
+          Salva
+        </Button>
+      </Modal.Footer>
     </Modal>
   );
 };
