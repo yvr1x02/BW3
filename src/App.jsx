@@ -7,11 +7,13 @@ import Topbar from "./components/Topbar";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import ChatBox from "./components/ChatBox";
+import Home from "./components/Home";
 
 function App() {
   return (
     <BrowserRouter>
       <Topbar />
+      <Home />
       <Profile />
       <Footer />
       <ChatBox />
