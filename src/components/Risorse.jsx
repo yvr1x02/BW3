@@ -1,50 +1,58 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import Card from "react-bootstrap/Card";
-import { fetchProfile } from "../redux/reducers/profileSlice";
+
 import Button from "react-bootstrap/Button";
-import { Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import { ArrowRight, BookmarkFill, EyeFill } from "react-bootstrap-icons";
 
 function Risorse() {
-  const dispatch = useDispatch();
-  const profileData = useSelector((state) => state.profile.data);
-  const profileStatus = useSelector((state) => state.profile.status);
-
-  useEffect(() => {
-    if (profileStatus === "idle") {
-      dispatch(fetchProfile());
-    }
-  }, [profileStatus, dispatch]);
-
-  if (profileStatus === "loading") {
-    return <div>Loading...</div>;
-  }
-
-  if (profileStatus === "failed") {
-    return <div>Error loading profile data.</div>;
-  }
-
   return (
     <Col>
       <Card className="p-0 card-linkedin-secondary  mt-2">
-        {profileData && (
-          <>
-            <Card.Title>
-              {profileData.name + " " + profileData.surname}
-            </Card.Title>
-            <Card.Text>{profileData.title}</Card.Text>
-            <Card.Text>{profileData.bio}</Card.Text>
-            <Card.Text className="text-secondary">{profileData.area}</Card.Text>
-            <div>
-              <Button variant="primary" className="rounded-pill ">
-                Disponibile per
-              </Button>
-              <Button variant="outline-primary" className="rounded-pill mx-2 ">
-                Aggiungi sezione del profilo
-              </Button>
-            </div>
-          </>
-        )}
+        <>
+          <Card.Title>Risorse</Card.Title>
+          <Card.Text>
+            <EyeFill className="ms-3" /> solo per te
+          </Card.Text>
+          <Row>
+            <Col lg={12}>
+              <Card.Text className="d-flex">
+                <div className="me-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-supported-dps="24x24"
+                    fill="currentColor"
+                    class="mercado-match"
+                    width="24"
+                    height="24"
+                    focusable="false"
+                  >
+                    <path d="M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 2A4.5 4.5 0 1012 6.5 4.49 4.49 0 007.5 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p>La mia rete</p>
+                  <p>Salva e gestisci i tuoi collegamenti e interessi.</p>
+                </div>
+              </Card.Text>
+            </Col>
+            <Col lg={12}>
+              <Card.Text className="d-flex">
+                <div className="me-2">
+                  <BookmarkFill />
+                </div>
+                <div>
+                  <p>Elementi salvati</p>
+                  <p>Monitora le tue offerte di lavoro, i corsi e gli articoli.</p>
+                </div>
+              </Card.Text>
+            </Col>
+          </Row>
+          <Button variant="outline-secondary" className="rounded   ">
+            <ArrowRight />
+            Mostra tutte le analisi{" "}
+          </Button>
+        </>
       </Card>
     </Col>
   );
