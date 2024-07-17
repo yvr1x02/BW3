@@ -7,13 +7,13 @@ import Topbar from "./components/Topbar";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import ChatBox from "./components/ChatBox";
-import Home from "./components/Home";
+import Notizie from "./components/Notizie";
 
 function App() {
   return (
     <BrowserRouter>
       <Topbar />
-      <Home />
+      <Notizie />
       <Profile />
       <Footer />
       <ChatBox />
