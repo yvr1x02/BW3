@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Card from "react-bootstrap/Card";
-import {
-  fetchProfile,
-  fetchSuggestedProfiles,
-  uploadProfileImage,
-} from "../redux/reducers/profileSlice";
+import { fetchProfile, fetchSuggestedProfiles, uploadProfileImage } from "../redux/reducers/profileSlice";
 import Button from "react-bootstrap/Button";
 import ProfileAlert from "./ProfileAlert";
 import { Col, Container, Row, Form } from "react-bootstrap";
@@ -16,6 +12,8 @@ import Risorse from "./Risorse";
 import Attività from "./Attività";
 import Interessi from "./Interessi";
 import ExperienceList from "./ExperienceList";
+import { BsCamera } from "react-icons/bs";
+import { ArrowBarUp, CameraFill } from "react-bootstrap-icons";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -59,8 +57,27 @@ function Profile() {
               <>
                 <Card.Img src="src\assets\pipo.jpg" className="bg-image"></Card.Img>
                 <Card.Img variant="top" src={profileData.image} className="profile-image " alt="Profile image" />
-                <Card.Body className="pt-5">
+                <Card.Body className="pt-2">
+                  <Form.Group className="file-input ">
+                    <label htmlFor="profileImageInput" className="custom-file-upload pe-2">
+                      <CameraFill className="fs-3" />
+                    </label>
+                    <Form.Control
+                      id="profileImageInput"
+                      type="file"
+                      onChange={handleImageChange}
+                      style={{ display: "none" }}
+                    />
+                    <Button
+                      variant="outline-secondary"
+                      onClick={handleUpload}
+                      className="file-input-Upload rounded-pill"
+                    >
+                      <ArrowBarUp className="fs-3" />
+                    </Button>
+                  </Form.Group>
                   <Card.Title>{profileData.name + " " + profileData.surname}</Card.Title>
+
                   <Card.Text className="m-0">{profileData.title}</Card.Text>
                   <Card.Text>{profileData.bio}</Card.Text>
                   <Card.Text className="text-secondary d-flex m-0">
@@ -68,13 +85,6 @@ function Profile() {
                     <p>-</p>
                     <p className="text-primary info-contatto">informazioni di contatto</p>
                   </Card.Text>
-                  <Form.Group>
-                    <Form.Label>Carica Immagine Profilo</Form.Label>
-                    <Form.Control type="file" onChange={handleImageChange} />
-                  </Form.Group>
-                  <Button variant="primary" onClick={handleUpload}>
-                    Carica Immagine
-                  </Button>
                   <div>
                     <Button variant="primary" className="rounded-pill">
                       Disponibile per
