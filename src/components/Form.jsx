@@ -11,7 +11,7 @@ function FormExp() {
     <Container>
       <Row className="ControlloPosi">
         <div className="ContainerForm scrollable-content">
-          <div className="d-flex justify-content-between ps-4 pe-4 pt-2 pb-2">
+          <div className="fissa d-flex justify-content-between ps-4 pe-4 pt-2 pb-2">
             <h4>Aggiungi Esperienza</h4>
             <button className="buttonExit">X</button>
           </div>
@@ -43,7 +43,7 @@ function FormExp() {
               <div className="mb-4">
                 <label className="form-label">Qualifica</label>
                 <input
-                  className="form-control form-control-sm"
+                  className="form-controlForm form-control-sm"
                   type="text"
                   placeholder="Esempio: Retail Sales Manager"
                   aria-label=".form-control-sm example"
@@ -77,7 +77,7 @@ function FormExp() {
               <div className="mb-4">
                 <label className="form-label">Nome Azienda</label>
                 <input
-                  className="form-control form-control-sm"
+                  className="form-controlForm form-control-sm"
                   type="text"
                   placeholder="Esempio: Microsoft"
                   aria-label=".form-control-sm example"
@@ -295,7 +295,7 @@ function FormExp() {
                   Sommario del profilo
                 </label>
                 <input
-                  className="form-control form-control-sm"
+                  className="form-controlForm form-control-sm"
                   type="text"
                   placeholder="Esempio: Retail Sales Manager"
                   aria-label=".form-control-sm example"
@@ -355,7 +355,7 @@ function FormExp() {
                   Aggiungi una competenza
                 </button>
                 <input
-                  className="form-control form-control-sm"
+                  className="form-controlForm form-control-sm"
                   type="text"
                   placeholder="Esempio: Retail Sales Manager"
                   aria-label=".form-control-sm example"
@@ -414,16 +414,19 @@ function FormExp() {
                   Aggiungi media
                 </button>
                 <input
-                  className="form-control form-control-sm"
+                  className="form-controlForm form-control-sm"
                   type="text"
                   placeholder="Esempio: Retail Sales Manager"
                   aria-label=".form-control-sm example"
                 ></input>
                   </div>
             </div>
+            <div className="fissa">
+
             <hr />
-            <div className="d-flex justify-content-end">
+            <div className="  d-flex justify-content-end">
               <button className=" fw-bold btnForm mb-2">Salva</button>
+            </div>
             </div>
           </div>
         </div>
