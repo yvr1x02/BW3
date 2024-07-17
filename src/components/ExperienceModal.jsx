@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
 const ExperienceModal = ({ show, handleClose, handleSave, experience }) => {
-  const isEdit = !!experience; //se experience è un valore diverso da null,undefined,Nan, allora è true se no è false
+  const isEdit = !!experience;
 
   const [formData, setFormData] = useState({
     role: "",
@@ -22,6 +22,15 @@ const ExperienceModal = ({ show, handleClose, handleSave, experience }) => {
         endDate: experience.endDate,
         description: experience.description,
         area: experience.area,
+      });
+    } else {
+      setFormData({
+        role: "",
+        company: "",
+        startDate: "",
+        endDate: "",
+        description: "",
+        area: "",
       });
     }
   }, [isEdit, experience]);

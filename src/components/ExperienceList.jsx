@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchExperiences, updateExperience } from "../redux/reducers/experienceSlice";
-import { Card, Button } from "react-bootstrap";
+import { fetchExperiences, updateExperience, deleteExperience } from "../redux/reducers/experienceSlice";
+import { Card, Button, Modal } from "react-bootstrap";
 import ExperienceModal from "./ExperienceModal";
 
 const ExperienceList = ({ userId }) => {
@@ -10,6 +10,7 @@ const ExperienceList = ({ userId }) => {
   const status = useSelector((state) => state.experiences.status);
   const error = useSelector((state) => state.experiences.error);
   const [showModal, setShowModal] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [selectedExperience, setSelectedExperience] = useState(null);
 
   useEffect(() => {
@@ -24,9 +25,22 @@ const ExperienceList = ({ userId }) => {
     setSelectedExperience(null);
   };
 
+  const handleShowConfirm = (experience) => {
+    setSelectedExperience(experience);
+    setShowConfirmModal(true);
+  };
+
+  const handleCloseConfirm = () => setShowConfirmModal(false);
+
   const handleEdit = (experience) => {
     setSelectedExperience(experience);
     setShowModal(true);
+  };
+
+  const handleDelete = async () => {
+    await dispatch(deleteExperience({ userId, experienceId: selectedExperience._id }));
+    dispatch(fetchExperiences(userId));
+    handleCloseConfirm();
   };
 
   const handleSave = async (experience) => {
@@ -60,6 +74,7 @@ const ExperienceList = ({ userId }) => {
             <Card.Text>{exp.description}</Card.Text>
             <Card.Text>{exp.area}</Card.Text>
             <Button variant="outline-primary" onClick={() => handleEdit(exp)}>Edit</Button>
+            <Button variant="outline-danger" onClick={() => handleShowConfirm(exp)} className="ms-2">Delete</Button>
           </Card.Body>
         </Card>
       ))}
@@ -69,6 +84,22 @@ const ExperienceList = ({ userId }) => {
         handleSave={handleSave}
         experience={selectedExperience} 
       />
+      <Modal show={showConfirmModal} onHide={handleCloseConfirm}>
+        <Modal.Header closeButton>
+          <Modal.Title>Conferma Eliminazione</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Sei sicuro di voler eliminare questa esperienza?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseConfirm}>
+            Annulla
+          </Button>
+          <Button variant="danger" onClick={handleDelete}>
+            Elimina
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

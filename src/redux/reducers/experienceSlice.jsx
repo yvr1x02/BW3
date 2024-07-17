@@ -12,15 +12,14 @@ export const fetchExperiences = createAsyncThunk(
         },
       });
 
-      const data = await response.text(); 
+      const data = await response.text();
 
       if (!response.ok) {
-       
         console.error(data);
         return rejectWithValue(data);
       }
 
-      return JSON.parse(data); 
+      return JSON.parse(data);
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -40,15 +39,14 @@ export const addExperience = createAsyncThunk(
         body: JSON.stringify(experience),
       });
 
-      const data = await response.text(); 
+      const data = await response.text();
 
       if (!response.ok) {
-    
         console.error(data);
         return rejectWithValue(data);
       }
 
-      return JSON.parse(data); 
+      return JSON.parse(data);
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -68,15 +66,39 @@ export const updateExperience = createAsyncThunk(
         body: JSON.stringify(experience),
       });
 
-      const data = await response.text(); 
+      const data = await response.text();
 
       if (!response.ok) {
-       
         console.error(data);
         return rejectWithValue(data);
       }
 
       return JSON.parse(data);
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteExperience = createAsyncThunk(
+  "experiences/deleteExperience",
+  async ({ userId, experienceId }, { rejectWithValue }) => {
+    try {
+      const response = await fetch(`${API_URL}${userId}/experiences/${experienceId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk0ZmVhNDE5NmQ3YjAwMTVkNmI1NDAiLCJpYXQiOjE3MjEwNDA1NDksImV4cCI6MTcyMjI1MDE0OX0.vaH3-EZNYJ0ikK0i8Rf1KmmSowfto3Kl9u0H1A5PVPw",
+        },
+      });
+
+      const data = await response.text();
+
+      if (!response.ok) {
+        console.error(data);
+        return rejectWithValue(data);
+      }
+
+      return experienceId;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -112,6 +134,9 @@ const experienceSlice = createSlice({
         if (index !== -1) {
           state.data[index] = action.payload;
         }
+      })
+      .addCase(deleteExperience.fulfilled, (state, action) => {
+        state.data = state.data.filter(exp => exp._id !== action.payload);
       });
   },
 });
