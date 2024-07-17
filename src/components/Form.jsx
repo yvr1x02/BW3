@@ -1,9 +1,16 @@
 import { useState } from "react";
-import { Container, Form, FormCheck, FormGroup, FormSelect, Row } from "react-bootstrap";
+import {
+  Container,
+  Form,
+  FormCheck,
+  FormGroup,
+  FormSelect,
+  Row,
+} from "react-bootstrap";
 
 function FormExp() {
-  const [showCompetenceInput, setShowCompetenceInput] = useState(false);
-  const [showMediaInput, setShowMediaInput] = useState(false);
+  const [CompetenzeInput, setCompetenzeInput] = useState(false);
+  const [MediaInput, setMediaInput] = useState(false);
 
   return (
     <Container>
@@ -281,12 +288,21 @@ function FormExp() {
                 ))}
               </Form>
 
-              <FormGroup className="mb-5" controlId="exampleForm.ControlTextarea1">
+              <FormGroup
+                className="mb-5"
+                controlId="exampleForm.ControlTextarea1"
+              >
                 <Form.Label>Descrizione</Form.Label>
-                <Form.Control as="textarea" rows={3} className="form-controlForm" />
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  className="form-controlForm"
+                />
               </FormGroup>
               <div>
-                <label className="form-label fs-6 text-secondary">Sommario del profilo</label>
+                <label className="form-label fs-6 text-secondary">
+                  Sommario del profilo
+                </label>
                 <input
                   className="form-controlForm form-control-sm"
                   type="text"
@@ -306,9 +322,9 @@ function FormExp() {
                     in questo ruolo. Appariranno anche nella sezione Competenze.
                   </p>
                 </label>
-                {!showCompetenceInput && (
+                {!CompetenzeInput && (
                   <button
-                    onClick={() => setShowCompetenceInput(true)}
+                    onClick={() => setCompetenzeInput(true)}
                     className="btnCompetenze"
                   >
                     <svg
@@ -333,7 +349,6 @@ function FormExp() {
                               y1="19"
                               y2="5"
                             />
-
                             <line
                               fill="#0066CC"
                               stroke="#0066CC"
@@ -352,7 +367,7 @@ function FormExp() {
                     Aggiungi una competenza
                   </button>
                 )}
-                {showCompetenceInput && (
+                {CompetenzeInput && (
                   <input
                     className="form-controlForm form-control-sm"
                     type="text"
@@ -364,16 +379,16 @@ function FormExp() {
 
               <div>
                 <label className="form-label">
-                  <h5>Media</h5> <br />
+                  <h5 className="mt-4 fw-bold">Media</h5> <br />
                   <p>
-                    Aggiungi contenuti multimediali come immagini, documenti, siti
-                    o presentazioni. Scopri di più sui{" "}
+                    Aggiungi contenuti multimediali come immagini, documenti,
+                    siti o presentazioni. Scopri di più sui
                     <span>tipi di file multimediali supportati</span>
                   </p>
                 </label>
-                {!showMediaInput && (
+                {!MediaInput && (
                   <button
-                    onClick={() => setShowMediaInput(true)}
+                    onClick={() => setMediaInput(true)}
                     className="btnCompetenze"
                   >
                     <svg
@@ -398,7 +413,6 @@ function FormExp() {
                               y1="19"
                               y2="5"
                             />
-
                             <line
                               fill="#0066CC"
                               stroke="#0066CC"
@@ -417,13 +431,74 @@ function FormExp() {
                     Aggiungi media
                   </button>
                 )}
-                {showMediaInput && (
-                  <input
-                    className="form-controlForm form-control-sm"
-                    type="text"
-                    placeholder="Esempio: Retail Sales Manager"
-                    aria-label=".form-control-sm example"
-                  ></input>
+                {MediaInput && (
+                  <div className="containerDrop mt-2">
+                    <div className="contenitoreDropDown1">
+                      <div className="svgDropDown1">
+                        <svg
+                          width="30px"
+                          height="30px"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M15.7285 3.88396C17.1629 2.44407 19.2609 2.41383 20.4224 3.57981C21.586 4.74798 21.5547 6.85922 20.1194 8.30009L17.6956 10.7333C17.4033 11.0268 17.4042 11.5017 17.6976 11.794C17.9911 12.0863 18.466 12.0854 18.7583 11.7919L21.1821 9.35869C23.0934 7.43998 23.3334 4.37665 21.4851 2.5212C19.6346 0.663551 16.5781 0.905664 14.6658 2.82536L9.81817 7.69182C7.90688 9.61053 7.66692 12.6739 9.51519 14.5293C9.80751 14.8228 10.2824 14.8237 10.5758 14.5314C10.8693 14.2391 10.8702 13.7642 10.5779 13.4707C9.41425 12.3026 9.44559 10.1913 10.8809 8.75042L15.7285 3.88396Z"
+                            fill="#1C274C"
+                          />
+                          <path
+                            d="M14.4851 9.47074C14.1928 9.17728 13.7179 9.17636 13.4244 9.46868C13.131 9.76101 13.1301 10.2359 13.4224 10.5293C14.586 11.6975 14.5547 13.8087 13.1194 15.2496L8.27178 20.1161C6.83745 21.556 4.73937 21.5863 3.57791 20.4203C2.41424 19.2521 2.44559 17.1408 3.88089 15.6999L6.30473 13.2667C6.59706 12.9732 6.59614 12.4984 6.30268 12.206C6.00922 11.9137 5.53434 11.9146 5.24202 12.2081L2.81818 14.6413C0.906876 16.5601 0.666916 19.6234 2.51519 21.4789C4.36567 23.3365 7.42221 23.0944 9.33449 21.1747L14.1821 16.3082C16.0934 14.3895 16.3334 11.3262 14.4851 9.47074Z"
+                            fill="#1C274C"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <h6>Aggiungi link</h6>
+                        <p>Usalo per video,articoli e siti web</p>
+                      </div>
+                    </div>
+                    <hr className="hrDropDownForm" />
+                    <div className="contenitoreDropDown2">
+                      <div className="svgDropDown2">
+                        <svg
+                          fill="#000000"
+                          width="30px"
+                          height="30px"
+                          viewBox="0 0 36 36"
+                          version="1.1"
+                          preserveAspectRatio="xMidYMid meet"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>image-gallery-solid</title>
+                          <path
+                            d="M30.14,3h0a1,1,0,0,0-1-1h-22a1,1,0,0,0-1,1h0V4h24Z"
+                            className="clr-i-solid clr-i-solid-path-1"
+                          ></path>
+                          <path
+                            d="M32.12,7V7a1,1,0,0,0-1-1h-26a1,1,0,0,0-1,1h0V8h28Z"
+                            className="clr-i-solid clr-i-solid-path-2"
+                          ></path>
+                          <path
+                            d="M32.12,10H3.88A1.88,1.88,0,0,0,2,11.88V30.12A1.88,1.88,0,0,0,3.88,32H32.12A1.88,1.88,0,0,0,34,30.12V11.88A1.88,1.88,0,0,0,32.12,10ZM8.56,13.45a3,3,0,1,1-3,3A3,3,0,0,1,8.56,13.45ZM30,28h-24l7.46-7.47a.71.71,0,0,1,1,0l3.68,3.68L23.21,19a.71.71,0,0,1,1,0L30,24.79Z"
+                            className="clr-i-solid clr-i-solid-path-3"
+                          ></path>
+                          <rect
+                            x="0"
+                            y="0"
+                            width="36"
+                            height="36"
+                            fillOpacity="0"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <h6>
+                          Aggiungi contenuto <br /> multimediale{" "}
+                        </h6>
+                        <p>Carica immagini,presentazioni o documenti</p>
+                      </div>
+                    </div>
+                  </div>
                 )}
               </div>
             </div>

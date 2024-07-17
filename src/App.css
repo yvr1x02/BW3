@@ -415,4 +415,61 @@ color: #01458a;
 border: 2px solid #01458a;
 }
 
+.containerDrop{
+  border: 1px solid rgb(146, 146, 146);
+  width: 293px;
+  height: 185px;
+  border-radius: 10px;
+}
+.contenitoreDropDown1{
+  /* border: 2px solid rgb(0, 0, 0); */
+  display: flex;
+  width: 292px;
+    height: 85px;
+    cursor: pointer;
+    border-radius: 10px 10px 0px 0px;
+    translate: -1px 0px;
+}
 
+
+.contenitoreDropDown1:hover{
+  background-color: #d8d8d8;
+}
+
+.contenitoreDropDown2{
+  /* border: 2px solid rgb(8, 8, 8); */
+  display: flex;
+    height: 103px;
+    width: 292px;
+    cursor: pointer;
+    translate: 0px -4px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.contenitoreDropDown2:hover{
+  background-color: #d8d8d8;
+}
+
+.svgDropDown1{
+  
+  height: 77px;
+  width: 43px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.svgDropDown2{
+  
+  height: 93px;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  
+}
+
+.hrDropDownForm{
+  height: 5px;
+  margin: 0px;
+}
