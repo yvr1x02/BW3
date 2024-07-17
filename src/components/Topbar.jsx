@@ -14,10 +14,8 @@ import {
 import { Search } from "react-bootstrap-icons";
 import InputGroupText from "react-bootstrap/esm/InputGroupText";
 import ContentProfile from "./ContentProfile";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { fetchProfile } from "../redux/reducers/profileSlice";
-import { useDispatch, useSelector } from "react-redux";
 
 function TopBar() {
   const [activeLink, setActiveLink] = useState(null); //!!!!TRACCIAMENTO DEL LINK SELEZIONATO!!!!
@@ -26,23 +24,6 @@ function TopBar() {
     //!!!!!! handLinkClick PRENDE IL LINK AL CLICK
     setActiveLink(link);
   };
-  const dispatch = useDispatch();
-  const profileData = useSelector((state) => state.profile.data);
-  const profileStatus = useSelector((state) => state.profile.status);
-
-  useEffect(() => {
-    if (profileStatus === "idle") {
-      dispatch(fetchProfile());
-    }
-  }, [profileStatus, dispatch]);
-
-  if (profileStatus === "loading") {
-    return <div>Loading...</div>;
-  }
-
-  if (profileStatus === "failed") {
-    return <div>Error loading profile data.</div>;
-  }
   return (
     <Navbar expand="lg" className="ContTot">
       <Container className="StrutturaNav">
@@ -177,7 +158,7 @@ function TopBar() {
                   <span className="d-flex">
                     <i className="bi bi-person-circle iconDropMenu"></i>
                     <span>
-                      <p className="ms-2 text-center txtProfilName">{profileData.name + "" + profileData.surname}</p>
+                      <p className="ms-2 text-center txtProfilName">Pinco Pallo</p>
                       <p className="infoDrop ms-2">Info</p>
                     </span>
                   </span>
