@@ -15,11 +15,11 @@ import { Search } from "react-bootstrap-icons";
 import InputGroupText from "react-bootstrap/esm/InputGroupText";
 import ContentProfile from "./ContentProfile";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function TopBar() {
   const [activeLink, setActiveLink] = useState(null); //!!!!TRACCIAMENTO DEL LINK SELEZIONATO!!!!
-
+  const navigate = useNavigate();
   const handleLinkClick = (link) => {
     //!!!!!! handLinkClick PRENDE IL LINK AL CLICK
     setActiveLink(link);
@@ -39,10 +39,10 @@ function TopBar() {
         <NavbarToggle aria-controls="basic-navbar-nav" />
         <NavbarCollapse id="basic-navbar-nav">
           <Nav className="me-auto navBarTot">
-            <Nav.Link
+            <NavLink
               href="#home"
-              to="/"
-              className="{`text-center txtNavBar ${activeLink === '#home' ? 'active' : ''}`}" //!!!!  'activeLink' è uguale al valore #href SEMPRE   Se activeLink è uguale a #home, aggiungi anche la classe active
+              to="/HomePage"
+              className="{`text-center txtNavBar ${activeLink === '#home' ? 'active' : ''}`} Home-link" //!!!!  'activeLink' è uguale al valore #href SEMPRE   Se activeLink è uguale a #home, aggiungi anche la classe active
               onClick={() => handleLinkClick("#home")}
             >
               <svg
@@ -58,7 +58,7 @@ function TopBar() {
                 <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z"></path>
               </svg>{" "}
               Home
-            </Nav.Link>
+            </NavLink>
             <Nav.Link
               href="#rete"
               className={`text-center txtNavBar ${activeLink === "#rete" ? "active" : ""}`}
