@@ -1,12 +1,10 @@
-import {
-  Container,
-  Form,
-  FormCheck,
-  FormGroup,
-  FormSelect,
-  Row,
-} from "react-bootstrap";
+import { useState } from "react";
+import { Container, Form, FormCheck, FormGroup, FormSelect, Row } from "react-bootstrap";
+
 function FormExp() {
+  const [showCompetenceInput, setShowCompetenceInput] = useState(false);
+  const [showMediaInput, setShowMediaInput] = useState(false);
+
   return (
     <Container>
       <Row className="ControlloPosi">
@@ -17,7 +15,8 @@ function FormExp() {
           </div>
           <div id="ContainerScrollBar">
             <div className="ContCheckForm">
-              <div>
+              <div></div>
+              <div className="me-2">
                 <h6 className="pt-2">Informa la rete</h6>
                 <p className="">
                   Attiva l’opzione per informare la tua rete delle principali
@@ -30,7 +29,7 @@ function FormExp() {
                 </p>
               </div>
               <Form className="checkForm">
-                <h5>SI</h5>
+                <h5 className="me-2">SI</h5>
                 <Form.Check
                   type="switch"
                   id="custom-switch"
@@ -40,8 +39,8 @@ function FormExp() {
               </Form>
             </div>
             <div className="ps-4 pe-4 pt-2 pb-2">
+              <label className="form-label">Qualifica</label>
               <div className="mb-4">
-                <label className="form-label">Qualifica</label>
                 <input
                   className="form-controlForm form-control-sm"
                   type="text"
@@ -180,7 +179,6 @@ function FormExp() {
                     <option value="1">1990</option>
                     <option value="2">1989</option>
                     <option value="3">1987</option>
-                    <option value="1">202</option>
                     <option value="2">1986</option>
                     <option value="3">1985</option>
                     <option value="1">1984</option>
@@ -283,17 +281,12 @@ function FormExp() {
                 ))}
               </Form>
 
-              <FormGroup
-                className="mb-5"
-                controlId="exampleForm.ControlTextarea1"
-              >
+              <FormGroup className="mb-5" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Descrizione</Form.Label>
-                <Form.Control as="textarea" rows={3} />
+                <Form.Control as="textarea" rows={3} className="form-controlForm" />
               </FormGroup>
               <div>
-                <label className="form-label fs-6 text-secondary">
-                  Sommario del profilo
-                </label>
+                <label className="form-label fs-6 text-secondary">Sommario del profilo</label>
                 <input
                   className="form-controlForm form-control-sm"
                   type="text"
@@ -313,120 +306,132 @@ function FormExp() {
                     in questo ruolo. Appariranno anche nella sezione Competenze.
                   </p>
                 </label>
-                <button className="btnCompetenze">
-                  <svg
-                    width="20px"
-                    height="20px"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                {!showCompetenceInput && (
+                  <button
+                    onClick={() => setShowCompetenceInput(true)}
+                    className="btnCompetenze"
                   >
-                    <title />
+                    <svg
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title />
 
-                    <g id="Complete">
-                      <g data-name="add" id="add-2">
-                        <g>
-                          <line
-                            fill="#0066CC"
-                            stroke="#0066CC"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            x1="12"
-                            x2="12"
-                            y1="19"
-                            y2="5"
-                          />
+                      <g id="Complete">
+                        <g data-name="add" id="add-2">
+                          <g>
+                            <line
+                              fill="#0066CC"
+                              stroke="#0066CC"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              x1="12"
+                              x2="12"
+                              y1="19"
+                              y2="5"
+                            />
 
-                          <line
-                            fill="#0066CC"
-                            stroke="#0066CC"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            x1="5"
-                            x2="19"
-                            y1="12"
-                            y2="12"
-                          />
+                            <line
+                              fill="#0066CC"
+                              stroke="#0066CC"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              x1="5"
+                              x2="19"
+                              y1="12"
+                              y2="12"
+                            />
+                          </g>
                         </g>
                       </g>
-                    </g>
-                  </svg>
-                  Aggiungi una competenza
-                </button>
-                <input
-                  className="form-controlForm form-control-sm"
-                  type="text"
-                  placeholder="Esempio: Retail Sales Manager"
-                  aria-label=".form-control-sm example"
-                ></input>
+                    </svg>
+                    Aggiungi una competenza
+                  </button>
+                )}
+                {showCompetenceInput && (
+                  <input
+                    className="form-controlForm form-control-sm"
+                    type="text"
+                    placeholder="Esempio: Retail Sales Manager"
+                    aria-label=".form-control-sm example"
+                  ></input>
+                )}
               </div>
 
-                  <div>
-
-              <label className="form-label">
-                <h5>Media</h5> <br />
-                <p>
-                  Aggiungi contenuti multimediali come immagini, documenti, siti
-                  o presentazioni. Scopri di più sui{" "}
-                  <span>tipi di file multimediali supportati</span>
-                </p>
-              </label>
-              <button className="btnCompetenze">
-                  <svg
-                    width="20px"
-                    height="20px"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+              <div>
+                <label className="form-label">
+                  <h5>Media</h5> <br />
+                  <p>
+                    Aggiungi contenuti multimediali come immagini, documenti, siti
+                    o presentazioni. Scopri di più sui{" "}
+                    <span>tipi di file multimediali supportati</span>
+                  </p>
+                </label>
+                {!showMediaInput && (
+                  <button
+                    onClick={() => setShowMediaInput(true)}
+                    className="btnCompetenze"
                   >
-                    <title />
+                    <svg
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title />
 
-                    <g id="Complete">
-                      <g data-name="add" id="add-2">
-                        <g>
-                          <line
-                            fill="#0066CC"
-                            stroke="#0066CC"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            x1="12"
-                            x2="12"
-                            y1="19"
-                            y2="5"
-                          />
+                      <g id="Complete">
+                        <g data-name="add" id="add-2">
+                          <g>
+                            <line
+                              fill="#0066CC"
+                              stroke="#0066CC"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              x1="12"
+                              x2="12"
+                              y1="19"
+                              y2="5"
+                            />
 
-                          <line
-                            fill="#0066CC"
-                            stroke="#0066CC"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            x1="5"
-                            x2="19"
-                            y1="12"
-                            y2="12"
-                          />
+                            <line
+                              fill="#0066CC"
+                              stroke="#0066CC"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              x1="5"
+                              x2="19"
+                              y1="12"
+                              y2="12"
+                            />
+                          </g>
                         </g>
                       </g>
-                    </g>
-                  </svg>
-                  Aggiungi media
-                </button>
-                <input
-                  className="form-controlForm form-control-sm"
-                  type="text"
-                  placeholder="Esempio: Retail Sales Manager"
-                  aria-label=".form-control-sm example"
-                ></input>
-                  </div>
+                    </svg>
+                    Aggiungi media
+                  </button>
+                )}
+                {showMediaInput && (
+                  <input
+                    className="form-controlForm form-control-sm"
+                    type="text"
+                    placeholder="Esempio: Retail Sales Manager"
+                    aria-label=".form-control-sm example"
+                  ></input>
+                )}
+              </div>
             </div>
             <div className="fissa">
-
-            <hr />
-            <div className="  d-flex justify-content-end">
-              <button className=" fw-bold btnForm mb-2">Salva</button>
-            </div>
+              <hr />
+              <div className="fissa d-flex justify-content-end">
+                <button className="fw-bold btnForm mb-2">Salva</button>
+              </div>
             </div>
           </div>
         </div>

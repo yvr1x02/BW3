@@ -7,6 +7,7 @@ import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import ChatBox from "./components/ChatBox";
 import FormExp from "./components/Form";
+import Form2 from "./components/Form2.0";
 
 function App() {
   return (

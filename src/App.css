@@ -274,7 +274,6 @@ body {
   position: relative;
 }
 
-
 .ContainerForm {
   overflow-y: auto;
 
@@ -372,15 +371,15 @@ border: none;
 
 .form-controlForm{
   border:1px solid #555;
+  width: 100%;
 }
 
 .form-select1{
   width: 48%;
 }
-.form-select-container{
-  display: flex;
-  justify-content: ;
-}
+/* .form-select-container{
+  
+} */
 
 input[type="checkbox"]{
   width: 25px;
@@ -415,3 +414,5 @@ cursor: pointer;
 color: #01458a;
 border: 2px solid #01458a;
 }
+
+
