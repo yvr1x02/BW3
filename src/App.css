@@ -266,14 +266,147 @@ body {
 /* !!!!!!!!!!!!!!FORM!!!!!!!!!!!!!!!!!!!!!!*/
 
 .ContainerForm{
-  border: 2px solid red;
-  height: 1900px;
-  width: 500px;
+  border: 0.5px solid #c5c5c5;
+  border-radius: 11px;
+  height: 851px;
+  width: 744px;
+  padding: 0px;
+  position: relative;
 }
+
+
+.ContainerForm {
+ /*  width: 100%; */
+  /* height: 657; */ /* Altezza fissa, puoi cambiare secondo le tue necessità */
+  overflow-y: auto;
+}
+
+/* Stilizzazione per Chrome, Edge e Safari */
+.ContainerForm::-webkit-scrollbar {
+  width: 12px;
+}
+
+.ContainerForm::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+.ContainerForm::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+/* Facoltativo: Cambiare il colore dello scrollbar al passaggio del mouse */
+.ContainerForm::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+
+
 
 .ControlloPosi{
   display: flex;
   justify-content: center;
   margin-top: 58px;
   margin-bottom: 60px;
+}
+
+.btnForm{
+font-family: Roboto, sans-serif;
+font-weight: 0;
+font-size: 14px;
+color: #ffffff;
+background-color: #0066CC;
+padding: 6px 21px;
+border: none;
+box-shadow: none;
+border-radius: 50px;
+transition : 1307ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+}
+
+.btnForm:hover{
+background-color: #01458a;
+color: #ffffff;
+border: none;
+}
+
+.checkForm{
+  display: flex;
+  align-items: center;
+}
+
+.ContCheckForm{
+  display: flex;
+  background-color: #edf3f8;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top: 1px solid #9b9a9a;
+}
+
+.buttonExit{
+  border: none;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+
+.spanForm{
+  cursor: pointer;
+}
+
+.spanForm:hover{
+  text-decoration: underline;
+}
+
+.form-control{
+  border:1px solid #555;
+}
+
+.form-select1{
+  width: 48%;
+}
+.form-select-container{
+  display: flex;
+  justify-content: ;
+}
+
+input[type="checkbox"]{
+  width: 25px;
+  height:25px;
+}
+.spanfs{
+  font-size:small ;
+}
+
+.btnCompetenze{
+  font-family: Roboto, sans-serif;
+font-weight: 0;
+font-size: 14px;
+font-weight: bold;
+color: #0066CC;
+background-color: #ffffff;
+padding: 6px 21px;
+border:2px solid #0066CC;
+box-shadow: none;
+border-radius: 50px;
+transition : 1307ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+
+}
+
+.btnCompetenze:hover{
+  background-color: #ffffff;
+color: #01458a;
+border: 2px solid #01458a;
 }
