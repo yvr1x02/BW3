@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchExperiences, updateExperience, deleteExperience,addExperience } from "../redux/reducers/experienceSlice";
-import { Card, Button, Modal } from "react-bootstrap";
+import { fetchExperiences, addExperience, updateExperience, deleteExperience, uploadExperienceImage } from "../redux/reducers/experienceSlice";
+import { Card, Button, Modal, Image } from "react-bootstrap";
 import ExperienceModal from "./ExperienceModal";
 
 const ExperienceList = ({ userId }) => {
@@ -43,11 +43,15 @@ const ExperienceList = ({ userId }) => {
     handleCloseConfirm();
   };
 
-  const handleSave = async (experience) => {
+  const handleSave = async (experience, image) => {
+    let newExperience;
     if (selectedExperience) {
-      await dispatch(updateExperience({ userId, experienceId: selectedExperience._id, experience }));
+      newExperience = await dispatch(updateExperience({ userId, experienceId: selectedExperience._id, experience }));
     } else {
-      await dispatch(addExperience({ userId, experience }));
+      newExperience = await dispatch(addExperience({ userId, experience }));
+    }
+    if (image) {
+      await dispatch(uploadExperienceImage({ userId, experienceId: newExperience.payload._id, image }));
     }
     dispatch(fetchExperiences(userId));
     handleClose();
@@ -72,6 +76,7 @@ const ExperienceList = ({ userId }) => {
             <Card.Title>{exp.role}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{exp.company}</Card.Subtitle>
             <Card.Text>{exp.description}</Card.Text>
+            <Image src={exp.image} rounded ></Image>
             <Card.Text>{exp.area}</Card.Text>
             <Button variant="outline-primary" onClick={() => handleEdit(exp)}>Edit</Button>
             <Button variant="outline-danger" onClick={() => handleShowConfirm(exp)} className="ms-2">Delete</Button>
