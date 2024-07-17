@@ -10,7 +10,7 @@ const Post = ({ post }) => {
     dispatch(deletePost(post._id));
   };
 
-  const isOwner = post.username === currentUserId;
+  const isOwner = post.userId === currentUserId;
 
   return (
     <div>
