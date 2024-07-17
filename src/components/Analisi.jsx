@@ -25,7 +25,7 @@ function Analisi() {
   }
 
   return (
-    <Col lg={8}>
+    <Col>
       <Card className="p-0 card-linkedin-secondary  mt-2">
         {profileData && (
           <>
