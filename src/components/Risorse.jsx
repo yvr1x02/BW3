@@ -9,9 +9,9 @@ function Risorse() {
     <Col>
       <Card className="p-0 card-linkedin-secondary  mt-2">
         <>
-          <Card.Title>Risorse</Card.Title>
-          <Card.Text>
-            <EyeFill className="ms-3" /> solo per te
+          <Card.Title className="ms-4 mt-4 m-0">Risorse</Card.Title>
+          <Card.Text className="text-secondary">
+            <EyeFill className="ms-4" /> solo per te
           </Card.Text>
           <Row>
             <Col lg={12}>

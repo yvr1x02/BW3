@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Card from "react-bootstrap/Card";
 import { fetchProfile } from "../redux/reducers/profileSlice";
 import Button from "react-bootstrap/Button";
-import { Alert, Col, Container } from "react-bootstrap";
+import { Alert, Col, Container, ProgressBar } from "react-bootstrap";
 import { EyeFill } from "react-bootstrap-icons";
 
 function Consigliati() {
@@ -12,14 +12,17 @@ function Consigliati() {
     <Col>
       <Card className="p-0 card-linkedin-secondary  mt-2">
         <>
-          <Card.Title>Consigliato per te </Card.Title>
-          <Card.Text>
-            <EyeFill className="ms-3" /> solo per te
-          </Card.Text>
-          <Card.Text>Principiante</Card.Text>
+          <Card.Title className="ms-4 mt-4 m-0">Consigliato per te </Card.Title>
           <Card.Text className="text-secondary">
+            <EyeFill className="ms-4 " /> solo per te
+          </Card.Text>
+          <Card.Text className="ms-4 fw-semibold m-0">Intermedio</Card.Text>
+
+          <ProgressBar now={60} variant="secondary" className="mx-3" />
+
+          <Card.Text className="text-secondary ms-4 ">
             Completa 1 passaggio per raggiungereil livello
-            <span> intermedio</span>
+            <span className="text-primary"> Massimo</span>
           </Card.Text>
           <Container className="d-flex">
             <Col lg={6}>

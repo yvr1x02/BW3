@@ -295,3 +295,22 @@ body {
 .DropCont1 {
   margin-bottom: 17px;
 }
+
+.progress {
+  height: 8px;
+}
+.text-analisi {
+  font-size: 15px;
+}
+.btn-analisi {
+  background-color: white;
+  color: #646464;
+  border: none;
+  border-top: 1px solid #a8a8a896;
+  border-radius: 0px;
+}
+.btn-analisi:hover {
+  background-color: #d8d8d83b;
+  border-top: 1px solid #a8a8a896;
+  color: #494949;
+}

@@ -11,9 +11,9 @@ function Analisi() {
     <Col>
       <Card className="p-0 card-linkedin-secondary  mt-2">
         <>
-          <Card.Title>Analisi</Card.Title>
-          <Card.Text>
-            <EyeFill className="ms-3" /> solo per te
+          <Card.Title className="ms-4 mt-4 m-0">Analisi</Card.Title>
+          <Card.Text className="text-secondary">
+            <EyeFill className="ms-4" /> solo per te
           </Card.Text>
           <Row>
             <Col lg={4}>
@@ -24,7 +24,7 @@ function Analisi() {
                     viewBox="0 0 24 24"
                     data-supported-dps="24x24"
                     fill="currentColor"
-                    class="mercado-match"
+                    className="mercado-match ms-4"
                     width="24"
                     height="24"
                     focusable="false"
@@ -33,8 +33,8 @@ function Analisi() {
                   </svg>
                 </div>
                 <div>
-                  <p>4.5 milioni di visualizzazioni del profilo</p>
-                  <p>Aggiorna il tuo profilo per attrarre visitatori.</p>
+                  <p className="fw-semibold text-analisi m-0"> 4.5 milioni di visualizzazioni del profilo</p>
+                  <p className="m-0 text-analisi">Aggiorna il tuo profilo per attrarre visitatori.</p>
                 </div>
               </Card.Text>
             </Col>
@@ -46,7 +46,7 @@ function Analisi() {
                     viewBox="0 0 24 24"
                     data-supported-dps="24x24"
                     fill="currentColor"
-                    class="mercado-match"
+                    className="mercado-match "
                     width="24"
                     height="24"
                     focusable="false"
@@ -55,16 +55,15 @@ function Analisi() {
                   </svg>
                 </div>
                 <div>
-                  <p>15 bilioni di impressioni del post </p>
-                  <p>Crea un post per aumentare l'interesse.</p>
-                  <p>ultimi 7 giorni</p>
+                  <p className="fw-semibold text-analisi m-0">15 bilioni di impressioni del post </p>
+                  <p className="m-0 text-analisi">Crea un post per aumentare l'interesse.</p>
+                  <p className="text-secondary text-analisi">ultimi 7 giorni</p>
                 </div>
               </Card.Text>
             </Col>
           </Row>
-          <Button variant="outline-secondary" className="rounded   ">
-            <ArrowRight />
-            Mostra tutte le analisi{" "}
+          <Button className="rounded btn-analisi">
+            Mostra tutte le analisi <ArrowRight />
           </Button>
         </>
       </Card>
