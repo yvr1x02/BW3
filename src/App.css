@@ -5,6 +5,15 @@
   padding-left: 80px;
 }
 
+.image-exp{
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.card-title{
+  margin-bottom: 5px;
+}
+
 .read-the-docs {
   color: #888;
 }
