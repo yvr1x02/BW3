@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { fetchJobs } from "../redux/reducers/jobsSlice";
-import TopBar from "../components/TopBar";
+import TopBar from "./TopBar";
 
 const Jobs = () => {
   const dispatch = useDispatch();

@@ -1,4 +1,4 @@
-import Topbar from "../components/Topbar";
+import Topbar from "../components/TopBar";
 import Profile from "../components/Profile";
 import Footer from "../components/Footer";
 import ChatBox from "../components/ChatBox";
