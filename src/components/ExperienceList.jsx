@@ -73,9 +73,9 @@ const ExperienceList = ({ userId }) => {
   }
 
   return (
-    <Card className="p-0">
-      <div className="d-flex">
-        <Card.Title className="ms-4 mt-4 m-0 mb-4">Esperienze</Card.Title>
+    <Card className="p-0 mt-2">
+      <div className="d-flex border-bottom mx-4 mb-2">
+        <Card.Title className=" mt-4 m-0 mb-4 ">Esperienze</Card.Title>
         <Button onClick={handleShow} className="btn-Add mt-2 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -90,15 +90,9 @@ const ExperienceList = ({ userId }) => {
             <path d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8z"></path>
           </svg>
         </Button>
-        <Button onClick={() => handleEdit(exp)} className="btn-edit mt-2">
-          <Pencil />
-        </Button>
-        <Button onClick={() => handleShowConfirm(exp)} className="btn-delete mt-2">
-          <Trash3Fill />
-        </Button>
       </div>
       {experiences.map((exp) => (
-        <Card key={exp._id} className=" p-0 card-ex ms-2">
+        <Card key={exp._id} className=" p-0 card-ex mx-2 border-bottom mb-2">
           <Card.Body className="p-0 ms-3">
             <div className="d-flex">
               <Image src={exp.image} rounded className="image-exp "></Image>
@@ -108,6 +102,12 @@ const ExperienceList = ({ userId }) => {
                 <Card.Text className="m-0">{exp.description}</Card.Text>
                 <Card.Text className="m-0">{exp.area}</Card.Text>
               </div>
+              <Button onClick={() => handleEdit(exp)} className="btn-edit mt-2">
+                <Pencil />
+              </Button>
+              <Button onClick={() => handleShowConfirm(exp)} className="btn-delete mt-2">
+                <Trash3Fill />
+              </Button>
             </div>
           </Card.Body>
         </Card>

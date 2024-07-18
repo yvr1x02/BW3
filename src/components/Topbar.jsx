@@ -171,13 +171,12 @@ function TopBar() {
                   Account
                 </DropdownItem>
                 <p className="ms-3 fw-bold pAccount">
-                  {" "}
                   <img
                     width="18"
                     height="18"
                     src="https://img.icons8.com/emoji/48/yellow-square-emoji.png"
                     alt="yellow-square-emoji"
-                  />{" "}
+                  />
                   Prova Premium per 0 EUR
                 </p>
                 <p className="ms-3 pAccount ">Impostazioni e Privacy</p>
