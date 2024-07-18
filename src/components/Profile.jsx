@@ -12,7 +12,7 @@ import Risorse from "./Risorse";
 import Attività from "./Attività";
 import Interessi from "./Interessi";
 import ExperienceList from "./ExperienceList";
-import { BsCamera } from "react-icons/bs";
+//import { BsCamera } from "react-icons/bs";
 import { ArrowBarUp, CameraFill } from "react-bootstrap-icons";
 
 function Profile() {
@@ -62,17 +62,8 @@ function Profile() {
                     <label htmlFor="profileImageInput" className="custom-file-upload pe-2">
                       <CameraFill className="fs-3" />
                     </label>
-                    <Form.Control
-                      id="profileImageInput"
-                      type="file"
-                      onChange={handleImageChange}
-                      style={{ display: "none" }}
-                    />
-                    <Button
-                      variant="outline-secondary"
-                      onClick={handleUpload}
-                      className="file-input-Upload rounded-pill"
-                    >
+                    <Form.Control id="profileImageInput" type="file" onChange={handleImageChange} style={{ display: "none" }} />
+                    <Button variant="outline-secondary" onClick={handleUpload} className="file-input-Upload rounded-pill">
                       <ArrowBarUp className="fs-3" />
                     </Button>
                   </Form.Group>

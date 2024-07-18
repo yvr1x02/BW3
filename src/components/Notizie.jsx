@@ -1,31 +1,28 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts } from "../redux/reducers/postSlice";
-import Post from "./Post";
+import { fetchPosts, deletePost } from "../redux/reducers/postSlice";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import PostForm from "./PostForm";
 import { fetchProfile } from "../redux/reducers/profileSlice";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { BookmarkFill, Calendar2Event, PeopleFill } from "react-bootstrap-icons";
 
-const Notizie = () => {
+const Posts = ({ userId }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.posts);
-  const status = useSelector((state) => state.posts.status);
+  const postStatus = useSelector((state) => state.posts.status);
   const error = useSelector((state) => state.posts.error);
-  const profileStatus = useSelector((state) => state.profile.status);
-  const profileData = useSelector((state) => state.profile.data);
 
   useEffect(() => {
-    if (profileStatus === "idle") {
-      dispatch(fetchProfile());
-    }
-  }, [profileStatus, dispatch]);
-
-  useEffect(() => {
-    if (status === "idle" && profileData) {
+    if (postStatus === "idle") {
       dispatch(fetchPosts());
     }
-  }, [status, dispatch, profileData]);
+  }, [postStatus, dispatch]);
+
+  const handleDelete = (postId) => {
+    dispatch(deletePost(postId));
+  };
 
   return (
     <div>
@@ -88,19 +85,28 @@ const Notizie = () => {
             </Card>
           </Col>
           <Col lg={6}>
-            <Card>{profileData && <PostForm />}</Card>
+            <PostForm></PostForm>
 
-            {status === "loading" && <p>Loading...</p>}
-            {status === "failed" && <p>{error}</p>}
-            {status === "succeeded" && (
-              <div>
-                {posts.map((post) => (
-                  <div className="card">
-                    <Post key={post._id} post={post} />
-                  </div>
+            {postStatus === "loading" && <div>Loading...</div>}
+            {postStatus === "failed" && <div>{error}</div>}
+            {postStatus === "succeeded" &&
+              posts
+                .slice()
+                .reverse()
+                .map((post) => (
+                  <Card key={post._id}>
+                    <Card.Body>
+                      <Card.Title>{post.username}</Card.Title>
+                      <Card.Text>{post.text}</Card.Text>
+                      <Card.Text>Created at: {new Date(post.createdAt).toLocaleString()} </Card.Text>
+                      {post.userId === userId && (
+                        <Button variant="danger" onClick={() => handleDelete(post._id)}>
+                          Delete
+                        </Button>
+                      )}
+                    </Card.Body>
+                  </Card>
                 ))}
-              </div>
-            )}
           </Col>
           <Col lg={3}>
             <Card className="mb-3 p-1">
@@ -117,4 +123,4 @@ const Notizie = () => {
   );
 };
 
-export default Notizie;
+export default Posts;
