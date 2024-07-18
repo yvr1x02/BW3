@@ -11,13 +11,16 @@ const Sidebar = ({ mainProfile, suggestedProfiles }) => {
             <Card.Title className="text-sidebar-profile mb-1">Lingua del profilo</Card.Title>
             <Card.Text className="text-sidebar-profile-small mb-2 text-secondary">Italiano</Card.Text>
           </div>
-          <Card.Title className="text-sidebar-profile">Profilo pubblico e URL</Card.Title>
+          <Card.Title className="text-sidebar-profile mt-3">Profilo pubblico e URL</Card.Title>
           <Card.Text className="text-sidebar-profile-small">
             <a href={`https://www.linkedin.com/in/${mainProfile.username}`}>
               {`https://www.linkedin.com/in/${mainProfile.username}`}
             </a>
           </Card.Text>
         </Card.Body>
+      </Card>{" "}
+      <Card className="mt-3 mb-3 p-0">
+        <Card.Img src="src\assets\ads.png"></Card.Img>
       </Card>
       <Card className="p-3">
         <Card.Body className="pt=0 mt=0">
@@ -39,9 +42,6 @@ const Sidebar = ({ mainProfile, suggestedProfiles }) => {
             ))}
           </ListGroup>
         </Card.Body>
-      </Card>
-      <Card className="mt-3 p-0">
-        <Card.Img src="src\assets\ads.png"></Card.Img>
       </Card>
     </>
   );
