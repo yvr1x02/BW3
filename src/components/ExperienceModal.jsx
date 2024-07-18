@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Modal, Button,} from "react-bootstrap";
+import FormPage from "./Form";
 
 const ExperienceModal = ({ show, handleClose, handleSave, experience }) => {
   const [role, setRole] = useState("");
@@ -31,74 +32,18 @@ const ExperienceModal = ({ show, handleClose, handleSave, experience }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal className="modalCont" show={show} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>{experience ? "Modifica Esperienza" : "Aggiungi Esperienza"}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form>
-          <Form.Group controlId="formRole">
-            <Form.Label>Ruolo</Form.Label>
-            <Form.Control
-              type="text"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formCompany">
-            <Form.Label>Azienda</Form.Label>
-            <Form.Control
-              type="text"
-              value={company}
-              onChange={(e) => setCompany(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formStartDate">
-            <Form.Label>Data Inizio</Form.Label>
-            <Form.Control
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formEndDate">
-            <Form.Label>Data Fine</Form.Label>
-            <Form.Control
-              type="date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formDescription">
-            <Form.Label>Descrizione</Form.Label>
-            <Form.Control
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formArea">
-            <Form.Label>Area</Form.Label>
-            <Form.Control
-              type="text"
-              value={area}
-              onChange={(e) => setArea(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formImage">
-            <Form.Label>Immagine</Form.Label>
-            <Form.Control
-              type="file"
-              onChange={handleImageChange}
-            />
-          </Form.Group>
-        </Form>
+        <FormPage />
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        {/* <Button className="" variant="secondary" onClick={handleClose}>
           Annulla
-        </Button>
-        <Button variant="primary" onClick={handleSubmit}>
+        </Button> */}
+        <Button  className="btnForm mb-2" variant="primary" onClick={handleSubmit}>
           Salva
         </Button>
       </Modal.Footer>

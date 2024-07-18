@@ -326,6 +326,7 @@ body {
 .ContainerForm{
   height: 500px;
   width: 744px;
+  padding: 0px;
 }
 
 .ContainerForm {
@@ -383,7 +384,9 @@ border: none;
 
 .ContCheckForm{
   display: flex;
-  background-color: #edf3f8
+  background-color: #edf3f8;
+  padding-left: 24px;
+    padding-right: 24px;
 }
 
 .buttonExit{

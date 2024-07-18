@@ -34,10 +34,6 @@ class FormPage extends Component {
       <Container>
         <Row className="ControlloPosi">
           <div className="ContainerForm scrollable-content">
-            <div className="fissa d-flex justify-content-between ps-4 pe-4 pt-2 pb-2">
-              <h4>Aggiungi Esperienza</h4>
-              <button className="buttonExit">X</button>
-            </div>
             <div id="ContainerScrollBar">
               <div className="ContCheckForm">
                 <div></div>
@@ -47,8 +43,7 @@ class FormPage extends Component {
                     Attiva l’opzione per informare la tua rete delle principali
                     modifiche al profilo (ad esempio un nuovo lavoro) e degli
                     anniversari lavorativi. Gli aggiornamenti possono richiedere
-                    fino a 2 ore. Scopri di più sulla
-                    <span className="text-primary fw-bold spanForm">
+                    fino a 2 ore. Scopri di più sulla <span className="text-primary fw-bold spanForm">
                       condivisione delle modifiche del profilo.
                     </span>
                   </p>
@@ -118,8 +113,7 @@ class FormPage extends Component {
                     <option value="8">Stagionale</option>
                   </FormSelect>
                   <p>
-                    Scopri di più sui{" "}
-                    <span className="text-primary fw-bold spanForm">
+                    Scopri di più sui <span className="text-primary fw-bold spanForm">
                       tipi di impiego.
                     </span>
                   </p>
@@ -561,10 +555,10 @@ class FormPage extends Component {
                 </div>
               </div>
               <div className="fissa">
-                <hr />
-                <div className="fissa d-flex justify-content-end">
+               {/*  <hr /> */}
+                {/* <div className="fissa d-flex justify-content-end">
                   <button className="fw-bold btnForm mb-2">Salva</button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
