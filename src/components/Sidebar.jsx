@@ -5,7 +5,7 @@ import "../App.css";
 const Sidebar = ({ mainProfile, suggestedProfiles }) => {
   return (
     <>
-      <Card className="mb-3 p-3">
+      <Card className="mb-3 p-1">
         <Card.Body>
           <Card.Title>Lingua del profilo</Card.Title>
           <Card.Text>Italiano</Card.Text>
@@ -19,22 +19,11 @@ const Sidebar = ({ mainProfile, suggestedProfiles }) => {
       </Card>
       <Card className="p-3">
         <Card.Body className="pt=0 mt=0">
-          <Card.Title className="mb-3">
-            Persone che potresti conoscere
-          </Card.Title>
+          <Card.Title className="mb-3">Persone che potresti conoscere</Card.Title>
           <ListGroup variant="flush">
             {suggestedProfiles.map((profile) => (
-              <ListGroup.Item
-                key={profile._id}
-                className="d-flex align-items-center "
-              >
-                <Image
-                  src={profile.image}
-                  roundedCircle
-                  width="50"
-                  height="50"
-                  className="me-3"
-                />
+              <ListGroup.Item key={profile._id} className="d-flex align-items-center ">
+                <Image src={profile.image} roundedCircle width="50" height="50" className="me-3" />
                 <div>
                   <div>
                     {profile.name} {profile.surname}

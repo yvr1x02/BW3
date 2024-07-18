@@ -27,7 +27,7 @@ function TopBar() {
   return (
     <Navbar expand="lg" className="ContTot">
       <Container className="StrutturaNav">
-        <NavLink to="/HomePage" className="linkIcon">
+        <NavLink to="/" className="linkIcon">
           <i className=" fs-1 bi bi-linkedin text-primary linkIcon"></i>
         </NavLink>
         <InputGroup>
@@ -41,7 +41,7 @@ function TopBar() {
           <Nav className="me-auto navBarTot">
             <NavLink
               href="#home"
-              to="/HomePage"
+              to="/"
               className="{`text-center txtNavBar ${activeLink === '#home' ? 'active' : ''}`} Home-link" //!!!!  'activeLink' è uguale al valore #href SEMPRE   Se activeLink è uguale a #home, aggiungi anche la classe active
               onClick={() => handleLinkClick("#home")}
             >
@@ -178,7 +178,7 @@ function TopBar() {
                     src="https://img.icons8.com/emoji/48/yellow-square-emoji.png"
                     alt="yellow-square-emoji"
                   />{" "}
-                  Prova 1 mese di Premium per 0 EUR
+                  Prova Premium per 0 EUR
                 </p>
                 <p className="ms-3 pAccount ">Impostazioni e Privacy</p>
                 <p className="ms-3 pAccount ">Guida</p>
