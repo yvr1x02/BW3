@@ -18,31 +18,44 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 function TopBar() {
-  const [activeLink, setActiveLink] = useState(null); //!!!!TRACCIAMENTO DEL LINK SELEZIONATO!!!!
+  const [activeLink, setActiveLink] = useState(null);
+  const [searchQuery, setSearchQuery] = useState(""); // Stato per il valore di ricerca
   const navigate = useNavigate();
+
   const handleLinkClick = (link) => {
-    //!!!!!! handLinkClick PRENDE IL LINK AL CLICK
     setActiveLink(link);
   };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/jobs?search=${searchQuery}`);
+  };
+
   return (
     <Navbar expand="lg" className="ContTot">
       <Container className="StrutturaNav">
-        <NavLink to="/" className="linkIcon">
+        <NavLink to="/HomePage" className="linkIcon">
           <i className=" fs-1 bi bi-linkedin text-primary linkIcon"></i>
         </NavLink>
-        <InputGroup>
-          <InputGroupText className="iconSearch">
-            <Search />
-          </InputGroupText>
-          <FormControl type="text" placeholder="Cerca" />
-        </InputGroup>
+        <form onSubmit={handleSearchSubmit}>
+          <InputGroup>
+            <InputGroup.Text className="iconSearch">
+              <Search />
+            </InputGroup.Text>
+            <FormControl
+              type="text"
+              placeholder="Cerca"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </InputGroup>
+        </form>
         <NavbarToggle aria-controls="basic-navbar-nav" />
         <NavbarCollapse id="basic-navbar-nav">
           <Nav className="me-auto navBarTot">
             <NavLink
-              href="#home"
-              to="/"
-              className="{`text-center txtNavBar ${activeLink === '#home' ? 'active' : ''}`} Home-link" //!!!!  'activeLink' è uguale al valore #href SEMPRE   Se activeLink è uguale a #home, aggiungi anche la classe active
+              to="/HomePage"
+              className={`text-center txtNavBar ${activeLink === "#home" ? "active" : ""} Home-link`}
               onClick={() => handleLinkClick("#home")}
             >
               <svg
@@ -231,4 +244,5 @@ function TopBar() {
     </Navbar>
   );
 }
+
 export default TopBar;
