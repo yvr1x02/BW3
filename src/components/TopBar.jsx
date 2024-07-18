@@ -34,14 +34,12 @@ function TopBar() {
   return (
     <Navbar expand="lg" className="ContTot">
       <Container className="StrutturaNav">
-        <NavLink to="/HomePage" className="linkIcon">
+        <NavLink to="/" className="linkIcon">
           <i className=" fs-1 bi bi-linkedin text-primary linkIcon"></i>
         </NavLink>
         <form onSubmit={handleSearchSubmit}>
-          <InputGroup>
-            <InputGroup.Text className="iconSearch">
-              <Search />
-            </InputGroup.Text>
+          <InputGroup className="search-area ">
+            <Search className="" />
             <FormControl
               type="text"
               placeholder="Cerca"
@@ -54,7 +52,7 @@ function TopBar() {
         <NavbarCollapse id="basic-navbar-nav">
           <Nav className="me-auto navBarTot">
             <NavLink
-              to="/HomePage"
+              to="/"
               className={`text-center txtNavBar ${activeLink === "#home" ? "active" : ""} Home-link`}
               onClick={() => handleLinkClick("#home")}
             >
