@@ -13,25 +13,35 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
 });
 
 export const addPost = createAsyncThunk("posts/addPost", async (newPost) => {
+  const formData = new FormData();
+  formData.append("text", newPost.text);
+  if (newPost.image) {
+    formData.append("image", newPost.image);
+  }
+
   const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
       Authorization: BearerToken,
     },
-    body: JSON.stringify(newPost),
+    body: formData,
   });
   return response.json();
 });
 
 export const updatePost = createAsyncThunk("posts/updatePost", async ({ postId, updatedPost }) => {
+  const formData = new FormData();
+  formData.append("text", updatedPost.text);
+  if (updatedPost.image) {
+    formData.append("image", updatedPost.image);
+  }
+
   const response = await fetch(`https://striveschool-api.herokuapp.com/api/posts/${postId}`, {
     method: "PUT",
     headers: {
-      "Content-Type": "application/json",
       Authorization: BearerToken,
     },
-    body: JSON.stringify(updatedPost),
+    body: formData,
   });
   return response.json();
 });

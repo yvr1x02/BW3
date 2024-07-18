@@ -13,8 +13,8 @@ export const fetchProfile = createAsyncThunk("profile/fetchProfile", async () =>
 export const fetchSuggestedProfiles = createAsyncThunk("profile/fetchSuggestedProfiles", async () => {
   const userIds = [
     "6694fcc6196d7b0015d6b53f", //yuri
-    "6551cb68c55e7e0018f83bd2",
-    "6551db85c55e7e0018f83bec",
+    "6699196887ffcb001574cb73", //mattia
+    "6699199287ffcb001574cb74", //nike
     "6551dca0c55e7e0018f83bed",
     "6551e7bbc55e7e0018f83bfb",
     //6694fea4196d7b0015d6b540 //alex

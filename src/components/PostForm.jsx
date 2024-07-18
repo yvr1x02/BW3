@@ -1,15 +1,16 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../redux/reducers/postSlice";
 
 const PostForm = () => {
   const [text, setText] = useState("");
   const dispatch = useDispatch();
+  const profileData = useSelector((state) => state.profile.data);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text) {
-      dispatch(addPost({ text }));
+      dispatch(addPost({ text, username: profileData.username }));
       setText("");
     }
   };
