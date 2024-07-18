@@ -1,5 +1,5 @@
 import Notizie from "../components/Notizie";
-import Topbar from "../components/Topbar";
+import Topbar from "../components/TopBar";
 function HomePage() {
   return (
     <>
