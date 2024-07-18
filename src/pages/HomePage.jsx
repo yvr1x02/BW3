@@ -1,10 +1,10 @@
 import Chatbox from "../components/ChatBox";
 import Notizie from "../components/Notizie";
-import TopBar from "../components/TopBar";
+import Topbar from "../components/Topbar";
 function HomePage() {
   return (
     <>
-      <TopBar />
+      <Topbar />
       <Notizie />
       <Chatbox />
     </>
