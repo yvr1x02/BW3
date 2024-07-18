@@ -210,6 +210,32 @@ const Posts = ({ userId }) => {
             <Card className="mb-3 p-0">
               <Card.Img src="src\assets\ads.png"></Card.Img>
             </Card>
+            <p className="footer-text text-center mb-2">
+              Informazioni <span className="ms-3">Accessibilità </span>
+            </p>
+            <p className="footer-text text-center mb-2">
+              Centro assistenza <span className="ms-3">Privacy e condizioni </span>
+            </p>
+            <p className="footer-text text-center mb-2">Opzioni per gli annunci pubblicitari</p>
+            <p className="footer-text text-center mb-2">
+              Pubblicità <span className="ms-3">Servizi alle aziende</span>
+            </p>
+            <p className="footer-text text-center mb-2">
+              Scarica l’app LinkedIn<span className="ms-3"> Altro</span>
+            </p>
+
+            <p className="footer-text ms-4  d-flex fw-semibold ">
+              <svg className="logo-text-likedin">
+                <image
+                  href="https://static.licdn.com/aero-v1/sc/h/aahlc8ivbnmk0t3eyz8as5gvr"
+                  x="0"
+                  y="0"
+                  width="56"
+                  height="14"
+                ></image>
+              </svg>
+              LinkedIn Corporation © 2024
+            </p>
           </Col>
         </Row>
       </Container>
