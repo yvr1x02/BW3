@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts, deletePost } from "../redux/reducers/postSlice";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import PostForm from "./PostForm";
 
 const Posts = ({ userId }) => {
   const dispatch = useDispatch();
@@ -22,6 +23,8 @@ const Posts = ({ userId }) => {
 
   return (
     <div>
+      <PostForm></PostForm>
+
       {postStatus === "loading" && <div>Loading...</div>}
       {postStatus === "failed" && <div>{error}</div>}
       {postStatus === "succeeded" &&
@@ -33,6 +36,7 @@ const Posts = ({ userId }) => {
               <Card.Body>
                 <Card.Title>{post.username}</Card.Title>
                 <Card.Text>{post.text}</Card.Text>
+                <Card.Text>Created at: {new Date(post.createdAt).toLocaleString()} </Card.Text>
                 {post.userId === userId && (
                   <Button variant="danger" onClick={() => handleDelete(post._id)}>
                     Delete
