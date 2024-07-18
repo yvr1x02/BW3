@@ -183,7 +183,6 @@ body {
 .SecondElement {
   margin-left: 10px;
   display: flex;
-  gap: 25px;
 }
 
 .ContTot {
@@ -197,11 +196,12 @@ body {
 }
 
 .txtp {
-  width: 150px;
+  width: 120px;
   text-align: center;
   text-decoration: underline;
   color: #915907;
   cursor: pointer;
+  font-size: 13px;
 }
 
 .txtp:hover {
@@ -218,6 +218,8 @@ body {
 
 .StrutturaNav {
   height: 51px;
+  margin-left: 350px;
+  margin-right: 350px;
 }
 
 .IconProfilo {

@@ -56,7 +56,7 @@ function TopBar() {
 
   return (
     <Navbar expand="lg" className="ContTot">
-      <Container className="StrutturaNav">
+      <Container className="StrutturaNav ">
         <NavLink to="/" className="linkIcon">
           <i className=" fs-1 bi bi-linkedin text-primary linkIcon"></i>
         </NavLink>
