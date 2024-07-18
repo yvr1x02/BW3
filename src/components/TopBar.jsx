@@ -90,9 +90,9 @@ function TopBar() {
               Rete
             </Nav.Link>
             <Nav.Link
-              href="#lavoro"
-              className={`text-center txtNavBar ${activeLink === "#lavoro" ? "active" : ""}`}
-              onClick={() => handleLinkClick("#lavoro")}
+              to="/jobs"
+              className={`text-center txtNavBar ${activeLink === "#jobs" ? "active" : ""}`}
+              onClick={() => handleLinkClick("#jobs")}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,9 +1,7 @@
-// In Jobs.js (o il nome del tuo componente)
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { fetchJobs } from "../redux/reducers/jobsSlice";
-import TopBar from "./TopBar";
 
 const Jobs = () => {
   const dispatch = useDispatch();
@@ -25,7 +23,6 @@ const Jobs = () => {
 
   return (
     <div>
-      {/* <TopBar></TopBar> */}
       <h1>Jobs</h1>
       <ul>
         {jobs.length > 0 ? (
