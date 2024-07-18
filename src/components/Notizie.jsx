@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts, deletePost } from "../redux/reducers/postSlice";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import PostForm from "./PostForm";
 import { fetchProfile } from "../redux/reducers/profileSlice";
 import { Card, Col, Container, Row } from "react-bootstrap";
@@ -10,6 +9,7 @@ import { BookmarkFill, Calendar2Event, PeopleFill } from "react-bootstrap-icons"
 
 const Posts = ({ userId }) => {
   const dispatch = useDispatch();
+  const profileData = useSelector((state) => state.profile.data);
   const posts = useSelector((state) => state.posts.posts);
   const postStatus = useSelector((state) => state.posts.status);
   const error = useSelector((state) => state.posts.error);
@@ -22,6 +22,12 @@ const Posts = ({ userId }) => {
 
   const handleDelete = (postId) => {
     dispatch(deletePost(postId));
+  };
+
+  const handleUpload = () => {
+    if (profileImage && profileData._id) {
+      dispatch(uploadProfileImage({ userId: profileData._id, image: profileImage }));
+    }
   };
 
   return (
@@ -85,8 +91,9 @@ const Posts = ({ userId }) => {
             </Card>
           </Col>
           <Col lg={6}>
-            <PostForm></PostForm>
-
+            <Card>
+              <PostForm></PostForm>
+            </Card>
             {postStatus === "loading" && <div>Loading...</div>}
             {postStatus === "failed" && <div>{error}</div>}
             {postStatus === "succeeded" &&

@@ -16,7 +16,12 @@ const PostForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <textarea value={text} onChange={(e) => setText(e.target.value)} placeholder="Crea un post" />
+      <textarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Crea un post"
+        className="border-pill"
+      />
       <button type="submit">Post</button>
     </form>
   );
