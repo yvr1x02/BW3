@@ -24,17 +24,18 @@ const Sidebar = ({ mainProfile, suggestedProfiles }) => {
       </Card>
       <Card className="p-3">
         <Card.Body className="pt=0 mt=0">
-          <Card.Title className="mb-3">Persone che potresti conoscere</Card.Title>
+          <Card.Title className="text-sidebar-profile-small mb-0">Persone che potresti conoscere</Card.Title>
+          <Card.Text className="text-sidebar-profile-small mb-2 text-secondary">Dalla tua azienda</Card.Text>
           <ListGroup variant="flush">
             {suggestedProfiles.map((profile) => (
-              <ListGroup.Item key={profile._id} className="d-flex align-items-center ">
-                <Image src={profile.image} roundedCircle width="50" height="50" className="me-3" />
+              <ListGroup.Item key={profile._id} className="d-flex align-items-center p-0 m-0 ">
+                <Image src={profile.image} roundedCircle width="50" height="50" className="me-3 mb-4" />
                 <div>
-                  <div>
+                  <div className="fw-semibold">
                     {profile.name} {profile.surname}
                   </div>
                   <div>{profile.title}</div>
-                  <button type="button" className="collegati mt-2 mb-2">
+                  <button type="button" className="collegati m-0 my-1">
                     <i className="bi bi-person-plus-fill me-2"></i>Collegati
                   </button>
                 </div>
