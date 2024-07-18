@@ -435,3 +435,9 @@ body {
 .search-area {
   width: 300px;
 }
+.text-sidebar-profile {
+  font-size: 18px;
+}
+.text-sidebar-profile-small {
+  font-size: 14px;
+}

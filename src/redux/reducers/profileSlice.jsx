@@ -17,6 +17,7 @@ export const fetchSuggestedProfiles = createAsyncThunk("profile/fetchSuggestedPr
     "6551db85c55e7e0018f83bec",
     "6551dca0c55e7e0018f83bed",
     "6551e7bbc55e7e0018f83bfb",
+    "6699199287ffcb001574cb74",
     //6694fea4196d7b0015d6b540 //alex
   ];
   const profiles = await Promise.all(
