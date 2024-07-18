@@ -1,5 +1,6 @@
 import {
-  Container,Dropdown,
+  Container,
+  Dropdown,
   DropdownDivider,
   DropdownItem,
   FormControl,
@@ -14,11 +15,11 @@ import { Search } from "react-bootstrap-icons";
 import InputGroupText from "react-bootstrap/esm/InputGroupText";
 import ContentProfile from "./ContentProfile";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function TopBar() {
   const [activeLink, setActiveLink] = useState(null); //!!!!TRACCIAMENTO DEL LINK SELEZIONATO!!!!
-
+  const navigate = useNavigate();
   const handleLinkClick = (link) => {
     //!!!!!! handLinkClick PRENDE IL LINK AL CLICK
     setActiveLink(link);
@@ -27,7 +28,7 @@ function TopBar() {
     <Navbar expand="lg" className="ContTot">
       <Container className="StrutturaNav">
         <NavLink to="/" className="linkIcon">
-        <i className=" fs-1 bi bi-linkedin text-primary linkIcon"></i>
+          <i className=" fs-1 bi bi-linkedin text-primary linkIcon"></i>
         </NavLink>
         <InputGroup>
           <InputGroupText className="iconSearch">
@@ -38,9 +39,10 @@ function TopBar() {
         <NavbarToggle aria-controls="basic-navbar-nav" />
         <NavbarCollapse id="basic-navbar-nav">
           <Nav className="me-auto navBarTot">
-            <Nav.Link
-              href="#home" to="/"
-              className="{`text-center txtNavBar ${activeLink === '#home' ? 'active' : ''}`}" //!!!!  'activeLink' è uguale al valore #href SEMPRE   Se activeLink è uguale a #home, aggiungi anche la classe active
+            <NavLink
+              href="#home"
+              to="/"
+              className="{`text-center txtNavBar ${activeLink === '#home' ? 'active' : ''}`} Home-link" //!!!!  'activeLink' è uguale al valore #href SEMPRE   Se activeLink è uguale a #home, aggiungi anche la classe active
               onClick={() => handleLinkClick("#home")}
             >
               <svg
@@ -56,12 +58,10 @@ function TopBar() {
                 <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z"></path>
               </svg>{" "}
               Home
-            </Nav.Link>
+            </NavLink>
             <Nav.Link
               href="#rete"
-              className={`text-center txtNavBar ${
-                activeLink === "#rete" ? "active" : ""
-              }`}
+              className={`text-center txtNavBar ${activeLink === "#rete" ? "active" : ""}`}
               onClick={() => handleLinkClick("#rete")}
             >
               <svg
@@ -80,9 +80,7 @@ function TopBar() {
             </Nav.Link>
             <Nav.Link
               href="#lavoro"
-              className={`text-center txtNavBar ${
-                activeLink === "#lavoro" ? "active" : ""
-              }`}
+              className={`text-center txtNavBar ${activeLink === "#lavoro" ? "active" : ""}`}
               onClick={() => handleLinkClick("#lavoro")}
             >
               <svg
@@ -101,9 +99,7 @@ function TopBar() {
             </Nav.Link>
             <Nav.Link
               href="#messaggistica"
-              className={`text-center txtNavBar ${
-                activeLink === "#messaggistica" ? "active" : ""
-              }`}
+              className={`text-center txtNavBar ${activeLink === "#messaggistica" ? "active" : ""}`}
               onClick={() => handleLinkClick("#messaggistica")}
             >
               <svg
@@ -122,9 +118,7 @@ function TopBar() {
             </Nav.Link>
             <Nav.Link
               href="#notifiche"
-              className={`text-center txtNavBar ${
-                activeLink === "#notifiche" ? "active" : ""
-              }`}
+              className={`text-center txtNavBar ${activeLink === "#notifiche" ? "active" : ""}`}
               onClick={() => handleLinkClick("#notifiche")}
             >
               <svg
@@ -164,15 +158,12 @@ function TopBar() {
                   <span className="d-flex">
                     <i className="bi bi-person-circle iconDropMenu"></i>
                     <span>
-                      <p className="ms-2 text-center txtProfilName">
-                        Pinco Pallo
-                      </p>
+                      <p className="ms-2 text-center txtProfilName">Pinco Pallo</p>
                       <p className="infoDrop ms-2">Info</p>
                     </span>
                   </span>
                   <NavLink to="/ProfilePage">
-
-                  <button className="btnDrop">Visualizza Profilo</button>
+                    <button className="btnDrop">Visualizza Profilo</button>
                   </NavLink>
                   <DropdownDivider />
                 </DropdownItem>
@@ -187,7 +178,7 @@ function TopBar() {
                     src="https://img.icons8.com/emoji/48/yellow-square-emoji.png"
                     alt="yellow-square-emoji"
                   />{" "}
-                  Prova 1 mese di Premium per 0 EUR
+                  Prova Premium per 0 EUR
                 </p>
                 <p className="ms-3 pAccount ">Impostazioni e Privacy</p>
                 <p className="ms-3 pAccount ">Guida</p>
@@ -197,9 +188,7 @@ function TopBar() {
                   Gestisci
                 </DropdownItem>
                 <p className="ms-3 pAccount">Post e Attività</p>
-                <p className="ms-3 pAccount">
-                  Account per la pubblicazione di off...
-                </p>
+                <p className="ms-3 pAccount">Account per la pubblicazione di off...</p>
                 <DropdownDivider />
                 <p className="ms-3 pAccount">Esci</p>
               </Dropdown>
@@ -224,7 +213,9 @@ function TopBar() {
                   <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
                 </svg>
                 <br />
-                <span className="txtNavBar" id="grillSpan">Per le aziende</span>
+                <span className="txtNavBar" id="grillSpan">
+                  Per le aziende
+                </span>
               </span>
             }
             id="nav-dropdown"

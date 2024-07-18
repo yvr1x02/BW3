@@ -1,25 +1,17 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
-import Topbar from "./components/Topbar";
-import Profile from "./components/Profile";
-import Footer from "./components/Footer";
-import ChatBox from "./components/ChatBox";
-import FormPage from "./components/Form";
+import ProfilePage from "./pages/ProfilePage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
     <BrowserRouter>
-      <Topbar />
       <Routes>
-      <Route path="/Form" element={<FormPage/>}/>
-      <Route path="/ProfilePage" element={<Profile/>}/>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/ProfilePage" element={<ProfilePage />} />
       </Routes>
-      <Footer />
-      <ChatBox />
-
-      
     </BrowserRouter>
   );
 }
