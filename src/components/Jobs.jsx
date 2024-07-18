@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+// In Jobs.js (o il nome del tuo componente)
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { fetchJobs } from "../redux/reducers/jobsSlice";
+import TopBar from "../components/TopBar";
 
 const Jobs = () => {
   const dispatch = useDispatch();
@@ -21,22 +23,23 @@ const Jobs = () => {
     return <div>Error: {error}</div>;
   }
 
-  if (!Array.isArray(jobs) || jobs.length === 0) {
-    return <p>No jobs found</p>;
-  }
-
   return (
     <div>
+      {/* <TopBar></TopBar> */}
       <h1>Jobs</h1>
       <ul>
-        {jobs.map((job) => (
-          <li key={job._id}>
-            <h2>{job.title}</h2>
-            <p>{job.company_name}</p>
-            <p>{job.category}</p>
-            <p>{job.description}</p>
-          </li>
-        ))}
+        {jobs.length > 0 ? (
+          jobs.map((job) => (
+            <li key={job._id}>
+              <h2>{job.title}</h2>
+              <p>{job.company_name}</p>
+              <p>{job.category}</p>
+              <div dangerouslySetInnerHTML={{ __html: job.description }}></div>
+            </li>
+          ))
+        ) : (
+          <li>No jobs found.</li>
+        )}
       </ul>
     </div>
   );
