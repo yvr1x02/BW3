@@ -10,7 +10,7 @@ import Consigliati from "./Consigliati";
 import Analisi from "./Analisi";
 import Risorse from "./Risorse";
 import Attività from "./Attività";
-import Interessi from "./Interessi";
+
 import ExperienceList from "./ExperienceList";
 //import { BsCamera } from "react-icons/bs";
 import { ArrowBarUp, CameraFill } from "react-bootstrap-icons";
@@ -111,7 +111,6 @@ function Profile() {
           <Risorse />
           <Attività />
           <Col>{profileData && <ExperienceList userId={profileData._id} />}</Col>
-          <Interessi />
         </Col>
         <Col lg={3}>{profileData && <Sidebar mainProfile={profileData} suggestedProfiles={suggestedProfiles} />}</Col>
       </Row>
