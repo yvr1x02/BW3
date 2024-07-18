@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { fetchJobs } from "../redux/reducers/jobsSlice";
+import { Spinner } from "react-bootstrap";
 
 const Jobs = () => {
   const dispatch = useDispatch();
@@ -10,11 +11,19 @@ const Jobs = () => {
 
   useEffect(() => {
     const query = new URLSearchParams(location.search).get("search");
-    dispatch(fetchJobs(query));
-  }, [dispatch, location.search]);
+    if (query) {
+      dispatch(fetchJobs(query));
+    } else if (location.state && location.state.jobs) {
+      dispatch(fetchJobs(""));
+    }
+  }, [dispatch, location.search, location.state]);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return (
+      <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
+        <Spinner animation="border" variant="primary" />
+      </div>
+    );
   }
 
   if (status === "failed") {
@@ -31,7 +40,7 @@ const Jobs = () => {
               <h2>{job.title}</h2>
               <p>{job.company_name}</p>
               <p>{job.category}</p>
-              <div dangerouslySetInnerHTML={{ __html: job.description }}></div>
+              <div dangerouslySetInnerHTML={{ __html: job.description }} />
             </li>
           ))
         ) : (

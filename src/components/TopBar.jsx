@@ -12,10 +12,13 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
-import InputGroupText from "react-bootstrap/esm/InputGroupText";
+//import InputGroupText from "react-bootstrap/esm/InputGroupText";
 import ContentProfile from "./ContentProfile";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+
+const BearerToken =
+  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk0ZmNjNjE5NmQ3YjAwMTVkNmI1M2YiLCJpYXQiOjE3MjEwNDAwNzAsImV4cCI6MTcyMjI0OTY3MH0.pANHYRINO1mmo3V6q0jdJxEuVZU217HARDNN-f2nbUw";
 
 function TopBar() {
   const [activeLink, setActiveLink] = useState(null);
@@ -29,6 +32,26 @@ function TopBar() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     navigate(`/jobs?search=${searchQuery}`);
+  };
+
+  const handleFetchAllJobs = async () => {
+    try {
+      const response = await fetch("https://strive-benchmark.herokuapp.com/api/jobs", {
+        headers: {
+          Authorization: BearerToken,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch jobs");
+      }
+
+      const data = await response.json();
+
+      navigate("/jobs", { state: { jobs: data } });
+    } catch (error) {
+      console.error("Error fetching jobs:", error.message);
+    }
   };
 
   return (
@@ -89,11 +112,7 @@ function TopBar() {
               </svg>{" "}
               Rete
             </Nav.Link>
-            <Nav.Link
-              to="/jobs"
-              className={`text-center txtNavBar ${activeLink === "#jobs" ? "active" : ""}`}
-              onClick={() => handleLinkClick("#jobs")}
-            >
+            <Nav.Link href="#lavoro" className="text-center txtNavBar" onClick={handleFetchAllJobs}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
