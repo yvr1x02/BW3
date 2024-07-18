@@ -6,15 +6,14 @@ import Topbar from "./components/Topbar";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import ChatBox from "./components/ChatBox";
-import FormExp from "./components/Form";
-import Form2 from "./components/Form2.0";
+import FormPage from "./components/Form";
 
 function App() {
   return (
     <BrowserRouter>
       <Topbar />
       <Routes>
-      <Route path="/Form" element={<FormExp/>}/>
+      <Route path="/Form" element={<FormPage/>}/>
       <Route path="/ProfilePage" element={<Profile/>}/>
       </Routes>
       <Footer />
