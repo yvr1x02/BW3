@@ -159,6 +159,11 @@ body {
 .input-group {
   width: 32%;
 }
+
+.form-check{
+  margin-bottom: 14px;
+}
+
 .form-control {
   margin-right: 60px;
   border: none;
@@ -344,6 +349,205 @@ body {
   margin-bottom: 17px;
 }
 
+
+
+/* !!!!!!!!!!!!!!FORM!!!!!!!!!!!!!!!!!!!!!!*/
+
+.ContainerForm{
+  height: 500px;
+  width: 744px;
+  padding: 0px;
+}
+
+.ContainerForm {
+  overflow-y: auto;
+}
+
+.modal-body-scrollable {
+  max-height: 70vh; /* or any other value */
+  overflow-y: auto;
+}
+
+.modal-body-scrollable::-webkit-scrollbar {
+  margin-top: 10px;
+  width: 4px;
+}
+.modal-body-scrollable::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 0.5px solid #eee;
+}
+
+
+.ContainerForm::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.ControlloPosi{
+  display: flex;
+  justify-content: center;
+}
+
+.btnForm{
+font-family: Roboto, sans-serif;
+font-weight: 0;
+font-size: 14px;
+color: #ffffff;
+background-color: #0066CC;
+padding: 6px 21px;
+border: none;
+box-shadow: none;
+border-radius: 50px;
+transition : 1307ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+}
+
+.btnForm:hover{
+background-color: #01458a;
+color: #ffffff;
+border: none;
+}
+
+.checkForm{
+  display: flex;
+  align-items: center;
+}
+
+.ContCheckForm{
+  display: flex;
+  background-color: #edf3f8;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonExit{
+  border: none;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.spanForm{
+  cursor: pointer;
+}
+
+.spanForm:hover{
+  text-decoration: underline;
+}
+
+.form-controlForm{
+  border:1px solid #555;
+  width: 100%;
+}
+
+.form-select1{
+  width: 48%;
+}
+ 
+input{
+  margin-right: 15px;
+  margin-bottom: 1px;
+}
+
+input[type="checkbox"]{
+  width: 25px;
+  height:25px;
+}
+.spanfs{
+  font-size:small ;
+}
+
+.btnCompetenze{
+  font-family: Roboto, sans-serif;
+font-weight: 0;
+font-size: 14px;
+font-weight: bold;
+color: #0066CC;
+background-color: #ffffff;
+padding: 6px 21px;
+border:2px solid #0066CC;
+box-shadow: none;
+border-radius: 50px;
+transition : 1307ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+
+}
+
+.btnCompetenze:hover{
+  background-color: #ffffff;
+color: #01458a;
+border: 2px solid #01458a;
+}
+
+.containerDrop{
+  border: 1px solid rgb(146, 146, 146);
+  width: 293px;
+  height: 185px;
+  border-radius: 10px;
+}
+.contenitoreDropDown1{
+  /* border: 2px solid rgb(0, 0, 0); */
+  display: flex;
+  width: 292px;
+    height: 85px;
+    cursor: pointer;
+    border-radius: 10px 10px 0px 0px;
+    translate: -1px 0px;
+}
+
+
+.contenitoreDropDown1:hover{
+  background-color: #d8d8d8;
+}
+
+.contenitoreDropDown2{
+  /* border: 2px solid rgb(8, 8, 8); */
+  display: flex;
+    height: 103px;
+    width: 292px;
+    cursor: pointer;
+    translate: 0px -4px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.contenitoreDropDown2:hover{
+  background-color: #d8d8d8;
+}
+
+.svgDropDown1{
+  
+  height: 77px;
+  width: 43px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.svgDropDown2{
+  
+  height: 93px;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  
+}
+
+.hrDropDownForm{
+  height: 5px;
+  margin: 0px;
+}
+
+
 .progress {
   height: 8px;
 }
@@ -418,6 +622,22 @@ body {
   color: #ff0000;
   border: rgb(255, 255, 255);
 }
+
+/* !!!!!!!!!!!MODAL!!!!!!! */
+
+.modal-content{
+width: 744px;
+height: 760px;
+}
+
+.modal-body{
+  height: 760px;
+  padding: 0px;
+}
+
+.scrollable-content{
+  height: 615px;
+}
 .btn-post {
   border: #888;
   border-radius: 0px 20px 20px 0px;
@@ -443,3 +663,18 @@ body {
 .text-sidebar-profile-small {
   font-size: 14px;
 }
+
+
+.contFormTot{
+  height: 552px;
+  border:2px solid  #0066CC;
+}
+
+#formImage{
+  width: 100px;
+  color: #0066CC;
+  padding: 7px;
+  padding-left: 18.8px;
+}
+
+
