@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const BearerToken =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk0ZmNjNjE5NmQ3YjAwMTVkNmI1M2YiLCJpYXQiOjE3MjEwNDAwNzAsImV4cCI6MTcyMjI0OTY3MH0.pANHYRINO1mmo3V6q0jdJxEuVZU217HARDNN-f2nbUw";
@@ -15,19 +16,24 @@ export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async (query = "") =
       throw new Error("Failed to fetch jobs");
     }
 
-    return response.json();
+    const data = await response.json();
+    console.log("Dati ricevuti dall'API:", data); // Log per debug
+    return data;
   } catch (error) {
+    console.error("Errore nella chiamata API:", error); // Log per debug
     throw new Error(error.message);
   }
 });
 
+const initialState = {
+  jobs: [],
+  status: "idle",
+  error: null,
+};
+
 const jobsSlice = createSlice({
   name: "jobs",
-  initialState: {
-    jobs: [],
-    status: "idle",
-    error: null,
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -36,7 +42,7 @@ const jobsSlice = createSlice({
       })
       .addCase(fetchJobs.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.jobs = action.payload;
+        state.jobs = action.payload.data; // Assicurati che questo corrisponda alla struttura dei dati ricevuti
       })
       .addCase(fetchJobs.rejected, (state, action) => {
         state.status = "failed";
