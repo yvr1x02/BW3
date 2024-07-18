@@ -36,7 +36,7 @@ class FormPage extends Component {
           <div className="ContainerForm scrollable-content">
             <div id="ContainerScrollBar">
               <div className="ContCheckForm">
-                <div></div>
+                
                 <div className="me-2">
                   <h6 className="pt-2">Informa la rete</h6>
                   <p className="">
@@ -366,7 +366,7 @@ class FormPage extends Component {
                     </p>
                   </label>
                   {!CompetenzeInput && (
-                    <button
+                    <button 
                       onClick={() => this.setState({ CompetenzeInput: true })}
                       className="btnCompetenze"
                     >
@@ -555,10 +555,10 @@ class FormPage extends Component {
                 </div>
               </div>
               <div className="fissa">
-               {/*  <hr /> */}
-                {/* <div className="fissa d-flex justify-content-end">
+                 <hr /> 
+                <div className="fissa d-flex justify-content-end">
                   <button className="fw-bold btnForm mb-2">Salva</button>
-                </div> */}
+                </div> 
               </div>
             </div>
           </div>

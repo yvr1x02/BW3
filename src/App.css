@@ -159,6 +159,11 @@ body {
 .input-group {
   width: 32%;
 }
+
+.form-check{
+  margin-bottom: 14px;
+}
+
 .form-control {
   margin-right: 60px;
   border: none;
@@ -356,11 +361,16 @@ body {
   overflow-y: auto;
 }
 
-.ContainerForm::-webkit-scrollbar {
+.modal-body-scrollable {
+  max-height: 70vh; /* or any other value */
+  overflow-y: auto;
+}
+
+.modal-body-scrollable::-webkit-scrollbar {
   margin-top: 10px;
   width: 4px;
 }
-.ContainerForm::-webkit-scrollbar-thumb {
+.modal-body-scrollable::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 10px;
   border: 0.5px solid #eee;
@@ -409,7 +419,9 @@ border: none;
   display: flex;
   background-color: #edf3f8;
   padding-left: 24px;
-    padding-right: 24px;
+  padding-right: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .buttonExit{
@@ -434,7 +446,11 @@ border: none;
 .form-select1{
   width: 48%;
 }
-
+ 
+input{
+  margin-right: 15px;
+  margin-bottom: 1px;
+}
 
 input[type="checkbox"]{
   width: 25px;
@@ -636,3 +652,18 @@ height: 760px;
   height: 20px;
   width: 60px;
 }
+
+
+.contFormTot{
+  height: 552px;
+  border:2px solid  #0066CC;
+}
+
+#formImage{
+  width: 100px;
+  color: #0066CC;
+  padding: 7px;
+  padding-left: 18.8px;
+}
+
+
