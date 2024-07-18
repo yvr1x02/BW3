@@ -15,8 +15,8 @@ function Risorse() {
           </Card.Text>
           <Row>
             <Col lg={12}>
-              <Card.Text className="d-flex">
-                <div className="me-2">
+              <Card.Text className="d-flex ms-4 border-bottom">
+                <div className="me-2 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -31,26 +31,25 @@ function Risorse() {
                   </svg>
                 </div>
                 <div>
-                  <p>La mia rete</p>
+                  <p className="fw-semibold m-0">La mia rete</p>
                   <p>Salva e gestisci i tuoi collegamenti e interessi.</p>
                 </div>
               </Card.Text>
             </Col>
             <Col lg={12}>
-              <Card.Text className="d-flex">
+              <Card.Text className="d-flex ms-4 mt-2">
                 <div className="me-2">
                   <BookmarkFill />
                 </div>
                 <div>
-                  <p>Elementi salvati</p>
+                  <p className="fw-semibold m-0">Elementi salvati</p>
                   <p>Monitora le tue offerte di lavoro, i corsi e gli articoli.</p>
                 </div>
               </Card.Text>
             </Col>
           </Row>
-          <Button variant="outline-secondary" className="rounded   ">
-            <ArrowRight />
-            Mostra tutte le analisi{" "}
+          <Button className="rounded btn-analisi">
+            Mostra tutte le analisi <ArrowRight />
           </Button>
         </>
       </Card>

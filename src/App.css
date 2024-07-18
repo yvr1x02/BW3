@@ -314,3 +314,59 @@ body {
   border-top: 1px solid #a8a8a896;
   color: #494949;
 }
+.file-input {
+  position: relative;
+  left: 85%;
+}
+.image-exp {
+  width: 80px;
+  height: 80px;
+}
+.card-ex {
+  border: none;
+}
+.btn-Add {
+  position: relative;
+  left: 60%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color: #2a2a2a;
+  border: rgb(255, 255, 255);
+}
+.btn-edit {
+  position: relative;
+  left: 60%;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(255, 255, 255);
+  color: #2a2a2a;
+  border: rgb(255, 255, 255);
+}
+.btn-delete {
+  position: relative;
+  left: 60%;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(255, 255, 255);
+  color: #ff0000;
+  border: rgb(255, 255, 255);
+}
+.btn-Add:hover {
+  background-color: rgb(173, 173, 173);
+  color: #2a2a2a;
+  border: rgb(255, 255, 255);
+}
+.btn-edit:hover {
+  background-color: rgb(173, 173, 173);
+  color: #2a2a2a;
+  border: rgb(255, 255, 255);
+}
+.btn-delete:hover {
+  background-color: rgb(173, 173, 173);
+  color: #ff0000;
+  border: rgb(255, 255, 255);
+}
