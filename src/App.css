@@ -2,8 +2,7 @@
   padding: 2em;
 }
 .container-size {
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 80px;
 }
 
 .read-the-docs {
@@ -32,6 +31,17 @@
   margin: 0 auto;
   display: block;
 }
+.profile-image-post {
+  border-radius: 50%;
+  position: absolute;
+  left: 3%;
+  top: 20%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
 .info-contatto {
   cursor: pointer;
   font-weight: 600;
@@ -46,6 +56,19 @@
 }
 .info-contatto:hover {
   text-decoration: underline;
+}
+.story-area:hover {
+  background-color: #dddddd56;
+}
+.story-news-area {
+  background-color: rgba(240, 201, 116, 0.795);
+  border-radius: 5px;
+}
+.text-story {
+  font-size: 13px;
+}
+.text-story-time {
+  font-size: 12px;
 }
 .alert-text {
   font-size: 14px;
@@ -538,7 +561,7 @@ border: 2px solid #01458a;
 }
 .btn-Add {
   position: relative;
-  left: 60%;
+  left: 72%;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -547,8 +570,8 @@ border: 2px solid #01458a;
   border: rgb(255, 255, 255);
 }
 .btn-edit {
-  position: relative;
-  left: 60%;
+  position: absolute;
+  left: 80%;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -557,8 +580,8 @@ border: 2px solid #01458a;
   border: rgb(255, 255, 255);
 }
 .btn-delete {
-  position: relative;
-  left: 60%;
+  position: absolute;
+  left: 89%;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -596,4 +619,20 @@ height: 760px;
 
 .scrollable-content{
   height: 615px;
+}
+.btn-post {
+  border: #888;
+  border-radius: 0px 20px 20px 0px;
+}
+.textArea {
+  margin-left: 60px;
+  border: #d6d6d662 solid 1px;
+  border-radius: 30px 0px 0px 30px;
+  width: 600px;
+  height: 50px;
+  line-height: 40px;
+}
+.logo-text-likedin {
+  height: 20px;
+  width: 60px;
 }

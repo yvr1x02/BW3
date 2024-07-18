@@ -49,7 +49,7 @@ function Profile() {
   }
 
   return (
-    <Container className="mt-2 container-size">
+    <Container className="mt-4 container-size">
       <Row>
         <Col lg={8}>
           <Card className="p-0 card-linkedin">
@@ -62,8 +62,17 @@ function Profile() {
                     <label htmlFor="profileImageInput" className="custom-file-upload pe-2">
                       <CameraFill className="fs-3" />
                     </label>
-                    <Form.Control id="profileImageInput" type="file" onChange={handleImageChange} style={{ display: "none" }} />
-                    <Button variant="outline-secondary" onClick={handleUpload} className="file-input-Upload rounded-pill">
+                    <Form.Control
+                      id="profileImageInput"
+                      type="file"
+                      onChange={handleImageChange}
+                      style={{ display: "none" }}
+                    />
+                    <Button
+                      variant="outline-secondary"
+                      onClick={handleUpload}
+                      className="file-input-Upload rounded-pill"
+                    >
                       <ArrowBarUp className="fs-3" />
                     </Button>
                   </Form.Group>
@@ -104,7 +113,7 @@ function Profile() {
           <Col>{profileData && <ExperienceList userId={profileData._id} />}</Col>
           <Interessi />
         </Col>
-        <Col lg={4}>{profileData && <Sidebar mainProfile={profileData} suggestedProfiles={suggestedProfiles} />}</Col>
+        <Col lg={3}>{profileData && <Sidebar mainProfile={profileData} suggestedProfiles={suggestedProfiles} />}</Col>
       </Row>
     </Container>
   );
