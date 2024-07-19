@@ -71,7 +71,7 @@ function TopBar() {
         </NavLink>
         <form onSubmit={handleSearchSubmit}>
           <InputGroup className="search-area ">
-            <Search className="" />
+            <Search className="me-2 mt-2" />
             <FormControl
               type="text"
               placeholder="Cerca"
