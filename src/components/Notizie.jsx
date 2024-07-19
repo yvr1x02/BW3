@@ -4,7 +4,7 @@ import { fetchPosts, deletePost, updatePost } from "../redux/reducers/postSlice"
 import Button from "react-bootstrap/Button";
 import PostForm from "./PostForm";
 import { fetchProfile } from "../redux/reducers/profileSlice";
-import { Card, Col, Container, Row, From } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { BookmarkFill, Calendar2Event, ChevronCompactDown, PeopleFill } from "react-bootstrap-icons";
 
 const Posts = ({ userId }) => {
