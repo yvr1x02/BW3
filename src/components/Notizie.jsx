@@ -18,6 +18,10 @@ const Posts = ({ userId }) => {
   const posts = useSelector((state) => state.posts.posts);
   const postStatus = useSelector((state) => state.posts.status);
   const error = useSelector((state) => state.posts.error);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
 
   const [showUserPosts, setShowUserPosts] = useState(false);
   const [editingPostId, setEditingPostId] = useState(null);
@@ -169,7 +173,15 @@ const Posts = ({ userId }) => {
             <Card className="p-3 card1">
               <PostForm></PostForm>
               <Row>
-                <Col lg={5} className="pe-0">
+                <div className="contCreaPost mb-3">
+                  <i className="bi bi-person-circle me-2 fs-1 p-0"></i>
+                  <Button className="btnCreaPost" onClick={handleShow}>
+                    Create Post
+                  </Button>
+                  <PostForm show={showModal} handleClose={handleClose} />
+                </div>
+
+                <Col lg={5}>
                   <Button className="btnMultimed d-flex align-items-center">
                     <span className="pb-2">
                       <svg
