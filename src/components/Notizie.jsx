@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts, deletePost } from "../redux/reducers/postSlice";
+import { fetchPosts, deletePost, updatePost } from "../redux/reducers/postSlice";
 import Button from "react-bootstrap/Button";
 import PostForm from "./PostForm";
 import { fetchProfile } from "../redux/reducers/profileSlice";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, From } from "react-bootstrap";
 import { BookmarkFill, Calendar2Event, ChevronCompactDown, PeopleFill } from "react-bootstrap-icons";
 
 const Posts = ({ userId }) => {
@@ -14,9 +14,15 @@ const Posts = ({ userId }) => {
   const postStatus = useSelector((state) => state.posts.status);
   const error = useSelector((state) => state.posts.error);
 
+  const [showUserPosts, setShowUserPosts] = useState(false);
+  const [editingPostId, setEditingPostId] = useState(null);
+  const [editText, setEditText] = useState("");
+  const [editImage, setEditImage] = useState(null);
+
   useEffect(() => {
     if (postStatus === "idle") {
       dispatch(fetchPosts());
+      dispatch(fetchProfile());
     }
   }, [postStatus, dispatch]);
 
@@ -24,66 +30,91 @@ const Posts = ({ userId }) => {
     dispatch(deletePost(postId));
   };
 
-  const handleUpload = () => {
-    if (profileImage && profileData._id) {
-      dispatch(uploadProfileImage({ userId: profileData._id, image: profileImage }));
-    }
+  const handleEdit = (post) => {
+    setEditingPostId(post._id);
+    setEditText(post.text);
+    setEditImage(null);
   };
+
+  const handleUpdate = () => {
+    const formData = new FormData();
+    formData.append("text", editText);
+    if (editImage) {
+      formData.append("post", editImage); // Nome della proprietà dell'immagine nel form-data: "post"
+    }
+
+    dispatch(updatePost({ postId: editingPostId, updatedPost: formData }));
+    setEditingPostId(null);
+    setEditText("");
+    setEditImage(null);
+  };
+
+  const handleShowUserPosts = () => {
+    setShowUserPosts(!showUserPosts);
+  };
+
+  const handleEditImageChange = (e) => {
+    setEditImage(e.target.files[0]);
+  };
+
+  const filteredPosts = showUserPosts ? posts.filter((post) => post.username === profileData.username) : posts;
 
   return (
     <div>
       <Container className="container-size mt-2">
         <Row>
           <Col lg={3}>
-            <Card className="p-0 card-linkedin ">
+            <Card className="p-0 card-linkedin">
               {profileData && (
                 <>
-                  <Card.Img src="src\assets\pipo.jpg" className="bg-image-home"></Card.Img>
-                  <Card.Img variant="top" src={profileData.image} className="profile-image-home " alt="Profile image" />
+                  <Card.Img src="src/assets/pipo.jpg" className="bg-image-home"></Card.Img>
+                  <Card.Img variant="top" src={profileData.image} className="profile-image-home" alt="Profile image" />
                   <Card.Body className="pt-2 pb-0">
-                    <Card.Title className="pt-4 m-0"> {profileData.name + " " + profileData.surname}</Card.Title>
+                    <Card.Title className="pt-4 m-0">{profileData.name + " " + profileData.surname}</Card.Title>
                     <Card.Text className="m-0 left-side-bar-home">{profileData.title}</Card.Text>
                     <Card.Text className="left-side-bar-home m-0">{profileData.bio}</Card.Text>
-                    <Card.Text className="text-secondary d-flex m-0 left-side-bar-home-area">{profileData.area}</Card.Text>
+                    <Card.Text className="text-secondary d-flex m-0 left-side-bar-home-area">
+                      {profileData.area}
+                    </Card.Text>
                   </Card.Body>
                 </>
               )}
-              ;
             </Card>
             <Card className="mt-2 p-3">
               <Card.Text className="text-secondary left-side-bar-home-area">
                 Accedi a strumenti e informazioni in esclusiva
-                <p className=" fw-bold pAccount m-0">
+                <span className=" fw-bold pAccount m-0">
                   <img
                     width="18"
                     height="18"
                     src="https://img.icons8.com/emoji/48/yellow-square-emoji.png"
                     alt="yellow-square-emoji"
+                    A
                   />
                   Prova Premium per 0 EUR
-                </p>
+                </span>
               </Card.Text>
             </Card>
             <Card className="mt-2 p-3">
               <Card.Text className="d-flex border-bottom pb-2">
                 <div>
-                  <p className="fw-semibold left-side-bar-home  m-0"> Collegamenti</p>
-                  <p className="m-0 left-side-bar-home text-secondary">Espandi la tua rete</p>
+                  <span className="fw-semibold left-side-bar-home  m-0"> Collegamenti</span>
+                  <span className="m-0 left-side-bar-home text-secondary">Espandi la tua rete</span>
                 </div>
               </Card.Text>
               <Card.Text>
                 <div className="d-flex ">
                   <BookmarkFill />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3"> Elementi salvati</p>
+                  <span className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3"> Elementi salvati</span>
                 </div>
                 <div className="d-flex ">
                   <PeopleFill />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3"> Gruppi</p>
+                  <span className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3"> Gruppi</span>
                 </div>
 
                 <div className="d-flex ">
                   <Calendar2Event />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2"> Eventi</p>
+                  <span className="fw-semibold left-side-bar-home  m-0 ms-2"> Eventi</span>
                 </div>
               </Card.Text>
             </Card>
@@ -103,22 +134,51 @@ const Posts = ({ userId }) => {
                 </Col>
               </Row>
             </Card>
+            <Button variant="primary" className="my-3" onClick={handleShowUserPosts}>
+              {showUserPosts ? "Mostra tutti i post" : "Mostra solo i miei post"}
+            </Button>
             {postStatus === "loading" && <div>Loading...</div>}
             {postStatus === "failed" && <div>{error}</div>}
             {postStatus === "succeeded" &&
-              posts
+              filteredPosts
                 .slice()
                 .reverse()
                 .map((post) => (
-                  <Card key={post._id} className="p-0">
+                  <Card key={post._id} className="my-3">
                     <Card.Body>
-                      <Card.Title>{post.username}</Card.Title>
-                      <Card.Text>{post.text}</Card.Text>
-                      <Card.Text>Created at: {new Date(post.createdAt).toLocaleString()} </Card.Text>
-                      {post.userId === userId && (
-                        <Button variant="danger" onClick={() => handleDelete(post._id)} className="">
-                          Delete
-                        </Button>
+                      {editingPostId === post._id ? (
+                        <>
+                          <Form.Control
+                            as="textarea"
+                            rows={3}
+                            value={editText}
+                            onChange={(e) => setEditText(e.target.value)}
+                          />
+                          <input type="file" onChange={handleEditImageChange} />
+                          <Button variant="success" onClick={handleUpdate} className="me-2 mt-2">
+                            Update
+                          </Button>
+                          <Button variant="secondary" onClick={() => setEditingPostId(null)} className="mt-2">
+                            Cancel
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <Card.Title>{post.username}</Card.Title>
+                          <Card.Text>{post.text}</Card.Text>
+                          {post.image && <Card.Img variant="top" src={post.image} alt="Post image" />}
+                          <Card.Text>Created at: {new Date(post.createdAt).toLocaleString()}</Card.Text>
+                          {post.userId === userId && (
+                            <>
+                              <Button variant="danger" onClick={() => handleDelete(post._id)} className="me-2">
+                                Delete
+                              </Button>
+                              <Button variant="primary" onClick={() => handleEdit(post)}>
+                                Edit
+                              </Button>
+                            </>
+                          )}
+                        </>
                       )}
                     </Card.Body>
                   </Card>
@@ -134,11 +194,15 @@ const Posts = ({ userId }) => {
                   <Card.Text className="text-story-time text-secondary">21 ore fa</Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
-                  <Card.Text className="fw-semibold m-0 text-story">Flessibilità e mobilità green per Generali...</Card.Text>
+                  <Card.Text className="fw-semibold m-0 text-story">
+                    Flessibilità e mobilità green per Generali...
+                  </Card.Text>
                   <Card.Text className="text-story-time text-secondary">2 giorni fa</Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
-                  <Card.Text className="fw-semibold m-0 text-story">Alla comunicazione servono processi chiari...</Card.Text>
+                  <Card.Text className="fw-semibold m-0 text-story">
+                    Alla comunicazione servono processi chiari...
+                  </Card.Text>
                   <Card.Text className="text-story-time text-secondary">1 giorno fa</Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
@@ -146,7 +210,9 @@ const Posts = ({ userId }) => {
                   <Card.Text className="text-story-time text-secondary">1 giorno fa</Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
-                  <Card.Text className="fw-semibold m-0 text-story">C'è fermento nel settore degli studentati...</Card.Text>
+                  <Card.Text className="fw-semibold m-0 text-story">
+                    C'è fermento nel settore degli studentati...
+                  </Card.Text>
                   <Card.Text className="text-story-time text-secondary">2 giorni fa</Card.Text>
                 </div>
                 <Card.Text className="ms-3 fw-semibold m-0  text-story ">
