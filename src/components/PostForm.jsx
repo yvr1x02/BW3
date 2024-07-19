@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../redux/reducers/postSlice";
-import { Button, Card } from "react-bootstrap";
+import { Button,} from "react-bootstrap";
 
 const PostForm = () => {
   const [text, setText] = useState("");
@@ -25,18 +25,19 @@ const PostForm = () => {
   return (
     <form onSubmit={handleSubmit} className="d-flex">
       {profileData && (
-        <>
-          <img variant="top" src={profileData.image} className="profile-image-post " alt="Profile image" />
+        <div className="d-flex contenitoreSearchBar mb-3">
+          <img variant="top" src={profileData.image} className="profile-image-post" alt="Profile image" />
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Crea un post"
             className="textArea"
           />
-          <button type="submit" className="btn-post">
+          <Button type="submit" className="btn-post">
             Post
-          </button>
-        </>
+          </Button>
+        </div>
+        
       )}
     </form>
   );
