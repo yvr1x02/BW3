@@ -845,3 +845,15 @@ height: 760px;
   object-fit: cover;
   border-radius: 50px;
 }
+
+.btnDelete{
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  border: none;
+}
+  
+  .btnDelete:hover{
+    background-color: #eeeeee;
+  color: red;
+  }

@@ -8,7 +8,6 @@ import { Card, Col, Container, Image, Row } from "react-bootstrap";
 import {
   BookmarkFill,
   Calendar2Event,
-  CardImage,
   ChevronCompactDown,
   PeopleFill,
 } from "react-bootstrap-icons";
@@ -196,24 +195,47 @@ const Posts = ({ userId }) => {
                   <Card key={post._id} className="p-0 mt-3">
                     <Card.Body className="p-2">
                       <div>
-                        <div className="d-flex">
-                          <div>
-                            <Image src={post.user.image} className="imgUtente"></Image>
-                          </div>
-                          <div className="ms-3">
+                        <div className="d-flex justify-content-between">
+                          <div className="d-flex ">
                             <div>
-                              <Card.Title>{post.username}</Card.Title>
+                              <Image
+                                src={post.user.image}
+                                className="imgUtente"
+                              ></Image>
                             </div>
-                            <div>
-                              <Card.Text>
-                                <p className="p-0 m-0">
-                                  Junior Full-Stack Developer
-                                </p>
-                                Created at:{" "}
-                                {new Date(post.createdAt).toLocaleString()}{" "}
-                              </Card.Text>
+                            <div className="ms-3">
+                              <div>
+                                <Card.Title>{post.username}</Card.Title>
+                              </div>
+                              <div>
+                                <Card.Text>
+                                  <p className="p-0 m-0">
+                                    Junior Full-Stack Developer
+                                  </p>
+                                  Created at:{" "}
+                                  {new Date(post.createdAt).toLocaleString()}{" "}
+                                </Card.Text>
+                              </div>
                             </div>
                           </div>
+                          {post.userId === userId && (
+                            <Button
+                              variant="danger"
+                              onClick={() => handleDelete(post._id)}
+                              className="btnDelete"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="red"
+                                className="bi bi-trash3"
+                                viewBox="0 0 16 16"
+                              >
+                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                              </svg>
+                            </Button>
+                          )}
                         </div>
                         <div>
                           <Card.Text>{post.text}</Card.Text>
@@ -291,50 +313,43 @@ const Posts = ({ userId }) => {
                         </div>
                       </div>
                       <div className="contCreaCommento mt-3 mb-5 p-0">
-                        <Image src={profileData.image} className="imgUtente"></Image>
+                        <Image
+                          src={profileData.image}
+                          className="imgUtente"
+                        ></Image>
                         <button className="btnCreaPost">
                           Crea commento
                           <div>
-
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            id="emoji-medium"
-                            aria-hidden="true"
-                            role="none"
-                            data-supported-dps="24x24"
-                            fill="black"
-                            height="25px"
-                            width="25px"
-                          >
-                            <path d="M8 10.5A1.5 1.5 0 119.5 12 1.5 1.5 0 018 10.5zm6.5 1.5a1.5 1.5 0 10-1.5-1.5 1.5 1.5 0 001.5 1.5zm7.5 0A10 10 0 1112 2a10 10 0 0110 10zm-2 0a8 8 0 10-8 8 8 8 0 008-8zm-8 4a6 6 0 01-4.24-1.76l-.71.76a7 7 0 009.89 0l-.71-.71A6 6 0 0112 16z"></path>
-                          </svg>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            id="image-medium"
-                            aria-hidden="true"
-                            role="none"
-                            data-supported-dps="24x24"
-                            fill="currentColor"
-                            height="25px"
-                            width="25px"
-                          >
-                            <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
-                          </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              id="emoji-medium"
+                              aria-hidden="true"
+                              role="none"
+                              data-supported-dps="24x24"
+                              fill="black"
+                              height="25px"
+                              width="25px"
+                            >
+                              <path d="M8 10.5A1.5 1.5 0 119.5 12 1.5 1.5 0 018 10.5zm6.5 1.5a1.5 1.5 0 10-1.5-1.5 1.5 1.5 0 001.5 1.5zm7.5 0A10 10 0 1112 2a10 10 0 0110 10zm-2 0a8 8 0 10-8 8 8 8 0 008-8zm-8 4a6 6 0 01-4.24-1.76l-.71.76a7 7 0 009.89 0l-.71-.71A6 6 0 0112 16z"></path>
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              id="image-medium"
+                              aria-hidden="true"
+                              role="none"
+                              data-supported-dps="24x24"
+                              fill="currentColor"
+                              height="25px"
+                              width="25px"
+                            >
+                              <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
+                            </svg>
                           </div>
                         </button>
                       </div>
                       <hr className="mt-3" />
-                      {post.userId === userId && (
-                        <Button
-                          variant="danger"
-                          onClick={() => handleDelete(post._id)}
-                          className=""
-                        >
-                          Delete
-                        </Button>
-                      )}
                     </Card.Body>
                   </Card>
                 ))}
