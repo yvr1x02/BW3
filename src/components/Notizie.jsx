@@ -132,7 +132,10 @@ const Posts = ({ userId }) => {
               <PostForm />
               <Row>
                 <div className="contCreaPost mb-3">
-                  <i className="bi bi-person-circle me-2 fs-1 p-0"></i>
+                  <Image
+                          src={profileData.image}
+                          className="imgUtente"
+                        ></Image>
                   <Button className="btnCreaPost" onClick={handleShow}>
                     Create Post
                   </Button>
