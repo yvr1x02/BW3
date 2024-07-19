@@ -221,9 +221,11 @@ const Posts = ({ userId }) => {
                               </div>
                               <div>
                                 <Card.Text>
-                                  <p className="p-0 m-0">Junior Full-Stack Developer</p>
+                                  <p className="p-0 m-0 pInfoPost" >Junior Full-Stack Developer</p>
+                                  <span className="spanDataPost">
+                                  {new Date(post.createdAt).toLocaleString()}{" "}
+                                  </span>
                                   {post.image && <Card.Img variant="top" src={post.image} alt="Post image" />}
-                                  Created at: {new Date(post.createdAt).toLocaleString()}{" "}
                                 </Card.Text>
                               </div>
                             </div>
