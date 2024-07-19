@@ -53,10 +53,16 @@ const Jobs = () => {
                     onClick={() => handleJobClick(job)}
                     style={{ cursor: "pointer", background:"#ffffff" ,color:"black" , border:"none", }}
                   >
-                    <img src={job.company_logo_url} />
+                    <div className="contJobs">
+                    <div>
+                    <img src={job.company_logo_url} className="imgJobsList" />
+                    </div>
+                    <div>
                     <h4>{job.title}</h4>
                     <p>{job.company_name}</p>
                     <p>{job.category}</p>
+                    </div>
+                    </div>
                   </li>
                 ))
               ) : (
@@ -68,7 +74,7 @@ const Jobs = () => {
           <div className="col-md-8 contDettagliLavoro">
             {selectedJob ? (
               <div>
-                <img src={selectedJob.company_logo_url} />
+                <img src={selectedJob.company_logo_url} className="imgJob"/>
                 <h2>{selectedJob.title}</h2>
                 <p>{selectedJob.company_name}</p>
                 <p>{selectedJob.category}</p>

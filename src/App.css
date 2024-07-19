@@ -888,3 +888,14 @@ input[type="checkbox"] {
   .claseprova{
     background-color: #ffffff;
   }
+
+  .imgJobsList{
+    border: 2px solid rgb(255, 0, 0);
+    width: 55px;
+    height: 55px;
+  }
+
+  .contJobs{
+    display: flex;
+    justify-content: space-between;
+  }
