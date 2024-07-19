@@ -867,3 +867,10 @@ input[type="checkbox"] {
   .spanDataPost{
     font-size: small;
   }
+
+
+  /* !!!!!!!!!!!!!!!!JOBS!!!!!!!!!!!!!!!!!!!!!!! */
+
+  .contDettagliLavoro{
+    background-color: white;
+  }
