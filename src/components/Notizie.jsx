@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import PostForm from "./PostForm";
 import { fetchProfile } from "../redux/reducers/profileSlice";
 import { Card, Col, Container, FormControl, FormText, Row } from "react-bootstrap";
-import { BookmarkFill, Calendar2Event, ChevronCompactDown, PeopleFill } from "react-bootstrap-icons";
+import { BookmarkFill, Calendar2Event, CardImage, ChevronCompactDown, PeopleFill } from "react-bootstrap-icons";
 
 const Posts = ({ userId }) => {
   const dispatch = useDispatch();
@@ -160,6 +160,7 @@ const Posts = ({ userId }) => {
                 .map((post) => (
                   <Card key={post._id} className="p-0">
                     <Card.Body>
+                    <CardImage></CardImage>
                       <Card.Title>{post.username}</Card.Title>
                       <Card.Text>{post.text}</Card.Text>
                       <Card.Text>Created at: {new Date(post.createdAt).toLocaleString()} </Card.Text>
