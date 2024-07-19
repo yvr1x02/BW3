@@ -1,4 +1,5 @@
 import {
+  Card,
   Container,
   Dropdown,
   DropdownDivider,
@@ -16,13 +17,16 @@ import { Search } from "react-bootstrap-icons";
 import ContentProfile from "./ContentProfile";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 const BearerToken =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk0ZmNjNjE5NmQ3YjAwMTVkNmI1M2YiLCJpYXQiOjE3MjEwNDAwNzAsImV4cCI6MTcyMjI0OTY3MH0.pANHYRINO1mmo3V6q0jdJxEuVZU217HARDNN-f2nbUw";
 
 function TopBar() {
+  const dispatch = useDispatch();
+  const profileData = useSelector((state) => state.profile.data);
   const [activeLink, setActiveLink] = useState(null);
-  const [searchQuery, setSearchQuery] = useState(""); // Stato per il valore di ricerca
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
   const handleLinkClick = (link) => {
@@ -32,6 +36,11 @@ function TopBar() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     navigate(`/jobs?search=${searchQuery}`);
+  };
+  const handleUpload = () => {
+    if (profileImage && profileData._id) {
+      dispatch(uploadProfileImage({ userId: profileData._id, image: profileImage }));
+    }
   };
 
   const handleFetchAllJobs = async () => {
@@ -168,14 +177,16 @@ function TopBar() {
             <NavDropdown
               title={
                 <span className="spanicon">
-                  <img
-                    width="22"
-                    src="https://media.licdn.com/dms/image/D4E03AQGeXEc1cR5ocw/profile-displayphoto-shrink_100_100/0/1716390382871?e=1726704000&amp;v=beta&amp;t=af8yDGEvQF-fwdZhugrzJgU6neYQB0Vsx5rrWsWM13M"
-                    height="22"
-                    alt="Mattia Susin"
-                    id="ember17"
-                    className="global-nav__me-photo evi-image ember-view iconProfiloNavBar"
-                  />
+                  {profileData && (
+                    <>
+                      <Card.Img
+                        variant="top"
+                        src={profileData.image}
+                        className="imgUtente-navbar ms-3 "
+                        alt="Profile image"
+                      />
+                    </>
+                  )}
                   <br />
                   <span id="ProfiloTxt">Profilo</span>
                 </span>
@@ -186,7 +197,16 @@ function TopBar() {
               <Dropdown className="prova">
                 <DropdownItem eventKey="1">
                   <span className="d-flex">
-                    <i className="bi bi-person-circle iconDropMenu"></i>
+                    {profileData && (
+                      <>
+                        <Card.Img
+                          variant="top"
+                          src={profileData.image}
+                          className="imgUtente-navbar-dropdown mt-3"
+                          alt="Profile image"
+                        />
+                      </>
+                    )}
                     <span>
                       <p className="ms-2 text-center txtProfilName">Pinco Pallo</p>
                       <p className="infoDrop ms-2">Info</p>

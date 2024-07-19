@@ -50,7 +50,7 @@
   display: block;
 }
 
-.contenitoreSearchBar{
+.contenitoreSearchBar {
   width: 510px;
 }
 
@@ -768,94 +768,96 @@ input[type="checkbox"] {
   color: #000000;
 }
 
-
-.svgConsiglia{
-
-  
-  height:25px ;
-  width: 25px;
-
-}
-
-.svgCommenta{
-  
-  height:25px ;
+.svgConsiglia {
+  height: 25px;
   width: 25px;
 }
 
-.svgDiffondi{
-  
-  height:25px ;
+.svgCommenta {
+  height: 25px;
   width: 25px;
 }
 
-.svgInvia{
-  
-  height:25px ;
+.svgDiffondi {
+  height: 25px;
   width: 25px;
 }
 
+.svgInvia {
+  height: 25px;
+  width: 25px;
+}
 
-.btnPost{
+.btnPost {
   background: transparent;
   color: #000000;
-  width:123px ;
+  width: 123px;
   height: 48px;
   padding: 0px;
   border: none;
 }
 
-.ContainerPost{
+.ContainerPost {
   width: 100%;
   display: flex;
-  justify-content: space-between
-  margin
+  justify-content: space-between margin;
 }
 
-.contDiffondiPost{
+.contDiffondiPost {
   display: flex;
 }
 
-.spanDiffondiPost{
-  width:95px ;
-  height:28px ;
+.spanDiffondiPost {
+  width: 95px;
+  height: 28px;
 }
-.btnPost:hover{
-
+.btnPost:hover {
   background-color: #eeeeee;
   color: #000000;
-
 }
 
-.contCreaCommento{
+.contCreaCommento {
   width: 512px;
   height: 60px;
   display: flex;
   align-items: center;
 }
 
-.btnCreaPost{
+.btnCreaPost {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-left: 25px;
 }
 
-.imgUtente{
+.imgUtente {
   height: 40px;
   width: 40px;
   object-fit: cover;
   border-radius: 50px;
 }
 
-.btnDelete{
+.imgUtente-navbar {
+  height: 22px;
+  width: 22px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+.imgUtente-navbar-dropdown {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.btnDelete {
   height: 40px;
   width: 40px;
   background-color: transparent;
   border: none;
 }
-  
-  .btnDelete:hover{
-    background-color: #eeeeee;
+
+.btnDelete:hover {
+  background-color: #eeeeee;
   color: red;
-  }
+}
