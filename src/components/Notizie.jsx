@@ -13,6 +13,10 @@ const Posts = ({ userId }) => {
   const posts = useSelector((state) => state.posts.posts);
   const postStatus = useSelector((state) => state.posts.status);
   const error = useSelector((state) => state.posts.error);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
 
   const [showUserPosts, setShowUserPosts] = useState(false);
   const [editingPostId, setEditingPostId] = useState(null);
@@ -123,14 +127,66 @@ const Posts = ({ userId }) => {
             <Card className="p-3">
               <PostForm></PostForm>
               <Row>
+                <div className="contCreaPost mb-3">
+                  <i className="bi bi-person-circle me-2 fs-1 p-0"></i>
+                  <Button className="btnCreaPost" onClick={handleShow}>
+                    Create Post
+                  </Button>
+                  <PostForm show={showModal} handleClose={handleClose} />
+                </div>
+
                 <Col lg={5}>
-                  <Button>Contenuti multimediali</Button>
+                  <Button className="btnMultimed d-flex align-items-center">
+                    <span className="pb-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        id="image-medium"
+                        aria-hidden="true"
+                        role="none"
+                        data-supported-dps="24x24"
+                        fill="currentColor"
+                        className="svgContenutiMult"
+                      >
+                        <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
+                      </svg>
+                    </span>
+                    <p className="mt-2">Contenuti multimediali</p>
+                  </Button>
                 </Col>
                 <Col lg={3}>
-                  <Button>Evento</Button>
+                  <Button className="btnEvento">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      id="calendar-medium"
+                      aria-hidden="true"
+                      role="none"
+                      data-supported-dps="24x24"
+                      fill="#c37d16"
+                      className="svgContenutiMult"
+                    >
+                      <path d="M3 3v15c0 1.66 1.34 3 3 3h12c1.66 0 3-1.34 3-3V3H3zm13 1.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm-8 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM19 18c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1V9h14v9zM7 11h2v2H7v-2zm0 4h2v2H7v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2z"></path>
+                    </svg>
+                    Evento
+                  </Button>
                 </Col>
                 <Col lg={4}>
-                  <Button>Scrivi un articolo</Button>
+                  <Button className="btnArticolo">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      id="content-align-left-medium"
+                      aria-hidden="true"
+                      role="none"
+                      data-supported-dps="24x24"
+                      fill="#e06847"
+                      className="svgContenutiMult"
+                    >
+                      <path d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"></path>
+                    </svg>
+                    Scrivi un articolo
+                  </Button>
                 </Col>
               </Row>
             </Card>

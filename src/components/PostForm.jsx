@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost, updatePost, uploadPostImage } from "../redux/reducers/postSlice";
 import { useNavigate, useParams } from "react-router-dom";
+import { Modal, Button, Form, Container } from "react-bootstrap";
 
-const PostForm = () => {
+const PostForm = ({ show, handleClose }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { postId } = useParams();
@@ -36,24 +37,33 @@ const PostForm = () => {
       }
     }
 
+    handleClose(); // Close the modal
     navigate("/");
   };
 
   return (
-    <div>
-      <h1>{postId ? "Edit Post" : "Create Post"}</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="text">Text:</label>
-          <textarea id="text" value={text} onChange={(e) => setText(e.target.value)} required />
-        </div>
-        <div>
-          <label htmlFor="image">Image:</label>
-          <input type="file" id="image" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
-        </div>
-        <button type="submit">{postId ? "Update" : "Create"} Post</button>
-      </form>
-    </div>
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>{postId ? "Edit Post" : "Create Post"}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Container>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="formText">
+              <Form.Label>Text:</Form.Label>
+              <Form.Control as="textarea" rows={3} value={text} onChange={(e) => setText(e.target.value)} required />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formImage">
+              <Form.Label>Image:</Form.Label>
+              <Form.Control type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              {postId ? "Update" : "Create"} Post
+            </Button>
+          </Form>
+        </Container>
+      </Modal.Body>
+    </Modal>
   );
 };
 
