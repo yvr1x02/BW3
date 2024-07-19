@@ -17,6 +17,7 @@
 .read-the-docs {
   color: #888;
 }
+
 .profile-image {
   border-radius: 50%;
   position: absolute;
@@ -27,6 +28,12 @@
   object-fit: cover;
   margin: 0 auto;
   display: block;
+}
+
+.gruppi123:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  
 }
 
 .profile-image-home {

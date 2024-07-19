@@ -70,8 +70,8 @@ function TopBar() {
           <i className=" fs-1 bi bi-linkedin text-primary linkIcon"></i>
         </NavLink>
         <form onSubmit={handleSearchSubmit}>
-          <InputGroup className="search-area ">
-            <Search className="me-2 mt-2" />
+          <InputGroup className="search-area">
+            <Search className="me-2 mt-2 " />
             <FormControl
               type="text"
               placeholder="Cerca"
@@ -93,7 +93,7 @@ function TopBar() {
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
                 fill="currentColor"
-                className="mercado-match"
+                className="mercado-match prova456"
                 width="24"
                 height="24"
                 focusable="false"

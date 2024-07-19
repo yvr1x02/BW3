@@ -137,10 +137,10 @@ const Posts = ({ userId }) => {
             <Card className="mt-2 p-3">
               <Card.Text className="d-flex border-bottom pb-2">
                 <div>
-                  <p className="fw-semibold left-side-bar-home  m-0">
+                  <p className="fw-semibold left-side-bar-home gruppi123   m-0">
                     Collegamenti
                   </p>
-                  <p className="m-0 left-side-bar-home text-secondary">
+                  <p className="m-0 left-side-bar-home text-secondary gruppi123">
                     Espandi la tua rete
                   </p>
                 </div>
@@ -148,26 +148,26 @@ const Posts = ({ userId }) => {
               <Card.Text>
                 <div className="d-flex ">
                   <BookmarkFill />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3">
+                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3 gruppi123">
                     Elementi salvati
                   </p>
                 </div>
                 <div className="d-flex ">
                   <PeopleFill />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3">
+                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3 gruppi123">
                     Gruppi
                   </p>
                 </div>
                 <div className="d-flex ">
                   <Calendar2Event />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2">
+                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 gruppi123">
                     Eventi
                   </p>
                 </div>
               </Card.Text>
             </Card>
           </Col>
-          <Col lg={5} className="contenitoreCentrale">
+          <Col lg={5} className="contenitoreCentrale gruppi123">
             <Card className="p-3 card1">
               <PostForm />
               <Row>
