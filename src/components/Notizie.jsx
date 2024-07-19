@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts, deletePost, updatePost } from "../redux/reducers/postSlice";
+import { fetchProfile, uploadProfileImage } from "../redux/reducers/profileSlice"; // Corretto import
 import Button from "react-bootstrap/Button";
 import PostForm from "./PostForm";
-/* import { fetchProfile } from "../redux/reducers/profileSlice"; */
 import { Card, Col, Container, Image, Row } from "react-bootstrap";
-import {
-  BookmarkFill,
-  Calendar2Event,
-  ChevronCompactDown,
-  PeopleFill,
-} from "react-bootstrap-icons";
+import { BookmarkFill, Calendar2Event, ChevronCompactDown, PeopleFill } from "react-bootstrap-icons";
 
 const Posts = ({ userId }) => {
   const dispatch = useDispatch();
@@ -19,14 +14,14 @@ const Posts = ({ userId }) => {
   const postStatus = useSelector((state) => state.posts.status);
   const error = useSelector((state) => state.posts.error);
   const [showModal, setShowModal] = useState(false);
-
-  const handleShow = () => setShowModal(true);
-  const handleClose = () => setShowModal(false);
-
   const [showUserPosts, setShowUserPosts] = useState(false);
   const [editingPostId, setEditingPostId] = useState(null);
   const [editText, setEditText] = useState("");
   const [editImage, setEditImage] = useState(null);
+  const [profileImage, setProfileImage] = useState(null);
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
 
   useEffect(() => {
     if (postStatus === "idle") {
@@ -43,11 +38,11 @@ const Posts = ({ userId }) => {
     setEditingPostId(post._id);
     setEditText(post.text);
     setEditImage(null);
+  };
+
   const handleUpload = () => {
     if (profileImage && profileData._id) {
-      dispatch(
-        uploadProfileImage({ userId: profileData._id, image: profileImage })
-      );
+      dispatch(uploadProfileImage({ userId: profileData._id, image: profileImage }));
     }
   };
 
@@ -88,27 +83,6 @@ const Posts = ({ userId }) => {
                     <Card.Title className="pt-4 m-0">{profileData.name + " " + profileData.surname}</Card.Title>
                     <Card.Text className="m-0 left-side-bar-home">{profileData.title}</Card.Text>
                     <Card.Text className="left-side-bar-home m-0">{profileData.bio}</Card.Text>
-                  <Card.Img
-                    src="src\assets\pipo.jpg"
-                    className="bg-image-home"
-                  ></Card.Img>
-                  <Card.Img
-                    variant="top"
-                    src={profileData.image}
-                    className="profile-image-home "
-                    alt="Profile image"
-                  />
-                  <Card.Body className="pt-2 pb-0">
-                    <Card.Title className="pt-4 m-0">
-                      {" "}
-                      {profileData.name + " " + profileData.surname}
-                    </Card.Title>
-                    <Card.Text className="m-0 left-side-bar-home">
-                      {profileData.title}
-                    </Card.Text>
-                    <Card.Text className="left-side-bar-home m-0">
-                      {profileData.bio}
-                    </Card.Text>
                     <Card.Text className="text-secondary d-flex m-0 left-side-bar-home-area">
                       {profileData.area}
                     </Card.Text>
@@ -125,7 +99,6 @@ const Posts = ({ userId }) => {
                     height="18"
                     src="https://img.icons8.com/emoji/48/yellow-square-emoji.png"
                     alt="yellow-square-emoji"
-                    A
                   />
                   Prova Premium per 0 EUR
                 </span>
@@ -134,44 +107,29 @@ const Posts = ({ userId }) => {
             <Card className="mt-2 p-3">
               <Card.Text className="d-flex border-bottom pb-2">
                 <div>
-                  <p className="fw-semibold left-side-bar-home  m-0">
-                    {" "}
-                    Collegamenti
-                  </p>
-                  <p className="m-0 left-side-bar-home text-secondary">
-                    Espandi la tua rete
-                  </p>
+                  <p className="fw-semibold left-side-bar-home  m-0">Collegamenti</p>
+                  <p className="m-0 left-side-bar-home text-secondary">Espandi la tua rete</p>
                 </div>
               </Card.Text>
               <Card.Text>
                 <div className="d-flex ">
                   <BookmarkFill />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3">
-                    {" "}
-                    Elementi salvati
-                  </p>
+                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3">Elementi salvati</p>
                 </div>
                 <div className="d-flex ">
                   <PeopleFill />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3">
-                    {" "}
-                    Gruppi
-                  </p>
+                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3">Gruppi</p>
                 </div>
-
                 <div className="d-flex ">
                   <Calendar2Event />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2">
-                    {" "}
-                    Eventi
-                  </p>
+                  <p className="fw-semibold left-side-bar-home  m-0 ms-2">Eventi</p>
                 </div>
               </Card.Text>
             </Card>
           </Col>
           <Col lg={5} className="contenitoreCentrale">
             <Card className="p-3 card1">
-              <PostForm></PostForm>
+              <PostForm />
               <Row>
                 <div className="contCreaPost mb-3">
                   <i className="bi bi-person-circle me-2 fs-1 p-0"></i>
@@ -180,7 +138,6 @@ const Posts = ({ userId }) => {
                   </Button>
                   <PostForm show={showModal} handleClose={handleClose} />
                 </div>
-
                 <Col lg={5}>
                   <Button className="btnMultimed d-flex align-items-center">
                     <span className="pb-2">
@@ -351,7 +308,7 @@ const Posts = ({ userId }) => {
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
-                                class="rtl-flip"
+                                className="rtl-flip"
                                 id="send-privately-medium"
                                 aria-hidden="true"
                                 role="none"
@@ -567,7 +524,7 @@ const Posts = ({ userId }) => {
             <p className="footer-text text-center mb-2">
               Informazioni <span className="ms-3">Accessibilità </span>
             </p>
-            <p className="footer-text text-center mb-2">
+            <p class="footer-text text-center mb-2">
               Centro assistenza{" "}
               <span className="ms-3">Privacy e condizioni </span>
             </p>
