@@ -83,9 +83,7 @@ const Posts = ({ userId }) => {
                     <Card.Title className="pt-4 m-0">{profileData.name + " " + profileData.surname}</Card.Title>
                     <Card.Text className="m-0 left-side-bar-home">{profileData.title}</Card.Text>
                     <Card.Text className="left-side-bar-home m-0">{profileData.bio}</Card.Text>
-                    <Card.Text className="text-secondary d-flex m-0 left-side-bar-home-area">
-                      {profileData.area}
-                    </Card.Text>
+                    <Card.Text className="text-secondary d-flex m-0 left-side-bar-home-area">{profileData.area}</Card.Text>
                   </Card.Body>
                 </>
               )}
@@ -364,15 +362,11 @@ const Posts = ({ userId }) => {
                   <Card.Text className="text-story-time text-secondary">21 ore fa</Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
-                  <Card.Text className="fw-semibold m-0 text-story">
-                    Flessibilità e mobilità green per Generali...
-                  </Card.Text>
+                  <Card.Text className="fw-semibold m-0 text-story">Flessibilità e mobilità green per Generali...</Card.Text>
                   <Card.Text className="text-story-time text-secondary">2 giorni fa</Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
-                  <Card.Text className="fw-semibold m-0 text-story">
-                    Alla comunicazione servono processi chiari...
-                  </Card.Text>
+                  <Card.Text className="fw-semibold m-0 text-story">Alla comunicazione servono processi chiari...</Card.Text>
                   <Card.Text className="text-story-time text-secondary">1 giorno fa</Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
@@ -380,9 +374,7 @@ const Posts = ({ userId }) => {
                   <Card.Text className="text-story-time text-secondary">1 giorno fa</Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
-                  <Card.Text className="fw-semibold m-0 text-story">
-                    C'è fermento nel settore degli studentati...
-                  </Card.Text>
+                  <Card.Text className="fw-semibold m-0 text-story">C'è fermento nel settore degli studentati...</Card.Text>
                   <Card.Text className="text-story-time text-secondary">2 giorni fa</Card.Text>
                 </div>
                 <Card.Text className="ms-3 fw-semibold m-0  text-story ">
