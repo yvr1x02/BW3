@@ -890,7 +890,6 @@ input[type="checkbox"] {
   }
 
   .imgJobsList{
-    border: 2px solid rgb(255, 0, 0);
     width: 55px;
     height: 55px;
   }
@@ -899,3 +898,9 @@ input[type="checkbox"] {
     display: flex;
     justify-content: space-between;
   }
+
+  .contInfoJobs{
+    width:292px;
+  }
+
+
