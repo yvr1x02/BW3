@@ -196,7 +196,7 @@ function TopBar() {
             >
               <Dropdown className="prova">
                 <DropdownItem eventKey="1">
-                  <span className="d-flex">
+                  <span className="d-flex mb-2">
                     {profileData && (
                       <>
                         <Card.Img
@@ -205,12 +205,11 @@ function TopBar() {
                           className="imgUtente-navbar-dropdown mt-3"
                           alt="Profile image"
                         />
+                        <Card.Title className="pt-4 m-0 ms-2">
+                          {profileData.name + " " + profileData.surname}
+                        </Card.Title>
                       </>
                     )}
-                    <span>
-                      <p className="ms-2 text-center txtProfilName">Pinco Pallo</p>
-                      <p className="infoDrop ms-2">Info</p>
-                    </span>
                   </span>
                   <NavLink to="/ProfilePage">
                     <button className="btnDrop">Visualizza Profilo</button>
