@@ -687,3 +687,82 @@ height: 760px;
 }
 
 
+/* !!!!!!!!!!!!HOMEEE!!!!!!!!!!!!!!!!!!!!! */
+
+.contenitoreLatSx{
+  width: 225px;
+  padding: 0px;
+}
+
+.contenitoreCentrale{
+  width:555px;
+}
+
+.btnMultimed{
+  width:193px ;
+  height: 48px;
+  padding: 0px;
+  padding-top: 10px;
+  padding-left: 2px;
+  border: none;
+  background: transparent;
+  color: #000000;
+}
+.svgContenutiMult{
+  height: 30px;
+  width: 30px;
+}
+
+.contCreaPost{
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
+.btnCreaPost{
+  border-radius: 30px;
+  width: 467px;
+  height: 48px;
+  background-color: transparent;
+  border:1px solid#555;
+}
+
+.btnEvento {
+  height: 48px;
+  width: 98px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: transparent;
+  color: #000000;
+  border: none;
+}
+
+.btnArticolo{
+  padding: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: transparent;
+  color: #000000;
+  border: none;
+  width: 155px;
+  height: 48px;
+}
+
+.btnArticolo:hover{
+  background-color: #eeeeee;
+  color: #000000;
+}
+
+.btnEvento:hover{
+  background-color: #eeeeee;
+  color: #000000;
+}
+
+.btnMultimed:hover{
+  background-color: #eeeeee;
+  color: #000000;
+}
