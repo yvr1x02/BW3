@@ -42,7 +42,7 @@ const Jobs = () => {
       <TopBar></TopBar>
       <div className="container">
         
-        <div className="row">
+        <div className="row claseprova">
           <div className="col-md-4">
             <ul className="list-group">
               {jobs.length > 0 ? (
@@ -51,7 +51,7 @@ const Jobs = () => {
                     key={job._id}
                     className={`list-group-item ${selectedJob && selectedJob._id === job._id ? "active" : ""}`}
                     onClick={() => handleJobClick(job)}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer", background:"#ffffff" ,color:"black" , border:"none", }}
                   >
                     <h4>{job.title}</h4>
                     <p>{job.company_name}</p>
@@ -59,7 +59,7 @@ const Jobs = () => {
                   </li>
                 ))
               ) : (
-                <li className="list-group-item">No jobs found.</li>
+                <li className="list-group-item ">No jobs found.</li>
               )}
             </ul>
           </div>

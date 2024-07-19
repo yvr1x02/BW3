@@ -871,8 +871,20 @@ input[type="checkbox"] {
   }
 
 
-  /* !!!!!!!!!!!!!!!!JOBS!!!!!!!!!!!!!!!!!!!!!!! */
+  /*!!!!!!!!!!!!!!!!!!JOBS!!!!!!!!!!!!!!!!!!!!!!!!*/
 
-  .contDettagliLavoro{
-    background-color: white;
+  /* .contDettagliLavoro{
+    background-color: #ffffff;
+   
+  } */
+
+  .list-group-item{
+    background-color:#ffffff;
+
+  } 
+
+  
+
+  .claseprova{
+    background-color: #ffffff;
   }
