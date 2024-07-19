@@ -43,6 +43,7 @@ const Posts = ({ userId }) => {
     setEditingPostId(post._id);
     setEditText(post.text);
     setEditImage(null);
+  }
   const handleUpload = () => {
     if (profileImage && profileData._id) {
       dispatch(
