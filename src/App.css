@@ -860,4 +860,19 @@ input[type="checkbox"] {
 .btnDelete:hover {
   background-color: #eeeeee;
   color: red;
-}
+  }
+
+  .pInfoPost{
+    font-size: small;
+  }
+
+  .spanDataPost{
+    font-size: small;
+  }
+
+
+  /* !!!!!!!!!!!!!!!!JOBS!!!!!!!!!!!!!!!!!!!!!!! */
+
+  .contDettagliLavoro{
+    background-color: white;
+  }

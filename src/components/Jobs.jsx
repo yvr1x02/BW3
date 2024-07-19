@@ -41,7 +41,7 @@ const Jobs = () => {
     <>
       <TopBar></TopBar>
       <div className="container">
-        <h1>Jobs</h1>
+        
         <div className="row">
           <div className="col-md-4">
             <ul className="list-group">
@@ -64,7 +64,7 @@ const Jobs = () => {
             </ul>
           </div>
 
-          <div className="col-md-8">
+          <div className="col-md-8 contDettagliLavoro">
             {selectedJob ? (
               <div>
                 <h2>{selectedJob.title}</h2>

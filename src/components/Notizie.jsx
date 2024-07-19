@@ -1,11 +1,23 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts, deletePost, updatePost } from "../redux/reducers/postSlice";
-import { fetchProfile, uploadProfileImage } from "../redux/reducers/profileSlice"; // Corretto import
+import {
+  fetchPosts,
+  deletePost,
+  updatePost,
+} from "../redux/reducers/postSlice";
+import {
+  fetchProfile,
+  uploadProfileImage,
+} from "../redux/reducers/profileSlice"; // Corretto import
 import Button from "react-bootstrap/Button";
 import PostForm from "./PostForm";
 import { Card, Col, Container, Image, Row } from "react-bootstrap";
-import { BookmarkFill, Calendar2Event, ChevronCompactDown, PeopleFill } from "react-bootstrap-icons";
+import {
+  BookmarkFill,
+  Calendar2Event,
+  ChevronCompactDown,
+  PeopleFill,
+} from "react-bootstrap-icons";
 
 const Posts = ({ userId }) => {
   const dispatch = useDispatch();
@@ -42,7 +54,9 @@ const Posts = ({ userId }) => {
 
   const handleUpload = () => {
     if (profileImage && profileData._id) {
-      dispatch(uploadProfileImage({ userId: profileData._id, image: profileImage }));
+      dispatch(
+        uploadProfileImage({ userId: profileData._id, image: profileImage })
+      );
     }
   };
 
@@ -67,7 +81,9 @@ const Posts = ({ userId }) => {
     setEditImage(e.target.files[0]);
   };
 
-  const filteredPosts = showUserPosts ? posts.filter((post) => post.username === profileData.username) : posts;
+  const filteredPosts = showUserPosts
+    ? posts.filter((post) => post.username === profileData.username)
+    : posts;
 
   return (
     <div>
@@ -77,12 +93,26 @@ const Posts = ({ userId }) => {
             <Card className="p-0 card-linkedin">
               {profileData && (
                 <>
-                  <Card.Img src="src/assets/pipo.jpg" className="bg-image-home"></Card.Img>
-                  <Card.Img variant="top" src={profileData.image} className="profile-image-home" alt="Profile image" />
+                  <Card.Img
+                    src="src/assets/pipo.jpg"
+                    className="bg-image-home"
+                  ></Card.Img>
+                  <Card.Img
+                    variant="top"
+                    src={profileData.image}
+                    className="profile-image-home"
+                    alt="Profile image"
+                  />
                   <Card.Body className="pt-2 pb-0">
-                    <Card.Title className="pt-4 m-0">{profileData.name + " " + profileData.surname}</Card.Title>
-                    <Card.Text className="m-0 left-side-bar-home">{profileData.title}</Card.Text>
-                    <Card.Text className="left-side-bar-home m-0">{profileData.bio}</Card.Text>
+                    <Card.Title className="pt-4 m-0">
+                      {profileData.name + " " + profileData.surname}
+                    </Card.Title>
+                    <Card.Text className="m-0 left-side-bar-home">
+                      {profileData.title}
+                    </Card.Text>
+                    <Card.Text className="left-side-bar-home m-0">
+                      {profileData.bio}
+                    </Card.Text>
                     <Card.Text className="text-secondary d-flex m-0 left-side-bar-home-area">
                       {profileData.area}
                     </Card.Text>
@@ -107,22 +137,32 @@ const Posts = ({ userId }) => {
             <Card className="mt-2 p-3">
               <Card.Text className="d-flex border-bottom pb-2">
                 <div>
-                  <p className="fw-semibold left-side-bar-home  m-0">Collegamenti</p>
-                  <p className="m-0 left-side-bar-home text-secondary">Espandi la tua rete</p>
+                  <p className="fw-semibold left-side-bar-home  m-0">
+                    Collegamenti
+                  </p>
+                  <p className="m-0 left-side-bar-home text-secondary">
+                    Espandi la tua rete
+                  </p>
                 </div>
               </Card.Text>
               <Card.Text>
                 <div className="d-flex ">
                   <BookmarkFill />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3">Elementi salvati</p>
+                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3">
+                    Elementi salvati
+                  </p>
                 </div>
                 <div className="d-flex ">
                   <PeopleFill />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3">Gruppi</p>
+                  <p className="fw-semibold left-side-bar-home  m-0 ms-2 mb-3">
+                    Gruppi
+                  </p>
                 </div>
                 <div className="d-flex ">
                   <Calendar2Event />
-                  <p className="fw-semibold left-side-bar-home  m-0 ms-2">Eventi</p>
+                  <p className="fw-semibold left-side-bar-home  m-0 ms-2">
+                    Eventi
+                  </p>
                 </div>
               </Card.Text>
             </Card>
@@ -134,7 +174,10 @@ const Posts = ({ userId }) => {
                 <div className="contCreaPost mb-3">
                   {profileData && (
                     <>
-                      <Image src={profileData.image} className="imgUtente"></Image>
+                      <Image
+                        src={profileData.image}
+                        className="imgUtente"
+                      ></Image>
                     </>
                   )}
                   <Button className="btnCreaPost" onClick={handleShow}>
@@ -197,8 +240,14 @@ const Posts = ({ userId }) => {
                 </Col>
               </Row>
             </Card>
-            <Button variant="primary" className="my-3" onClick={handleShowUserPosts}>
-              {showUserPosts ? "Mostra tutti i post" : "Mostra solo i miei post"}
+            <Button
+              variant="primary"
+              className="my-3"
+              onClick={handleShowUserPosts}
+            >
+              {showUserPosts
+                ? "Mostra tutti i post"
+                : "Mostra solo i miei post"}
             </Button>
             {postStatus === "loading" && <div>Loading...</div>}
             {postStatus === "failed" && <div>{error}</div>}
@@ -213,7 +262,10 @@ const Posts = ({ userId }) => {
                         <div className="d-flex justify-content-between">
                           <div className="d-flex ">
                             <div>
-                              <Image src={post.user.image} className="imgUtente"></Image>
+                              <Image
+                                src={post.user.image}
+                                className="imgUtente"
+                              ></Image>
                             </div>
                             <div className="ms-3">
                               <div>
@@ -221,15 +273,30 @@ const Posts = ({ userId }) => {
                               </div>
                               <div>
                                 <Card.Text>
-                                  <p className="p-0 m-0">Junior Full-Stack Developer</p>
-                                  {post.image && <Card.Img variant="top" src={post.image} alt="Post image" />}
-                                  Created at: {new Date(post.createdAt).toLocaleString()}{" "}
+                                  <p className="p-0 m-0 pInfoPost">
+                                    Junior Full-Stack Developer
+                                  </p>
+                                  <span className="spanDataPost">
+                                    {new Date(post.createdAt).toLocaleString()}
+                                  </span>
+                                  <Card.Text>{post.text}</Card.Text>
+                                  {post.image && (
+                                    <Card.Img
+                                      variant="top"
+                                      src={post.image}
+                                      alt="Post image"
+                                    />
+                                  )}
                                 </Card.Text>
                               </div>
                             </div>
                           </div>
                           {post.userId === userId && (
-                            <Button variant="danger" onClick={() => handleDelete(post._id)} className="btnDelete">
+                            <Button
+                              variant="danger"
+                              onClick={() => handleDelete(post._id)}
+                              className="btnDelete"
+                            >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
@@ -243,9 +310,7 @@ const Posts = ({ userId }) => {
                             </Button>
                           )}
                         </div>
-                        <div>
-                          <Card.Text>{post.text}</Card.Text>
-                        </div>
+                        <div></div>
                         <hr />
 
                         <div className="ContainerPost">
@@ -293,7 +358,9 @@ const Posts = ({ userId }) => {
                               >
                                 <path d="M13.96 5H6c-.55 0-1 .45-1 1v10H3V6c0-1.66 1.34-3 3-3h7.96L12 0h2.37L17 4l-2.63 4H12l1.96-3zm5.54 3H19v10c0 .55-.45 1-1 1h-7.96L12 16H9.63L7 20l2.63 4H12l-1.96-3H18c1.66 0 3-1.34 3-3V8h-1.5z"></path>
                               </svg>
-                              <span className="spanDiffondiPost">Diffondi il post</span>
+                              <span className="spanDiffondiPost">
+                                Diffondi il post
+                              </span>
                             </div>
                           </Button>
                           <Button className="btnPost">
@@ -317,7 +384,10 @@ const Posts = ({ userId }) => {
                         </div>
                       </div>
                       <div className="contCreaCommento mt-3 mb-5 p-0">
-                        <Image src={profileData.image} className="imgUtente"></Image>
+                        <Image
+                          src={profileData.image}
+                          className="imgUtente"
+                        ></Image>
                         <button className="btnCreaPost">
                           Crea commento
                           <div>
@@ -358,32 +428,48 @@ const Posts = ({ userId }) => {
             <Card className="mb-3 p-0">
               <Card.Body className="p-0">
                 <Card.Title className="ms-3 mt-3">LinkedIn Notizie</Card.Title>
-                <Card.Text className="text-secondary ms-3 m-0">Storie principali</Card.Text>
+                <Card.Text className="text-secondary ms-3 m-0">
+                  Storie principali
+                </Card.Text>
                 <div className=" px-3 py-2 story-area">
-                  <Card.Text className="fw-semibold m-0 text-story">Bis di acqusizioni per EssilorLuxottica</Card.Text>
-                  <Card.Text className="text-story-time text-secondary">21 ore fa</Card.Text>
+                  <Card.Text className="fw-semibold m-0 text-story">
+                    Bis di acqusizioni per EssilorLuxottica
+                  </Card.Text>
+                  <Card.Text className="text-story-time text-secondary">
+                    21 ore fa
+                  </Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
                   <Card.Text className="fw-semibold m-0 text-story">
                     Flessibilità e mobilità green per Generali...
                   </Card.Text>
-                  <Card.Text className="text-story-time text-secondary">2 giorni fa</Card.Text>
+                  <Card.Text className="text-story-time text-secondary">
+                    2 giorni fa
+                  </Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
                   <Card.Text className="fw-semibold m-0 text-story">
                     Alla comunicazione servono processi chiari...
                   </Card.Text>
-                  <Card.Text className="text-story-time text-secondary">1 giorno fa</Card.Text>
+                  <Card.Text className="text-story-time text-secondary">
+                    1 giorno fa
+                  </Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
-                  <Card.Text className="fw-semibold m-0 text-story">Due italiane al top nella matematica</Card.Text>
-                  <Card.Text className="text-story-time text-secondary">1 giorno fa</Card.Text>
+                  <Card.Text className="fw-semibold m-0 text-story">
+                    Due italiane al top nella matematica
+                  </Card.Text>
+                  <Card.Text className="text-story-time text-secondary">
+                    1 giorno fa
+                  </Card.Text>
                 </div>
                 <div className=" px-3 py-2 story-area">
                   <Card.Text className="fw-semibold m-0 text-story">
                     C'è fermento nel settore degli studentati...
                   </Card.Text>
-                  <Card.Text className="text-story-time text-secondary">2 giorni fa</Card.Text>
+                  <Card.Text className="text-story-time text-secondary">
+                    2 giorni fa
+                  </Card.Text>
                 </div>
                 <Card.Text className="ms-3 fw-semibold m-0  text-story ">
                   <span className="story-area">
@@ -391,26 +477,78 @@ const Posts = ({ userId }) => {
                   </span>
                 </Card.Text>
                 <Card.Text className="ms-3 fw-semibold mt-2  text-secondary ">
-                  I giochi di oggi <span className="story-news-area"> NOVITÀ</span>
+                  I giochi di oggi{" "}
+                  <span className="story-news-area"> NOVITÀ</span>
                 </Card.Text>
                 <div className=" d-flex">
                   <div className="ms-3 mb-3 ">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <g clip-path="url(#clip0_12111_176736)">
                         <path
                           d="M1 5C1 3.11438 1 2.17157 1.58579 1.58579C2.17157 1 3.11438 1 5 1H27C28.8856 1 29.8284 1 30.4142 1.58579C31 2.17157 31 3.11438 31 5V27C31 28.8856 31 29.8284 30.4142 30.4142C29.8284 31 28.8856 31 27 31H5C3.11438 31 2.17157 31 1.58579 30.4142C1 29.8284 1 28.8856 1 27V5Z"
                           fill="black"
                           fill-opacity="0.9"
                         />
-                        <rect width="9.66667" height="9.66667" transform="translate(1 1)" fill="#C9B5E8" />
-                        <rect width="9.66667" height="9.66667" transform="translate(11.168 1)" fill="#C9B5E8" />
-                        <rect width="9.66667" height="9.66667" transform="translate(21.332 1)" fill="#FFD4A8" />
-                        <rect width="9.66667" height="9.66667" transform="translate(1 11.1665)" fill="#ABCBFF" />
-                        <rect width="9.66667" height="9.66667" transform="translate(11.168 11.1665)" fill="#C2E6B3" />
-                        <rect width="9.66667" height="9.66667" transform="translate(21.332 11.1665)" fill="#FFD4A8" />
-                        <rect width="9.66667" height="9.66667" transform="translate(1 21.3335)" fill="#ABCBFF" />
-                        <rect width="9.66667" height="9.66667" transform="translate(11.168 21.3335)" fill="#E5E5E5" />
-                        <rect width="9.66667" height="9.66667" transform="translate(21.332 21.3335)" fill="#E5E5E5" />
+                        <rect
+                          width="9.66667"
+                          height="9.66667"
+                          transform="translate(1 1)"
+                          fill="#C9B5E8"
+                        />
+                        <rect
+                          width="9.66667"
+                          height="9.66667"
+                          transform="translate(11.168 1)"
+                          fill="#C9B5E8"
+                        />
+                        <rect
+                          width="9.66667"
+                          height="9.66667"
+                          transform="translate(21.332 1)"
+                          fill="#FFD4A8"
+                        />
+                        <rect
+                          width="9.66667"
+                          height="9.66667"
+                          transform="translate(1 11.1665)"
+                          fill="#ABCBFF"
+                        />
+                        <rect
+                          width="9.66667"
+                          height="9.66667"
+                          transform="translate(11.168 11.1665)"
+                          fill="#C2E6B3"
+                        />
+                        <rect
+                          width="9.66667"
+                          height="9.66667"
+                          transform="translate(21.332 11.1665)"
+                          fill="#FFD4A8"
+                        />
+                        <rect
+                          width="9.66667"
+                          height="9.66667"
+                          transform="translate(1 21.3335)"
+                          fill="#ABCBFF"
+                        />
+                        <rect
+                          width="9.66667"
+                          height="9.66667"
+                          transform="translate(11.168 21.3335)"
+                          fill="#E5E5E5"
+                        />
+                        <rect
+                          width="9.66667"
+                          height="9.66667"
+                          transform="translate(21.332 21.3335)"
+                          fill="#E5E5E5"
+                        />
                       </g>
                       <path
                         d="M1.23223 1.23223C0.830955 1.63351 0.65836 2.13876 0.577682 2.73883C0.499975 3.31681 0.499986 4.05169 0.5 4.96342L0.5 5V27L0.5 27.0366C0.499986 27.9483 0.499975 28.6832 0.577682 29.2612C0.65836 29.8612 0.830955 30.3665 1.23223 30.7678C1.63351 31.169 2.13876 31.3416 2.73883 31.4223C3.31681 31.5 4.05168 31.5 4.9634 31.5H5H27H27.0366C27.9483 31.5 28.6832 31.5 29.2612 31.4223C29.8612 31.3416 30.3665 31.169 30.7678 30.7678C31.169 30.3665 31.3416 29.8612 31.4223 29.2612C31.5 28.6832 31.5 27.9483 31.5 27.0366V27V5V4.9634C31.5 4.05168 31.5 3.31681 31.4223 2.73883C31.3416 2.13876 31.169 1.63351 30.7678 1.23223C30.3665 0.830955 29.8612 0.65836 29.2612 0.577682C28.6832 0.499975 27.9483 0.499986 27.0366 0.5L27 0.5H5L4.96342 0.5C4.05169 0.499986 3.31681 0.499975 2.73883 0.577682C2.13876 0.658359 1.63351 0.830955 1.23223 1.23223Z"
@@ -429,8 +567,12 @@ const Posts = ({ userId }) => {
                     </svg>
                   </div>
                   <div>
-                    <Card.Text className="ms-2 fw-semibold m-0  text-story">Queens #79</Card.Text>
-                    <Card.Text className="ms-2  m-0 text-story-time text-secondary">Incorona ogni regione</Card.Text>
+                    <Card.Text className="ms-2 fw-semibold m-0  text-story">
+                      Queens #79
+                    </Card.Text>
+                    <Card.Text className="ms-2  m-0 text-story-time text-secondary">
+                      Incorona ogni regione
+                    </Card.Text>
                   </div>
                 </div>
               </Card.Body>
@@ -442,9 +584,12 @@ const Posts = ({ userId }) => {
               Informazioni <span className="ms-3">Accessibilità </span>
             </p>
             <p class="footer-text text-center mb-2">
-              Centro assistenza <span className="ms-3">Privacy e condizioni </span>
+              Centro assistenza{" "}
+              <span className="ms-3">Privacy e condizioni </span>
             </p>
-            <p className="footer-text text-center mb-2">Opzioni per gli annunci pubblicitari</p>
+            <p className="footer-text text-center mb-2">
+              Opzioni per gli annunci pubblicitari
+            </p>
             <p className="footer-text text-center mb-2">
               Pubblicità <span className="ms-3">Servizi alle aziende</span>
             </p>
