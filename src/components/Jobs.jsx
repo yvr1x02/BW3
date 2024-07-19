@@ -47,6 +47,7 @@ const Jobs = () => {
               {jobs.length > 0 ? (
                 jobs
                   .filter((job) => job.company_logo_url)
+                  .slice(0, 20)
                   .map((job) => (
                     <li
                       key={job._id}
