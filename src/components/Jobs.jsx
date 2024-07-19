@@ -10,7 +10,7 @@ const Jobs = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const { jobs, status, error } = useSelector((state) => state.jobs);
-  const [selectedJob, setSelectedJob] = useState(null); // stato per memorizzare il lavoro selezionato
+  const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
     const query = new URLSearchParams(location.search).get("search");
@@ -41,34 +41,35 @@ const Jobs = () => {
     <>
       <TopBar></TopBar>
       <div className="container">
-        <h1>Jobs</h1>
-        <div className="row">
+        <div className="row claseprova">
           <div className="col-md-4">
             <ul className="list-group">
               {jobs.length > 0 ? (
-                jobs.map((job) => (
-                  <li
-                    key={job._id}
-                    className={`list-group-item ${selectedJob && selectedJob._id === job._id ? "active" : ""}`}
-                    onClick={() => handleJobClick(job)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <img src={job.company_logo_url} />
-                    <h4>{job.title}</h4>
-                    <p>{job.company_name}</p>
-                    <p>{job.category}</p>
-                  </li>
-                ))
+                jobs
+                  .filter((job) => job.company_logo_url)
+                  .map((job) => (
+                    <li
+                      key={job._id}
+                      className={`list-group-item ${selectedJob && selectedJob._id === job._id ? "active" : ""}`}
+                      onClick={() => handleJobClick(job)}
+                      style={{ cursor: "pointer", background: "#ffffff", color: "black", border: "none" }}
+                    >
+                      <img src={job.company_logo_url} alt={`${job.company_name} logo`} />
+                      <h4>{job.title}</h4>
+                      <p>{job.company_name}</p>
+                      <p>{job.category}</p>
+                    </li>
+                  ))
               ) : (
                 <li className="list-group-item">No jobs found.</li>
               )}
             </ul>
           </div>
 
-          <div className="col-md-8">
+          <div className="col-md-8 contDettagliLavoro">
             {selectedJob ? (
               <div>
-                <img src={selectedJob.company_logo_url} />
+                <img src={selectedJob.company_logo_url} alt={`${selectedJob.company_name} logo`} />
                 <h2>{selectedJob.title}</h2>
                 <p>{selectedJob.company_name}</p>
                 <p>{selectedJob.category}</p>
@@ -89,8 +90,8 @@ const Jobs = () => {
                 <h4 className="mb-3">Informazioni sull'offerta di lavoro</h4>
                 <div dangerouslySetInnerHTML={{ __html: selectedJob.description }} />
                 <p>Salary: {selectedJob.salary}</p>
-                <h4>Usefull Link:</h4>
-                <Link>{selectedJob.url}</Link>
+                <h4>Useful Link:</h4>
+                <Link to={selectedJob.url}>{selectedJob.url}</Link>
               </div>
             ) : (
               <div>Select a job to see details.</div>
