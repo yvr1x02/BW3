@@ -350,7 +350,6 @@ const Posts = ({ userId }) => {
                           </div>
                         </button>
                       </div>
-                      <hr className="mt-3" />
                     </Card.Body>
                   </Card>
                 ))}
