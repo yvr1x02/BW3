@@ -807,6 +807,7 @@ height: 760px;
   width: 100%;
   display: flex;
   justify-content: space-between
+  margin
 }
 
 .contDiffondiPost{
@@ -822,4 +823,25 @@ height: 760px;
   background-color: #eeeeee;
   color: #000000;
 
+}
+
+.contCreaCommento{
+  width: 512px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.btnCreaPost{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 25px;
+}
+
+.imgUtente{
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50px;
 }
